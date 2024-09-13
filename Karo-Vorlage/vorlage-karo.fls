@@ -1,8 +1,8 @@
-PWD /Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag
+PWD /Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Karo-Vorlage
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vorlage-karo.tex
+INPUT /Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Karo-Vorlage/vorlage-karo.tex
 OUTPUT vorlage-karo.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls

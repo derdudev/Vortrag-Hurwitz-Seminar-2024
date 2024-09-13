@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1725965720.43444 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vorlage-karo.tex" "vorlage-karo.pdf" "vorlage-karo" 1725965721.32792 0
-  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vorlage-karo.tex" 1725965720.24508 560 0ab7bf48302fe38eda00f55359f25db5 ""
+["pdflatex"] 1726265999.32842 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Karo-Vorlage/vorlage-karo.tex" "vorlage-karo.pdf" "vorlage-karo" 1726266000.22108 0
+  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Karo-Vorlage/vorlage-karo.tex" 1725965720.24508 560 0ab7bf48302fe38eda00f55359f25db5 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
@@ -129,7 +129,7 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1723586653.69598 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1723586649 8221434 9c5b5e0603be9d3fd6376f90f708ac0c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "vorlage-karo.aux" 1725965721.24958 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "vorlage-karo.aux" 1726266000.14445 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "vorlage-karo.tex" 1725965720.24508 560 0ab7bf48302fe38eda00f55359f25db5 ""
   (generated)
   "vorlage-karo.aux"

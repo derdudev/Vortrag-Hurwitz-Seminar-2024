@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1725391784.05278 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vortrag-titelblatt.tex" "vortrag-titelblatt.pdf" "vortrag-titelblatt" 1725391784.73307 0
-  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vortrag-titelblatt.tex" 1725391783.85852 1227 08aa7d0e0aca825e1a071af70fe74fa1 ""
+["pdflatex"] 1726266034.83775 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortrags-Titelblatt/vortrag-titelblatt.tex" "vortrag-titelblatt.pdf" "vortrag-titelblatt" 1726266035.53462 0
+  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortrags-Titelblatt/vortrag-titelblatt.tex" 1725391783.85852 1227 08aa7d0e0aca825e1a071af70fe74fa1 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -84,7 +84,7 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1723586653.69598 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1723586649 8221434 9c5b5e0603be9d3fd6376f90f708ac0c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "vortrag-titelblatt.aux" 1725391784.64496 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "vortrag-titelblatt.aux" 1726266035.4431 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "vortrag-titelblatt.tex" 1725391783.85852 1227 08aa7d0e0aca825e1a071af70fe74fa1 ""
   (generated)
   "vortrag-titelblatt.aux"

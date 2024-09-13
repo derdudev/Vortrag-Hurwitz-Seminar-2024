@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1726265842.43348 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vortrag-skript.tex" "vortrag-skript.pdf" "vortrag-skript" 1726265850.00821 0
-  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vortrag-skript.tex" 1726265842.17099 56422 8f0bddfc351a70be9d2b8c92c14d6274 ""
+["pdflatex"] 1726265966.47662 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" "vortrag-skript.pdf" "vortrag-skript" 1726265973.9961 0
+  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" 1726265842.17099 56422 8f0bddfc351a70be9d2b8c92c14d6274 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1698694482 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -300,8 +300,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1723586653.69598 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1723586649 8221434 9c5b5e0603be9d3fd6376f90f708ac0c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "vortrag-skript.aux" 1726265849.8147 11129 4bf69433f9ad1a7c4850b51603259967 "pdflatex"
-  "vortrag-skript.out" 1726265849.83087 2443 b1801fb3eca94c35a15f30a44afeb1e8 "pdflatex"
+  "vortrag-skript.aux" 1726265973.80222 11129 4bf69433f9ad1a7c4850b51603259967 "pdflatex"
+  "vortrag-skript.out" 1726265973.81864 2443 b1801fb3eca94c35a15f30a44afeb1e8 "pdflatex"
   "vortrag-skript.tex" 1726265842.17099 56422 8f0bddfc351a70be9d2b8c92c14d6274 ""
   (generated)
   "vortrag-skript.aux"
