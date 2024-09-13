@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1726262571.9956 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vortrag-skript.tex" "vortrag-skript.pdf" "vortrag-skript" 1726262579.33549 0
-  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vortrag-skript.tex" 1726262571.74877 67351 ab39cc51769787a5ed64452ab10f8fbd ""
+["pdflatex"] 1726263475.41163 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vortrag-skript.tex" "vortrag-skript.pdf" "vortrag-skript" 1726263482.91131 0
+  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/vortrag-skript.tex" 1726263475.15266 61342 52ab0ef4747aae493ee1fb2abfe00a44 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1698694482 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -300,9 +300,9 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1723586653.69598 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1723586649 8221434 9c5b5e0603be9d3fd6376f90f708ac0c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "vortrag-skript.aux" 1726262579.14327 10772 439aa286557ce15f3bdf662d6277d89c "pdflatex"
-  "vortrag-skript.out" 1726262579.15937 2443 b1801fb3eca94c35a15f30a44afeb1e8 "pdflatex"
-  "vortrag-skript.tex" 1726262571.74877 67351 ab39cc51769787a5ed64452ab10f8fbd ""
+  "vortrag-skript.aux" 1726263482.70419 10772 439aa286557ce15f3bdf662d6277d89c "pdflatex"
+  "vortrag-skript.out" 1726263482.72058 2443 b1801fb3eca94c35a15f30a44afeb1e8 "pdflatex"
+  "vortrag-skript.tex" 1726263475.15266 61342 52ab0ef4747aae493ee1fb2abfe00a44 ""
   (generated)
   "vortrag-skript.aux"
   "vortrag-skript.log"

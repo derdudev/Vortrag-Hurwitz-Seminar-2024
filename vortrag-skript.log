@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.14)  13 SEP 2024 23:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.14)  13 SEP 2024 23:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1026,57 +1026,57 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [3] [4] [5]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 835.
+(Font)              scaled to size 5.5pt on input line 800.
 
 
-LaTeX Warning: Reference `sec:normalität-von-translationen' on page 1 undefined on input line 860.
+LaTeX Warning: Reference `sec:normalität-von-translationen' on page 1 undefined on input line 825.
 
 
-LaTeX Warning: Reference `sec:normalität-von-translationen' on page 1 undefined on input line 879.
+LaTeX Warning: Reference `sec:normalität-von-translationen' on page 1 undefined on input line 844.
 
 [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 894.
+(hyperref)                removing `math shift' on input line 856.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 894.
+(hyperref)                removing `superscript' on input line 856.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 894.
+(hyperref)                removing `superscript' on input line 856.
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 896.
+(Font)              scaled to size 12.0pt on input line 858.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 928.
+(hyperref)                removing `math shift' on input line 889.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 928.
+(hyperref)                removing `superscript' on input line 889.
 
 [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 969.
+(hyperref)                removing `math shift' on input line 892.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 969.
+(hyperref)                removing `superscript' on input line 892.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 969.
+(hyperref)                removing `superscript' on input line 892.
 
 [8] [9] [10] [11]
-Overfull \hbox (6.34018pt too wide) in paragraph at lines 1152--1153
+Overfull \hbox (6.34018pt too wide) in paragraph at lines 1075--1076
 []\T1/ntxtlf/b/n/10 Beispiel(*) 2.2. []\T1/ntxtlf/m/n/10 Als di-rek-tes Pro-dukt: Ein-fachs-te Automorphismen-Familie durch $\OML/ntxmi/m/it/10  \LMS/ntxsy/m/n/10 �\OML/ntxmi/m/it/10 k\LMS/ntxsy/m/n/10 � \U/ntxmia/m/it/10 =
  []
 
 
-Overfull \hbox (10.65352pt too wide) in paragraph at lines 1156--1157
+Overfull \hbox (10.65352pt too wide) in paragraph at lines 1079--1080
 []\T1/ntxtlf/b/n/10 Beispiel(*) 2.3. []\T1/ntxtlf/m/n/10 Als in-ne-res se-mi-di-rek-tes Pro-dukt: Spe-zi-al-fall, wenn die Automorphismen-
  []
 

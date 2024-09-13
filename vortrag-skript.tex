@@ -777,53 +777,18 @@ für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar
 \end{figure}
 
 \section{Die Struktur von \(\mathcal T\)}\label{sec:struktur-von-translationen}
-% Bevor wir die Aussage dieses Abschnitts beweisen, widmen wir uns der Konstruktion eines Homomorphismus, der im Laufe dieses Vortrags an einigen Stellen eine entscheidende Rolle spielen wird: 
-
-% Idee: Zunächst eine gruppentheoretischere Klassifikation der geraden Isometrien, also der Elemente von \(\geradisometr\) gewinnen: 
-
-% Führe für zwei orientierte(!) Linien \(\mathscr l, \mathscr l'\) eine Funktion \(\alpha\) ein, sodass \(\alpha(\mathscr l, \mathscr l')\) den Winkel in positiver Richtung von \(\mathscr l\) zur positiven Richtung von \(\mathscr l'\) angibt. 
-% %\anm{Linien haben jetzt also Richtungen?} => Relevant für die Orientierungserhaltung!
-% Für parallele und identische Linien, setzen wir \(\alpha(\mathscr l, \mathscr l')= 0\). 
-% %\anm{Wie würde man diese Abbildung rigoros definieren?}
-
-% Dann können wir jetzt mal untersuchen, wie sich durch gerade Isometrien transformierte Geraden zueinander verhalten. Welche geraden Isometrien gibt es? Genau die Translationen und Rotationen: 
-% %Rigoros: Linie ist Menge \(\{x  + t v \mid t \in [0,1]\}\). Zwei Linien also \(\mathscr l = \{x  + t v \mid t \in [0,1]\}\) und \(\mathscr l' = \{x  + t v' \mid t \in [0,1]\}\). Dann ist der Winkel in "`positiver Richtung'" gegeben durch 
-% %\begin{equation*}
-% %    \alpha = \arccos\left(\frac{\langle v, v'\rangle}{|v||v'|}\right)
-% %\end{equation*}
-% %\anm{Stimmt das?}
-% \begin{itemize}
-%     \item Translationen drehen nicht, also gilt \(\alpha(\mathscr l, T\mathscr l) = 0\) (auch intuitiv total klar). 
-    
-%     %Genauer: Für eine Translation \(T_a: \mathbb R^2 \to \mathbb R^2, x \mapsto x + a\) gilt 
-%     %\begin{equation*}
-%     %    T(\mathscr l) = \{T(x + tv) \mid t \in [0,1]\} = \{T(x) + tv\mid t \in [0,1]\}
-%     %\end{equation*}
-%     %Der Winkel hängt nur von dem "`positiven"' Richtungsvektor ab, also ändert sich hier nichts und der Winkel ist gleich 0. 
-
-%     \item Wenn \(R\) eine Rotation um einen Winkel \(\theta\) um einen Punkt \(p \in \mathbb R^2\) ist, dann gilt \(\alpha(\mathscr l, R\mathscr l) = \theta\). WICHTIG: Elementargeometrische Konstruktion! %Genauer: Für eine Rotation \(R: \mathbb R^2 \to \mathbb R^2\) gilt: \anm{Welche Form haben diese Rotationen konkret? Vielleicht durch Drehungen in \(\mathbb C\) beschreiben.}
-% \end{itemize}
-% Also können wir jeder Isometrie einen sinnvollen Wert zuweisen: 
-% \begin{equation*}
-%     \alpha(I) := \alpha(\mathscr l, I\mathscr l)
-% \end{equation*}
-% Das ist bis auf Vielfache \(2\pi\) definiert und damit als \(\alpha: \geradisometr \to \mathbb R/2\pi\mathbb Z\) sogar ein Homomorphismus: %\anm{Ist \(2\pi\mathbb Z\) normal in \(\mathbb R\)?}
-
- 
 
 Das eigentliche Resultat dieses Abschnitts erhalten wir dann "`nebenbei"' auch noch: 
 \begin{proposition}\label{prop:normale-translationen}
     \(\mathcal T\) ist normal in \(\geradisometr\). 
 \end{proposition}
 \begin{proof}
-    % Beweis beginnt mit "`Es reicht zu zeigen, dass \(R \circ T\circ R^{-1}\) eine Translation ist für \(T\) Translation und \(R\) Rotation"'. \anm{Aber wo wird dann dieser Ansatz jemals wieder aufgegriffen?}
     Nach \cref{prop*:homomorphismus-alpha} gilt \(\mathcal T = \ker(\alpha)\) und Kerne von Homomorphismen sind normal. 
 \end{proof}
 \begin{annotationstrd}
     Den Beweis von \cref{prop:normale-translationen} hätten wir auch ganz ohne den Homomorphismus \(\alpha\) rein elementargeometrisch führen können. Das ist in gewisser Weise auch ein Weg, der über den Quotienten \(\geradisometr/\mathcal T\) ganz natürlich auf den Homomorphismus \(\alpha\) führt, ohne diesen im vorhinein zu kennen!
 \end{annotationstrd}
 
-%\section{Die Faktorgruppe \(\geradisometr /\mathcal T\)}\label{sec:faktorgruppe-der-translationen}
 Wenn wir schon herausgefunden haben, welche Struktur sich hinter den Translationen verbirgt -- nämlich Normalität in \(\geradisometr\) -- so ist es ganz natürlich nun nach dem entsprechenden Quotienten zu fragen: Was ist die Faktorgruppe \(\geradisometr /\mathcal T\)? 
 \begin{itemize}
     \item Isomorph zur Gruppe aller Rotationen um einen gegebenen Punkt. Diese wird mit \(G_p^+\) notiert, da diese Menge den orientierungserhaltenden Teil von \(G_p\) ausmacht (siehe \cref{sec:wiederholung}). 
@@ -879,7 +844,6 @@ Wenn wir schon herausgefunden haben, welche Struktur sich hinter den Translation
     Also liefert der in \cref{sec:normalität-von-translationen} eingeführte Homomorphismus \(\alpha\) einfach "`nur"' eine elementargeometrische Interpretation dieses Homomorphismus. 
 \end{itemize}
 ALTERNATIV: Isomorphismus ist gegeben durch \(\alpha\) aus dem Beweis der obigen Proposition, also ist das hier eigentlich ein klassisches Homomorphie-Satz-Argument nach \(G/\ker(\varphi) \cong \mathrm{Im}(\varphi)\).
-%\anm{D.h. die obige Argumentation funktioniert auch (einfach) unabhängig davon?} => Ja.
 
 Wir fassen unsere Ergebnisse in der folgenden Proposition zusammen: 
 \begin{propositionstrd}\label{prop*:gestalt-quotient-über-translationen}
@@ -888,8 +852,6 @@ Wir fassen unsere Ergebnisse in der folgenden Proposition zusammen:
         \mathrm{Isom^+(\mathbb R^2)}/\mathcal T \cong S^1 
     \end{equation*}
 \end{propositionstrd}
-
-%\include{auflosbarkeit}
 
 \section{Konjugiertenklassen von Elementen aus \(\geradisometr\)}\label{sec:konjugiertenklassen-gerader-isometrien}
 
@@ -907,7 +869,6 @@ Der andere "`Konjugiertentyp"' von Translationen, welcher in \(\geradisometr\) a
     p + w = T_w(p) = RT_vR^{-1}(p) = p + R_\theta^0 v
 \end{equation*}
 also \(w = R_\theta^0 v\). Damit ist die Konjugiertenklasse einer Translation \(T_v\) gegeben als die Menge aller Translationen um Vektoren mit derselben Länge wie \(v\). Denn genau diese Vektoren werden von den Rotationen um den Nullpunkt getroffen. 
-%\anm{Also trifft \(f:\mathbb R\to \mathbb R^2, \theta \mapsto R_\theta^0 v\) alle Elemente von \(\{x \in \mathbb R^2 \mid |x| = |v|\}\)?}
 
 \subsection{Konjugiertenklassen von Rotationen}\label{subsec:konjugiertenklassen-von-rotationen}
 Nun zu den Konjugiertenklassen von Rotationen. Für eine Rotation \(R = R_\theta^p\) und beliebige Isometrien \(I \in \geradisometr\) gilt wegen der Homomorphismus-Eigenschaft von \(\alpha\) 
@@ -927,44 +888,6 @@ Insgesamt können wir nun zusammen mit den Ergebnissen aus \cref{subsec:konjugie
 
 \subsection{Konjugiertenklassen in \(\mathrm{Isom}(\mathbb R^2)\)}
 ACHTUNG: Die Konjugiertenklassen von Translationen und Rotationen sind in der ganzen Gruppe \(\mathrm{Isom}(\mathbb R^2)\) größer! \anm{Beispiel: Konjugation einer Rotation \(R_\theta^p\) mit einer Spiegelung in einer Geraden, die \(p\) enthält, liefert \(R_{-\theta}^p\)}
-
-% \subsection{\(G_p^+\) und \(G_{Ip}^+\) sind konjugiert zueinander}\label{subsec:konjugierte-rotationsgruppen}
-% Wegen der Relation \(IR_\theta^pI^{-1} = R_\theta^{Ip}\) aus \eqref{eq:konjugations-relationen} haben wir für eine feste Isometrie \(I \in \geradisometr\)
-% \begin{equation*}
-%     IG_p^+ I^{-1} = G_{Ip}^+
-% \end{equation*}
-% Also sind \(G_p^+\) und \(G_{Ip}^+\) konjugiert zueinander in \(\geradisometr\). Damit sind sie sogar isomorph. Ein entsprechender Isomorphismus ist gegeben durch die Abbildung \(\varphi: G_p^+ \to G_{Ip}^+, R_\theta^p \mapsto R_\theta^{Ip} = IR_\theta^pI^{-1}\): Für \(\theta, \gamma \in \mathbb R\) gilt 
-% \begin{equation*}
-%     \varphi(R_\theta^pR_\gamma^p) = IR_\theta^pR_\gamma^pI^{-1} = (IR_\theta^pI^{-1})(IR_\gamma^pI^{-1}) = \varphi(R_\theta^p) \varphi(R_\gamma^p)
-% \end{equation*}
-% und \(\varphi\) ist 
-% \begin{itemize}
-%     \item injektiv, denn 
-%     \begin{equation*}
-%         \ker(\varphi) = \{IR_\theta^pI^{-1} = \id\} = \{R_\theta^p = \id\} = \{\id\}
-%     \end{equation*}
-
-%     \item surjektiv, denn \(\varphi(R_\theta^p) = R_\theta^{Ip}\) für jede Rotation \(R_\theta^{Ip} \in G_{Ip}^+\). 
-% \end{itemize}
-% Diese Struktur ist tatsächlich kein Einzelfall. Denn für die Fixgruppe \(S(x) = \{g \in G\mid g.x = x\}\) eines Punkts \(x \in X\) unter einer Operation von einer Gruppe \(G\) auf einer Menge \(X\) gilt
-% \begin{propositionstrd}\label{prop*:gleicher-orbit-konjugierte-fixgruppen}
-%     Falls \(x,y \in X\) auf derselben Bahn liegen, d.h. \(\mathrm{Orb}(x) = \mathrm{Orb}(y)\), so sind die Fixgruppen \(S(x)\) und \(S(y)\) konjugiert zueinander. 
-% \end{propositionstrd}
-% \begin{proof}
-%     \anm{Aufgabe 2.5.}
-% \end{proof}
-% \begin{corollarystrd}\label{cor:transitiv-konjugierte-fixgruppen}
-%     Operiert \(G\) transitiv auf \(X\), so sind alle Fixgruppen konjugiert zueinander. 
-% \end{corollarystrd}
-% \begin{proof}
-%     Dass \(G\) auf \(X\) transitiv operiert, bedeutet, dass ein \(x \in X\) exisiert, sodass \(\mathrm{Orb}(x) = X\). Für jede Operation liefern die Bahnen eine disjunkte Zerlegung von \(X\). Also gilt für alle \(x,y \in X\) auch \(\mathrm{Orb}(x) = \mathrm{Orb}(y)\), womit nach \cref{prop*:gleicher-orbit-konjugierte-fixgruppen} auch \(S(x)\) und \(S(y)\) konjugiert sind. 
-% \end{proof}
-% Die Situation aus \cref{cor:transitiv-konjugierte-fixgruppen} ist genau die für \(G = \geradisometr\) und \(X = \mathbb R^2\) vorliegende: %\anm{Wie operiert \(\geradisometr\) auf \(\mathbb R^2\)? Durch \(I.x := I(x)\)? Warum ist die Operation transitiv?}
-% \(\geradisometr\) operiert auf \(\mathbb R^2\) durch Ausführung der Isometrien auf den Vektoren, also 
-% \begin{equation*}
-%     I.x := I(x)
-% \end{equation*}
-% Bereits die Translationen lassen diese Operation transitiv werden. 
 
 \section{\(\geradisometr\) als (inneres) semidirektes Produkt}
 
