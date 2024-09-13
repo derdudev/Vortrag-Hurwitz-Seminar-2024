@@ -111,7 +111,7 @@ Die Menge aller Rotationen um einen Punkt \(p \in \mathbb R^2\) liegt in der Fix
 
 Es wird sich herausstellen, dass wir die gesamte Struktur der \(\geradisometr\) "`fast"' vollständig aus der Struktur der Translationen und Rotationen rekonstruieren können. Das wird die große Erkenntnis dieses Vortrags sein und uns auf den Begriff der semidirekten Produkte führen. 
 
-\section{Gruppentheoretische Klassifikation}
+\section{Gruppentheoretische Klassifikation}\label{sec:gruppentheo-klassifikation}
 Damit wir uns im Folgenden größtenteils von elementargeometrischen Überlegungen lösen können, müssen wir erst eine "`Brücke"' von der Elementar-Geometrie hin zur Gruppentheorie schlagen\footnote{Genaugenommen "`müssen"' wir das nicht, aber es wird sich als äußerst praktisch erweisen.}. Dafür beginnen wir nun mit einer relativ willkürlichen Konstruktion:
 
 Wir betrachten zwei orientierte(!) Geraden \(\mathscr l\) und \(\mathscr l'\). Für den Winkel von der positiven Richtung von \(\mathscr l\) zur positiven Richtung von \(\mathscr l'\) schreiben wir \(\alpha(\mathscr l, \mathscr l')\). Sind \(\mathscr l\) und \(\mathscr l'\) parallel (und gleichorientiert!), so setzen wir \(\alpha(\mathscr l, \mathscr l') = 0\). 
@@ -157,51 +157,9 @@ für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar
     Umgekehrt sind für \(\alpha(I)=\theta\neq0\) die Linien \(\mathscr l\) und \(I\mathscr l\) nicht parallel, und schneiden sich damit in genau einem Punkt. \(I\) hält also genau diesen Schnittpunkt fest. Damit muss \(I\) eine Rotation sein. Warum muss es genau eine Rotation um \(\theta\) sein? \(\implies\) Elementargeometrisches Argument. 
 \end{proof}
 
-\begin{annotationstrd}
+\begin{annotationstrd}\label{ann*:alpha-ergibt-sich-aus-struktur}
     Diese Klassifikation wirkt vielleicht im ersten Blick etwas will\-kür\-lich. Sie ergibt sich allerdings tatsächlich ganz natürlich aus der Struktur des Quotienten \(\mathrm{Isom}^+(\mathbb R^2) /\mathcal T\). Das wird eine der großen Erkenntnisse des nächsten \cref{sec:struktur-von-translationen} sein. 
 \end{annotationstrd}
-
-
-% \begin{itemize}
-%     \item \textbf{Isometrie} \(f:X\to X\) ist eine bijektive Abbildung, sodass für alle \(x,y \in X\subseteq \mathbb R^n\) gilt \(d(f(x), f(y)) = d(x,y)\). 
-%     \item Gruppe aller Isometrien (\textbf{Symmetrische Gruppe} von \(X \subseteq \mathbb R^2\)): 
-%     \begin{equation*}
-%         \mathrm{Isom}(X) = \{\text{Isometrien } f \text{ mit } f(X) = X\}
-%     \end{equation*}
-%     Wird erzeugt von der Menge der Spiegelungen. \anm{Was sind Spiegelungen genau?} Genauer (Prop. 2.7): Jede Isometrie des \(\mathbb R^2\) kann als das Produkt von höchstens 3 Spieglungen geschrieben werden. 
-
-%     Ähnliches Ergebnis in LinAlg2: Jede orthogonale Abbildung lässt sich darstellen als das Produkt von höchstens \(n\) Spiegelungen (Satz 18.21b). 
-
-%     \item \textbf{Fixgruppe} \(G_p\) eines Punktes \(p \in \mathbb R^2\): 
-%     \begin{equation*}
-%         G_p = \{f \in \mathrm{Isom}(\mathbb R^2)\mid f(p) = p \}
-%     \end{equation*}
-%     Klassifikation: Jedes \(f \in G_p\) ist entweder eine Rotation um \(p\) (gerade) oder eine Spiegelung über eine Linie durch \(p\) (ungerade) (Seite 90). Zudem enthält \(G_p\) \textit{alle} Rotation im \(\mathbb R^2\) um \(p\). 
-
-%     \item \textbf{Orientierungserhaltende/gerade} Isometrien sind Isometrien, die die positiven und negativen Rotationsrichtungen erhalten. Entsprechend spricht man von \textbf{orientierungsumkehrenden/ungeraden} Isometrien. 
-%     \anm{Rigorose Definition?} 
-%     Dabei ist "`positiv"' im oberen Sinne als "`gegen den Uhrzeigersinn"' und "`negativ"' als "`mit dem Uhrzeigersinn' zu verstehen. 
-
-%     \item \textbf{Translationen} sind Abbildungen \(T_v: \mathbb R^2 \to \mathbb R^2, x \mapsto x + v\)
-    
-%     \item \textbf{Rotationen} sind Abbildungen ...
-    
-%     \item \textbf{Menge der geraden Isometrien} \(\geradisometr\). 
-%     \begin{itemize}
-%         \item Ist eine Untergruppe der \(\mathrm{Isom}(\mathbb R^2)\). 
-%         \item Hat endlichen Index \(2\). Daraus folgt auch, dass \(\geradisometr\) normal ist. 
-%     \end{itemize}
-    
-%     \item \textbf{Menge aller Translationen} \(\mathcal T\). 
-%     \begin{itemize}
-%         \item Untergruppe der \(\geradisometr\). (klar) %\anm{Beweisbedürftig}
-%         \item Isomorph zur \((\mathbb R^2, +)\). (klar) %\anm{Beweisbedürftig}
-%     \end{itemize}
-
-%     \item Hauptresultat des letzten Vortrags: Gerade Isometrien sind entweder Translationen oder Rotationen. Ungerade Isometrien sind entweder Spiegelungen oder Gleitspiegelungen. 
-%     \item Beweis von Prop. 2.6: Jede orientierungserhaltende Isometrie kann geschrieben werden als Produkt einer Rotation und Translation. Jede orientierungsumkehrende Isometrie kann geschrieben werden als Produkt einer Rotation, einer Translation und einer Spiegelung. 
-%     \item Jede Rotation kann geschrieben werden als Produkt zweier Spiegelungen. Gleiches gilt für Translationen. 
-% \end{itemize}
 
 \begin{figure}
     \centering
@@ -778,7 +736,7 @@ für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar
 
 \section{Die Struktur von \(\mathcal T\)}\label{sec:struktur-von-translationen}
 
-Das eigentliche Resultat dieses Abschnitts erhalten wir dann "`nebenbei"' auch noch: 
+Nach der Vorarbeit aus dem vorausgegangenen \cref{sec:gruppentheo-klassifikation} erkennen wir nun leicht: 
 \begin{proposition}\label{prop:normale-translationen}
     \(\mathcal T\) ist normal in \(\geradisometr\). 
 \end{proposition}
@@ -786,10 +744,23 @@ Das eigentliche Resultat dieses Abschnitts erhalten wir dann "`nebenbei"' auch n
     Nach \cref{prop*:homomorphismus-alpha} gilt \(\mathcal T = \ker(\alpha)\) und Kerne von Homomorphismen sind normal. 
 \end{proof}
 \begin{annotationstrd}
-    Den Beweis von \cref{prop:normale-translationen} hätten wir auch ganz ohne den Homomorphismus \(\alpha\) rein elementargeometrisch führen können. Das ist in gewisser Weise auch ein Weg, der über den Quotienten \(\geradisometr/\mathcal T\) ganz natürlich auf den Homomorphismus \(\alpha\) führt, ohne diesen im vorhinein zu kennen!
+    Den Beweis von \cref{prop:normale-translationen} hätten wir auch ganz ohne den Homomorphismus \(\alpha\) rein elementargeometrisch führen können. Das ist in gewisser Weise auch ein Weg, der über den Quotienten \(\geradisometr/\mathcal T\) ganz natürlich auf den Homomorphismus \(\alpha\) führt, ohne diesen im vorhinein zu kennen! Darauf spielte bereits \cref{ann*:alpha-ergibt-sich-aus-struktur} an.
 \end{annotationstrd}
+\noindent Jetzt wissen wir, welche Struktur sich hinter den Translationen verbirgt: Normalität in \(\geradisometr\). Die nächste natürliche Frage ist nun, ob wir irgendwie die Faktorgruppe \(\geradisometr /\mathcal T\) genauer bestimmen können. 
 
-Wenn wir schon herausgefunden haben, welche Struktur sich hinter den Translationen verbirgt -- nämlich Normalität in \(\geradisometr\) -- so ist es ganz natürlich nun nach dem entsprechenden Quotienten zu fragen: Was ist die Faktorgruppe \(\geradisometr /\mathcal T\)? 
+Mithilfe unseres Homomorphismus \(\alpha\) geht das sogar ziemlich leicht: Denn der Homomorphiesatz aus der Gruppentheorie liefert uns die Isomorphie 
+\begin{equation*}
+    \geradisometr/\mathcal T = \geradisometr/\ker(\alpha) \cong \mathrm{Im}(\alpha) = \mathbb R/2\pi\mathbb Z
+\end{equation*}
+Halten wir einen beliebigen Punkt \(p\in \mathbb R^2\) fest, so liefert uns die Klassifikation aus \cref{prop*:gruppentheo-klassifikation-gerader-isometrien} durch die Einschränkung \(\alpha|_{G_p^+}\) eine eindeutige Zuordnung der Rotationen um \(p\) und \(\mathbb R/2\pi\mathbb Z\). In anderen Worten: \(\alpha|_{G_p^+}\) realisiert die Isomorphie \(\mathbb R/2\pi\mathbb Z \cong G_p^+\). Zudem können wir leicht mit der Identifikation des \(\mathbb R^2\) mit \(\mathbb C\) und der Darstellung in Polarkoordinaten erkennen, dass \(\mathbb R/2\pi\mathbb Z\cong S^1\). Wir halten fest: 
+\begin{propositionstrd}\label{prop*:gestalt-quotient-über-translationen}
+    Es gilt 
+    \begin{equation*}
+        \mathrm{Isom^+(\mathbb R^2)}/\mathcal T \cong S^1 
+    \end{equation*}
+\end{propositionstrd}
+Damit hätten wir nun bereits in gewisser Weise die Faktorgruppe ausreichend verstanden. Eine alternative Betrachtung, ganz ohne den Homomorphismus \(\alpha\) wird jedoch fruchtbar sein und sogar etwas strukturelles über \(\alpha\) offenlegen. 
+
 \begin{itemize}
     \item Isomorph zur Gruppe aller Rotationen um einen gegebenen Punkt. Diese wird mit \(G_p^+\) notiert, da diese Menge den orientierungserhaltenden Teil von \(G_p\) ausmacht (siehe \cref{sec:wiederholung}). 
     
@@ -843,15 +814,6 @@ Wenn wir schon herausgefunden haben, welche Struktur sich hinter den Translation
     \end{equation*}
     Also liefert der in \cref{sec:normalität-von-translationen} eingeführte Homomorphismus \(\alpha\) einfach "`nur"' eine elementargeometrische Interpretation dieses Homomorphismus. 
 \end{itemize}
-ALTERNATIV: Isomorphismus ist gegeben durch \(\alpha\) aus dem Beweis der obigen Proposition, also ist das hier eigentlich ein klassisches Homomorphie-Satz-Argument nach \(G/\ker(\varphi) \cong \mathrm{Im}(\varphi)\).
-
-Wir fassen unsere Ergebnisse in der folgenden Proposition zusammen: 
-\begin{propositionstrd}\label{prop*:gestalt-quotient-über-translationen}
-    Es gilt 
-    \begin{equation*}
-        \mathrm{Isom^+(\mathbb R^2)}/\mathcal T \cong S^1 
-    \end{equation*}
-\end{propositionstrd}
 
 \section{Konjugiertenklassen von Elementen aus \(\geradisometr\)}\label{sec:konjugiertenklassen-gerader-isometrien}
 
