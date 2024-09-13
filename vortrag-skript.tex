@@ -1,0 +1,1209 @@
+\documentclass[a4paper, ngerman]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[ngerman]{babel}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+\usepackage{subcaption}
+
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetikzlibrary{cd}
+
+\newcounter{chapter}
+\setcounter{chapter}{2}
+
+\numberwithin{equation}{chapter}
+\setcounter{equation}{1}
+
+\newcounter{equationstrd}
+\renewcommand{\theequationstrd}{\thechapter.\arabic{equationstrd}}
+
+\newenvironment{equationstrd}{\begin{equation*}\refstepcounter{equationstrd}\tag{\theequationstrd*}}{\end{equation*}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\usepackage{amsthm}
+
+\usepackage[T1]{fontenc}
+%\usepackage{fouriernc}
+%\usepackage[cmintegrals,cmbraces]{newtxmath}
+%\usepackage{ebgaramond-maths}
+\usepackage{newtxtext}        
+\usepackage[varvw]{newtxmath}
+
+\usepackage[capitalize, nameinlink]{cleveref}
+
+\theoremstyle{plain}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{definitionstrd}{Definition(*)}[chapter]
+\newtheorem{corollarystrd}{Korollar(*)}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\crefname{proposition}{Proposition}{Propositionen} % WARUM IST DAS NOTWENDIG???
+\newtheorem{propositionstrd}{Proposition(*)}[chapter]
+
+\theoremstyle{definition}
+\newtheorem{annotation}{Anmerkung}[chapter]
+\newtheorem{annotationstrd}{Anmerkung(*)}[chapter]
+\newtheorem{example}{Beispiel}[chapter]
+\newtheorem{examplestrd}{Beispiel(*)}[chapter]
+
+\newcommand{\id}{\ensuremath{\text{id}}}
+\newcommand{\geradisometr}{\ensuremath{\mathrm{Isom}^+(\mathbb R^2)}}
+
+\newcommand{\anm}[1]{{\color{red} #1}}
+
+\hyphenation{Auto-morph-ismus}
+\hyphenation{Auto-morph-ismen}
+\hyphenation{will-kur-lich}
+
+\title{(Gerade) Isometrien und das semidirekte Produkt}
+\author{Matteo Mertz}
+
+\begin{document}
+\setcounter{proposition}{7}
+
+\maketitle
+
+\begin{abstract}
+    Der folgende Text ist eine Ausarbeitung einer in \textit{From Groups to Geometry and Back} präsentierten Sichtweise auf die Gruppentheoretische Struktur der geraden Isometrien des \(\mathbb R^2\). Sie ist im Rahmen des Hurwitz Seminars 2024 der TU München entstanden. Der Haupttext wird im Folgenden auf die wesentlichen Motivationen des semidirekten Produkts reduziert und dabei um entscheidende Gedankengänge, Erkenntnisse und Einordnungen meinerseits ergänzt.  
+\end{abstract}
+
+\section*{Anmerkungen}
+\begin{itemize}
+    \item Die Notationen richten sich weitestgehend nach den Notation aus dem Referenzwerk \textit{From Groups to Geometry and Back}. 
+    \item Die Nummerierung aller Propositionen, Gleichungen und Aufgaben entspricht jener aus dem Referenzwerk. Hilfsaussagen meinerseits sind mit einem (*) markiert und folgen einer eigenen Nummerierung für dieses Skript. 
+\end{itemize}
+
+\section{Erste gruppentheoretische Überlegungen}\label{sec:wiederholung}
+Im vorherigen Vortrag \anm{[src]} hat Jan Eickhoff elementar geometrisch eine Klassifikation der Isometrien in \(\mathrm{Isom}(\mathbb R^2)\) hergeleitet. Sie sagt in kurz aus: 
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c c}
+        & orientierungserhaltend & orientierungsumkehrend \\
+        \hline
+        Mit Fixpunkt(en) & Rotationen & Spiegelungen \\
+        Fixpunktfrei & Translationen & Gleitspiegelungen 
+    \end{tabular}
+    %\caption{Klassifikation der Isometrien des \(\mathbb R^2\)}
+\end{table}
+\noindent Wir wollen uns nun mit der Gruppenstruktur der orientierungserhaltenden Isometrien auseinandersetzen, geschrieben \(\geradisometr\). Die obige Klassifizierung erleichtert uns diese Untersuchung enorm. So ist es alleine für diesen Vortrag nicht einmal notwendig genau zu verstehen, was \textit{orientierungserhaltend} bedeutet. Es ist vollkommen ausreichend unter orientierungserhaltende Isometrien einfach \textit{genau} die Translationen und Rotationen zu verstehen (im \(\mathbb R^2\))\footnote{Beim genauen Lesen dieses Skripts wird auffallen, dass wir tatsächlich an keiner Stelle irgendwie mit der orientierungserhaltenden Eigenschaft argumentieren.}. 
+
+Die beiden (einzigen!) Akteure in \(\geradisometr\) sind uns also nun bekannt. Im Folgenden gilt es also diese Akteure im Kontext der \(\geradisometr\) zu untersuchen. Dazu gehören die \textit{Struktur der Translationen und Rotationen} selbst und die \textit{Interaktionen der beiden miteinander}. Für ersteres führen wir noch Notationen ein: 
+
+Die Menge aller Translationen wird mit \(\mathcal T\) bezeichnet. Sie ist eine Untergruppe der \(\geradisometr\) und isomorph zu \((\mathbb R^2, +)\) und damit abelsch. Das sieht man leicht daran, dass wir jede Translation schreiben können als Abbildung \(T_v: \mathbb R^2\to \mathbb R^2, x \mapsto x + v\). 
+
+Die Menge aller Rotationen um einen Punkt \(p \in \mathbb R^2\) liegt in der Fixgruppe \(G_p = \{I \in \mathrm{Isom}(\mathbb R^2)\mid I(p) = p\}\) (denn Rotationen haben immer genau einen Fixpunkt). Da sie nach der obigen Klassifizierung genau den orientierungserhaltenden Anteil der Fixgruppe ausmachen, schreiben wir für sie \(G_p^+\). 
+
+Es wird sich herausstellen, dass wir die gesamte Struktur der \(\geradisometr\) "`fast"' vollständig aus der Struktur der Translationen und Rotationen rekonstruieren können. Das wird die große Erkenntnis dieses Vortrags sein und uns auf den Begriff der semidirekten Produkte führen. 
+
+\section{Gruppentheoretische Klassifikation}
+Damit wir uns im Folgenden größtenteils von elementargeometrischen Überlegungen lösen können, müssen wir erst eine "`Brücke"' von der Elementar-Geometrie hin zur Gruppentheorie schlagen\footnote{Genaugenommen "`müssen"' wir das nicht, aber es wird sich als äußerst praktisch erweisen.}. Dafür beginnen wir nun mit einer relativ willkürlichen Konstruktion:
+
+Wir betrachten zwei orientierte(!) Geraden \(\mathscr l\) und \(\mathscr l'\). Für den Winkel von der positiven Richtung von \(\mathscr l\) zur positiven Richtung von \(\mathscr l'\) schreiben wir \(\alpha(\mathscr l, \mathscr l')\). Sind \(\mathscr l\) und \(\mathscr l'\) parallel (und gleichorientiert!), so setzen wir \(\alpha(\mathscr l, \mathscr l') = 0\). 
+
+Dann können wir jetzt natürlich nicht nur irgendwelche Geraden betrachten, sondern eine beliebige (aber feste) Ausgangsgerade \(\mathscr l\) und die von einer orientierungserhaltenden Isometrie \(I\) transformierte Gerade \(I\mathscr l \). 
+
+Translationen sind in diesem Kontext einfach nur Parallelverschiebungen, d.h. für eine Translation \(T\) haben wir \(\alpha(\mathscr l, T\mathscr l) = 0\). 
+
+Durch die elementargeometrische Konstruktion aus \cref{fig:konstruktion-alpha-kleiner-180}, bzw. \cref{fig:sonderfalle-konstruktion} erkennen wir, dass für eine Rotation \(R_\theta^p\) um einen Punkt \(p\in \mathbb R^2\) um den Winkel \(\theta\in \mathbb R\) gilt \(\alpha(\mathscr l, R_\theta^p\mathscr l) = \theta\). 
+
+Wir können also jedem Element \(I \in \geradisometr\) einen sinnvollen Wert zuordnen. Aber noch ist Vorsicht geboten. Denn für eine Rotation \(R_\theta^p\) gilt \(R_{\theta + 2\pi k}^p = R_{\theta}^p\) für alle \(k \in \mathbb N\), aber \(\alpha(\mathscr l, R_{\theta+2\pi k}^p\mathscr l) = \theta + 2\pi k \neq \theta = \alpha(\mathscr l, R_\theta^p\mathscr l)\) für \(k \neq 0\). Um hier also tatsächlich eine wohldefinierte Abbildung zu erhalten, müssen wir den Output von \(\alpha\) bis auf Vielfache von \(2\pi\) betrachten, d.h. in \(\mathbb R/2\pi\mathbb Z\). Dann können wir nun definieren
+\begin{equationstrd}\label{eq*:definition-alpha}
+    \alpha: \geradisometr \to \mathbb R/2\pi\mathbb Z, \quad I \to \alpha(\mathscr l, I\mathscr l)
+\end{equationstrd}
+für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar ein Homomorphismus: 
+
+\begin{propositionstrd}\label{prop*:homomorphismus-alpha}
+    Die oben definierte Abbildung \(\alpha: \geradisometr\to \mathbb R/2\pi\mathbb Z\) ist ein Homomorphismus mit \(\ker(\alpha) = \mathcal T\). 
+\end{propositionstrd}
+\begin{proof}
+    Diesen Beweis müssen wir noch elementargeometrisch führen. Er ermöglicht uns allerdings später, dass wir uns (fast) nur in der gruppentheoretischen Welt bewegen können, ohne elementargeometrische Überlegungen. 
+
+    Zu zeigen ist \(\alpha(I_1, I_2) = \alpha(I_1) + \alpha(I_2)\) für alle \(I_1, I_2 \in \geradisometr\). Wir unterscheiden die folgenden Fälle:
+    \begin{enumerate}
+        \item \(I_1\) und \(I_2\) sind Translationen. Beides sind lediglich Parallelverschiebungen (aus Sicht der Gerade \(\mathscr l\)), also folgt sofort \(\alpha(I_1 I_2) = 0 = 0+0 = \alpha(I_1) + \alpha(I_2)\). 
+        \item \(I_1\) ist eine Translation und \(I_2\) ist eine Rotation oder \(I_1\) ist eine Rotation und \(I_2\) ist eine Translation. Wir müssen beide Fälle separat betrachten, da Translationen und Rotationen im Allgmeinen nicht kommutieren. \anm{Abb} zeigt jedoch, dass die Argumentation in beiden Fällen die gleiche ist. 
+        \item \(I_1\) und \(I_2\) sind Rotationen. \cref{fig:verknupfung-rotationen} zeigt eine entsprechende Konstruktion, die zusammen mit den Winkelsätzen die Behauptung liefert. 
+    \end{enumerate}
+\end{proof}
+\noindent Noch weitaus interessanter ist allerdings, dass uns \(\alpha\) zusätzlich eine Klassifizierung der orientierungserhaltenden Isometrien liefert
+\begin{propositionstrd}\label{prop*:gruppentheo-klassifikation-gerader-isometrien}
+    Der Homomorphismus \(\alpha: \mathrm{Isom}^+ (\mathbb R^2) \to \mathbb R/2\pi\mathbb Z\) charakterisiert die geraden Isometrien eindeutig. Genauer: Für \(I \in \geradisometr\) gilt 
+    \begin{equation*}
+        I \in \mathcal T \iff \alpha(I) = 0
+    \end{equation*}
+    und falls \(\alpha(I) = \theta\) für ein \(\theta \in \mathbb R\), so existiert ein Punkt \(p \in \mathbb R^2\), sodass \(I = R_\theta^p\). 
+\end{propositionstrd}
+\begin{proof}
+    Die Hinrichtung ist klar aus den Überlegungen vor \cref{prop*:homomorphismus-alpha}. 
+
+    Ist \(\alpha(I)=0\), so sind \(\mathscr l\) und \(I\mathscr l\) entweder identisch oder liegen parallel zueinander. Im Nicht-Identischen Fall, hält \(I\) also \textit{keinen} Punkt von \(\mathscr l\) fest! \(I\) ist entweder eine Translation oder eine Rotation. Rotationen haben genau einen Fixpunkt! Also muss \(I\) eine Translation sein. 
+
+    Umgekehrt sind für \(\alpha(I)=\theta\neq0\) die Linien \(\mathscr l\) und \(I\mathscr l\) nicht parallel, und schneiden sich damit in genau einem Punkt. \(I\) hält also genau diesen Schnittpunkt fest. Damit muss \(I\) eine Rotation sein. Warum muss es genau eine Rotation um \(\theta\) sein? \(\implies\) Elementargeometrisches Argument. 
+\end{proof}
+
+\begin{annotationstrd}
+    Diese Klassifikation wirkt vielleicht im ersten Blick etwas will\-kür\-lich. Sie ergibt sich allerdings tatsächlich ganz natürlich aus der Struktur des Quotienten \(\mathrm{Isom}^+(\mathbb R^2) /\mathcal T\). Das wird eine der großen Erkenntnisse des nächsten \cref{sec:struktur-von-translationen} sein. 
+\end{annotationstrd}
+
+
+% \begin{itemize}
+%     \item \textbf{Isometrie} \(f:X\to X\) ist eine bijektive Abbildung, sodass für alle \(x,y \in X\subseteq \mathbb R^n\) gilt \(d(f(x), f(y)) = d(x,y)\). 
+%     \item Gruppe aller Isometrien (\textbf{Symmetrische Gruppe} von \(X \subseteq \mathbb R^2\)): 
+%     \begin{equation*}
+%         \mathrm{Isom}(X) = \{\text{Isometrien } f \text{ mit } f(X) = X\}
+%     \end{equation*}
+%     Wird erzeugt von der Menge der Spiegelungen. \anm{Was sind Spiegelungen genau?} Genauer (Prop. 2.7): Jede Isometrie des \(\mathbb R^2\) kann als das Produkt von höchstens 3 Spieglungen geschrieben werden. 
+
+%     Ähnliches Ergebnis in LinAlg2: Jede orthogonale Abbildung lässt sich darstellen als das Produkt von höchstens \(n\) Spiegelungen (Satz 18.21b). 
+
+%     \item \textbf{Fixgruppe} \(G_p\) eines Punktes \(p \in \mathbb R^2\): 
+%     \begin{equation*}
+%         G_p = \{f \in \mathrm{Isom}(\mathbb R^2)\mid f(p) = p \}
+%     \end{equation*}
+%     Klassifikation: Jedes \(f \in G_p\) ist entweder eine Rotation um \(p\) (gerade) oder eine Spiegelung über eine Linie durch \(p\) (ungerade) (Seite 90). Zudem enthält \(G_p\) \textit{alle} Rotation im \(\mathbb R^2\) um \(p\). 
+
+%     \item \textbf{Orientierungserhaltende/gerade} Isometrien sind Isometrien, die die positiven und negativen Rotationsrichtungen erhalten. Entsprechend spricht man von \textbf{orientierungsumkehrenden/ungeraden} Isometrien. 
+%     \anm{Rigorose Definition?} 
+%     Dabei ist "`positiv"' im oberen Sinne als "`gegen den Uhrzeigersinn"' und "`negativ"' als "`mit dem Uhrzeigersinn' zu verstehen. 
+
+%     \item \textbf{Translationen} sind Abbildungen \(T_v: \mathbb R^2 \to \mathbb R^2, x \mapsto x + v\)
+    
+%     \item \textbf{Rotationen} sind Abbildungen ...
+    
+%     \item \textbf{Menge der geraden Isometrien} \(\geradisometr\). 
+%     \begin{itemize}
+%         \item Ist eine Untergruppe der \(\mathrm{Isom}(\mathbb R^2)\). 
+%         \item Hat endlichen Index \(2\). Daraus folgt auch, dass \(\geradisometr\) normal ist. 
+%     \end{itemize}
+    
+%     \item \textbf{Menge aller Translationen} \(\mathcal T\). 
+%     \begin{itemize}
+%         \item Untergruppe der \(\geradisometr\). (klar) %\anm{Beweisbedürftig}
+%         \item Isomorph zur \((\mathbb R^2, +)\). (klar) %\anm{Beweisbedürftig}
+%     \end{itemize}
+
+%     \item Hauptresultat des letzten Vortrags: Gerade Isometrien sind entweder Translationen oder Rotationen. Ungerade Isometrien sind entweder Spiegelungen oder Gleitspiegelungen. 
+%     \item Beweis von Prop. 2.6: Jede orientierungserhaltende Isometrie kann geschrieben werden als Produkt einer Rotation und Translation. Jede orientierungsumkehrende Isometrie kann geschrieben werden als Produkt einer Rotation, einer Translation und einer Spiegelung. 
+%     \item Jede Rotation kann geschrieben werden als Produkt zweier Spiegelungen. Gleiches gilt für Translationen. 
+% \end{itemize}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \begin{tikzpicture}[scale=.6]
+            \tkzSetUpLine[line width=1pt]
+            \tkzSetUpStyle[postaction=decorate,
+                decoration={markings,
+                    mark=at position .75 with {\arrow[thick]{#1}}
+                }
+            ]{dirarrow}
+        
+            \tkzDefPoints{0/0/A,5/0/B,2/3/P}
+        
+            \tkzDefPointBy[rotation=center P angle 45](A)
+            \tkzGetPoint{C}
+            \tkzDefPointBy[rotation=center P angle 45](B)
+            \tkzGetPoint{D}
+            
+            \tkzLabelLine[pos=1.2,left](C,D){$I\mathscr l$}
+        
+            \tkzDefPointBy[projection= onto C--D](P)
+            \tkzGetPoint{Q}
+        
+            \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+        
+            \tkzInterLL(A,B)(P,Q)
+            \tkzGetPoint{I}
+        
+            \tkzDrawSegment[dashed](P,Q)
+        
+            %\tkzDrawLine[color=blue](P,I)
+            \tkzLabelLine[pos=1.15,above](A,I){$\mathscr l$}
+        
+            \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
+            %\tkzMarkRightAngle(F,Q,I)
+            %\tkzMarkAngle[size=.5](I,F,Q)
+            %\tkzLabelAngle[pos=.7](I,F,Q){$\theta$}
+        
+            \tkzDefLine[orthogonal=through I](A,B) \tkzGetPoint{i}
+            %\tkzDrawLine[color=blue](I,i)
+        
+            \tkzDefLine[orthogonal=through P](i,I) \tkzGetPoint{p}
+            %\tkzDrawLine[color=blue](P,p)
+            \tkzInterLL(P,p)(I,i) \tkzGetPoint{E}
+            %\tkzMarkRightAngle(P,E,I)
+        
+            \tkzInterLL(I,i)(C,D) \tkzGetPoint{G}
+            %\tkzMarkAngle[size=.5](G,I,Q)
+            %\tkzLabelAngle[pos=.7](G,I,Q){$\theta$}
+        
+            %\tkzDrawPoints(I)
+        
+            \tkzDrawLine[dirarrow=stealth](A,I)
+            \tkzDrawLine[dirarrow=stealth](C,D)
+        
+            \tkzDrawSegment[dashed](P,P2)
+            \tkzLabelAngle[pos=.75](P2,P,Q){$\theta$}
+            \tkzMarkAngle[size=1](P2,P,Q)
+        
+            \tkzDrawPoints(P)
+            \tkzLabelPoints[below left](P)
+        \end{tikzpicture}
+        \caption{Ausgangssituation}
+        \label{fig:konstruktion-alpha-kleiner-180-a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \begin{tikzpicture}[scale=.6]
+            \tkzSetUpLine[line width=1pt]
+            \tkzSetUpStyle[postaction=decorate,
+                decoration={markings,
+                    mark=at position .75 with {\arrow[thick]{#1}}
+                }
+            ]{dirarrow}
+        
+            \tkzDefPoints{0/0/A,5/0/B,2/3/P}
+        
+            \tkzDefPointBy[rotation=center P angle 45](A)
+            \tkzGetPoint{C}
+            \tkzDefPointBy[rotation=center P angle 45](B)
+            \tkzGetPoint{D}
+            
+            \tkzLabelLine[pos=1.2,left](C,D){$I\mathscr l$}
+        
+            \tkzDefPointBy[projection= onto C--D](P)
+            \tkzGetPoint{Q}
+        
+            \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+        
+            \tkzInterLL(A,B)(P,Q)
+            \tkzGetPoint{I}
+        
+            \tkzDrawSegment[dashed](P,Q)
+        
+            \tkzLabelLine[pos=1.15,above](A,I){$\mathscr l$}
+        
+            \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
+            
+            %\tkzMarkAngle[size=.5](I,F,Q)
+            %\tkzLabelAngle[pos=.7](I,F,Q){$\theta$}
+        
+            \tkzDefLine[orthogonal=through I](A,B) \tkzGetPoint{i}
+            %\tkzDrawLine[color=blue](I,i)
+        
+            \tkzDefLine[orthogonal=through P](i,I) \tkzGetPoint{p}
+            %\tkzDrawLine[color=blue](P,p)
+            \tkzInterLL(P,p)(I,i) \tkzGetPoint{E}
+            %\tkzMarkRightAngle(P,E,I)
+        
+            \tkzInterLL(I,i)(C,D) \tkzGetPoint{G}
+            %\tkzMarkAngle[size=.5](G,I,Q)
+            %\tkzLabelAngle[pos=.7](G,I,Q){$\theta$}
+        
+            %\tkzDrawPoints(I)
+        
+            % baselines
+            \tkzDrawLine[dirarrow=stealth](A,I)
+            \tkzDrawLine[dirarrow=stealth](C,D)
+        
+            % erste orthogonale zu C--D durch P
+            \tkzDrawLine[color=blue](P,I)
+            \tkzMarkRightAngle(F,Q,I)
+        
+            \tkzDrawSegment[dashed](P,P2)
+            \tkzLabelAngle[pos=.75](P2,P,Q){$\theta$}
+            \tkzMarkAngle[size=1](P2,P,Q)
+        
+            \tkzDrawPoints(P)
+            \tkzLabelPoints[below left](P)
+        \end{tikzpicture}
+        \caption{Orthogonale von \(I\mathscr l\) durch \(P\)}
+        \label{fig:konstruktion-alpha-kleiner-180-b}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \begin{tikzpicture}[scale=.6]
+            \tkzSetUpLine[line width=1pt]
+            \tkzSetUpStyle[postaction=decorate,
+                decoration={markings,
+                    mark=at position .75 with {\arrow[thick]{#1}}
+                }
+            ]{dirarrow}
+        
+            \tkzDefPoints{0/0/A,5/0/B,2/3/P}
+        
+            \tkzDefPointBy[rotation=center P angle 45](A)
+            \tkzGetPoint{C}
+            \tkzDefPointBy[rotation=center P angle 45](B)
+            \tkzGetPoint{D}
+            
+            \tkzLabelLine[pos=1.2,left](C,D){$I\mathscr l$}
+        
+            \tkzDefPointBy[projection= onto C--D](P)
+            \tkzGetPoint{Q}
+        
+            \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+        
+            \tkzInterLL(A,B)(P,Q)
+            \tkzGetPoint{I}
+        
+            \tkzDrawSegment[dashed](P,Q)
+        
+            \tkzLabelLine[pos=1.15,above](A,I){$\mathscr l$}
+        
+            \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
+            
+            %\tkzMarkAngle[size=.5](I,F,Q)
+            %\tkzLabelAngle[pos=.7](I,F,Q){$\theta$}
+        
+            \tkzDefLine[orthogonal=through I](A,B) \tkzGetPoint{i}
+        
+            \tkzDefLine[orthogonal=through P](i,I) \tkzGetPoint{p}
+            %\tkzDrawLine[color=blue](P,p)
+            \tkzInterLL(P,p)(I,i) \tkzGetPoint{E}
+            %\tkzMarkRightAngle(P,E,I)
+        
+            \tkzInterLL(I,i)(C,D) \tkzGetPoint{G}
+            %\tkzMarkAngle[size=.5](G,I,Q)
+            %\tkzLabelAngle[pos=.7](G,I,Q){$\theta$}
+        
+            %\tkzDrawPoints(I)
+        
+            % baselines
+            \tkzDrawLine[dirarrow=stealth](A,I)
+            \tkzDrawLine[dirarrow=stealth](C,D)
+        
+            % erste orthogonale zu C--D durch P
+            \tkzDrawLine[color=blue](P,I)
+            \tkzMarkRightAngle(F,Q,I)
+        
+            \tkzDrawSegment[dashed](P,P2)
+            \tkzLabelAngle[pos=.75](P2,P,Q){$\theta$}
+            \tkzMarkAngle[size=1](P2,P,Q)
+        
+            \tkzDrawLine[color=blue](I,i)
+        
+            \tkzDrawPoints(P)
+            \tkzLabelPoints[below left](P)
+        \end{tikzpicture}
+        \caption{Orthogonale von \(\mathscr l\) durch Schnittpunkt von Orthogonalen aus \ref{fig:konstruktion-alpha-kleiner-180-b} mit \(\mathscr l\)}
+        \label{fig:konstruktion-alpha-kleiner-180-c}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \begin{tikzpicture}[scale=.6]
+            \tkzSetUpLine[line width=1pt]
+            \tkzSetUpStyle[postaction=decorate,
+                decoration={markings,
+                    mark=at position .75 with {\arrow[thick]{#1}}
+                }
+            ]{dirarrow}
+        
+            \tkzDefPoints{0/0/A,5/0/B,2/3/P}
+        
+            \tkzDefPointBy[rotation=center P angle 45](A)
+            \tkzGetPoint{C}
+            \tkzDefPointBy[rotation=center P angle 45](B)
+            \tkzGetPoint{D}
+            
+            \tkzLabelLine[pos=1.2,left](C,D){$I\mathscr l$}
+        
+            \tkzDefPointBy[projection= onto C--D](P)
+            \tkzGetPoint{Q}
+        
+            \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+        
+            \tkzInterLL(A,B)(P,Q)
+            \tkzGetPoint{I}
+        
+            \tkzDrawSegment[dashed](P,Q)
+        
+            \tkzLabelLine[pos=1.15,above](A,I){$\mathscr l$}
+        
+            \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
+            
+            %\tkzMarkAngle[size=.5](I,F,Q)
+            %\tkzLabelAngle[pos=.7](I,F,Q){$\theta$}
+        
+            \tkzDefLine[orthogonal=through I](A,B) \tkzGetPoint{i}
+        
+            \tkzDefLine[orthogonal=through P](i,I) \tkzGetPoint{p}
+            \tkzInterLL(P,p)(I,i) \tkzGetPoint{E}
+        
+            \tkzInterLL(I,i)(C,D) \tkzGetPoint{G}
+            %\tkzMarkAngle[size=.5](G,I,Q)
+            %\tkzLabelAngle[pos=.7](G,I,Q){$\theta$}
+        
+            %\tkzDrawPoints(I)
+        
+            % baselines
+            \tkzDrawLine[dirarrow=stealth](A,I)
+            \tkzDrawLine[dirarrow=stealth](C,D)
+        
+            % erste orthogonale zu C--D durch P
+            \tkzDrawLine[color=blue](P,I)
+            \tkzMarkRightAngle(F,Q,I)
+        
+            \tkzDrawSegment[dashed](P,P2)
+            \tkzLabelAngle[pos=.75](P2,P,Q){$\theta$}
+            \tkzMarkAngle[size=1](P2,P,Q)
+        
+            \tkzDrawLine[color=blue](I,i)
+        
+            \tkzDrawLine[color=blue](P,p)
+            \tkzMarkRightAngle(P,E,I)
+        
+            \tkzDrawPoints(P)
+            \tkzLabelPoints[below left](P)
+        \end{tikzpicture}
+        \caption{Orthogonale von neuer Orthogonale aus \ref{fig:konstruktion-alpha-kleiner-180-c} durch \(P\)}
+        \label{fig:konstruktion-alpha-kleiner-180-d}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \begin{tikzpicture}[scale=.6]
+            \tkzSetUpLine[line width=1pt]
+            \tkzSetUpStyle[postaction=decorate,
+                decoration={markings,
+                    mark=at position .75 with {\arrow[thick]{#1}}
+                }
+            ]{dirarrow}
+        
+            \tkzDefPoints{0/0/A,5/0/B,2/3/P}
+        
+            \tkzDefPointBy[rotation=center P angle 45](A)
+            \tkzGetPoint{C}
+            \tkzDefPointBy[rotation=center P angle 45](B)
+            \tkzGetPoint{D}
+            
+            \tkzLabelLine[pos=1.2,left](C,D){$I\mathscr l$}
+        
+            \tkzDefPointBy[projection= onto C--D](P)
+            \tkzGetPoint{Q}
+        
+            \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+        
+            \tkzInterLL(A,B)(P,Q)
+            \tkzGetPoint{I}
+        
+            \tkzDrawSegment[dashed](P,Q)
+        
+            \tkzLabelLine[pos=1.15,above](A,I){$\mathscr l$}
+        
+            \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
+        
+            \tkzDefLine[orthogonal=through I](A,B) \tkzGetPoint{i}
+        
+            \tkzDefLine[orthogonal=through P](i,I) \tkzGetPoint{p}
+            \tkzInterLL(P,p)(I,i) \tkzGetPoint{E}
+        
+            \tkzInterLL(I,i)(C,D) \tkzGetPoint{G}
+        
+            %\tkzDrawPoints(I)
+        
+            % baselines
+            \tkzDrawLine[dirarrow=stealth](A,I)
+            \tkzDrawLine[dirarrow=stealth](C,D)
+        
+            % erste orthogonale zu C--D durch P
+            \tkzDrawLine[color=blue](P,I)
+            \tkzMarkRightAngle(F,Q,I)
+        
+            \tkzDrawSegment[dashed](P,P2)
+            \tkzLabelAngle[pos=.75](P2,P,Q){$\theta$}
+            \tkzMarkAngle[size=1](P2,P,Q)
+        
+            \tkzDrawLine[color=blue](I,i)
+        
+            \tkzDrawLine[color=blue](P,p)
+            \tkzMarkRightAngle(P,E,I)
+        
+            \tkzMarkAngle[size=.5](I,F,Q)
+            \tkzLabelAngle[pos=.7](I,F,Q){$\theta$}
+            
+            \tkzMarkAngle[size=.5](G,I,Q)
+            \tkzLabelAngle[pos=.7](G,I,Q){$\theta$}
+        
+            \tkzDrawPoints(P)
+            \tkzLabelPoints[below left](P)
+        \end{tikzpicture}
+        \caption{\(\theta\) durch Winkelsätze (oder Winkelsummen im Dreieck) an die gewollte Stelle bringen.}
+        \label{fig:third}
+    \end{subfigure}
+            
+    \caption{Konstruktion des Winkels zwischen \(\mathscr l\) und \(I\mathscr l\) aus dem Drehwinkel \(\theta\) um \(P\) (falls \(\theta <180^\circ\)).}
+    \label{fig:konstruktion-alpha-kleiner-180}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{.45\textwidth}
+        \begin{tikzpicture}[scale=.6]
+            \tkzSetUpLine[line width=1pt]
+            \tkzSetUpStyle[postaction=decorate,
+                decoration={markings,
+                    mark=at position .75 with {\arrow[thick]{#1}}
+                }
+            ]{dirarrow}
+        
+            \tkzDefPoints{0/0/A,5/0/B,2/3/P}
+        
+            \tkzDefPointBy[rotation=center P angle 180](A)
+            \tkzGetPoint{C}
+            \tkzDefPointBy[rotation=center P angle 180](B)
+            \tkzGetPoint{D}
+        
+            \tkzDefPointBy[projection= onto C--D](P)
+            \tkzGetPoint{Q}
+        
+            \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+    
+            % DRAWING
+            \tkzDrawLine[dirarrow=stealth](A,B)
+            \tkzLabelLine[pos=1.2,above left](A,B){$\mathscr l$}
+    
+            \tkzDrawLine[dirarrow=stealth](C,D)
+            \tkzLabelLine[pos=1.2,below right](C,D){$I\mathscr l$}
+    
+            \tkzDrawSegments[dashed](P,Q P,P2)
+    
+            \tkzMarkAngle[size=.5](P2,P,Q)
+            \tkzLabelAngle[pos=1.6](P2,P,Q){$\theta=180^\circ$}
+    
+            \tkzDrawPoints(P)
+            \tkzLabelPoints[left](P)
+        \end{tikzpicture}
+        \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.45\textwidth}
+        \begin{tikzpicture}[scale=.6]
+            \tkzSetUpLine[line width=1pt]
+            \tkzSetUpStyle[postaction=decorate,
+                decoration={markings,
+                    mark=at position .85 with {\arrow[thick]{#1}}
+                }
+            ]{dirarrow}
+        
+            \tkzDefPoints{0/0/A,4/0/B,2/3/P}
+        
+            \tkzDefPointBy[rotation=center P angle 310](A)
+            \tkzGetPoint{C}
+            \tkzDefPointBy[rotation=center P angle 310](B)
+            \tkzGetPoint{D}
+            
+            \tkzLabelLine[pos=1.2,above right](C,D){$I\mathscr l$}
+        
+            \tkzDefPointBy[projection= onto C--D](P)
+            \tkzGetPoint{Q}
+        
+            \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+        
+            \tkzInterLL(A,B)(P,Q)
+            \tkzGetPoint{I}
+        
+            \tkzDrawSegment[dashed](P,Q)
+        
+            \tkzLabelLine[pos=1.15,above](I,B){$\mathscr l$}
+        
+            \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
+        
+            \tkzDefLine[orthogonal=through I](A,B) \tkzGetPoint{i}
+        
+            \tkzDefLine[orthogonal=through P](i,I) \tkzGetPoint{p}
+            \tkzInterLL(P,p)(I,i) \tkzGetPoint{E}
+        
+            \tkzInterLL(I,i)(C,D) \tkzGetPoint{G}
+        
+            %\tkzDrawPoints(I)
+        
+            % baselines
+            \tkzDrawLine[dirarrow=stealth](I,B)
+            \tkzDrawLine[dirarrow=stealth](C,D)
+        
+            % erste orthogonale zu C--D durch P
+            \tkzDrawLine[color=blue](P,I)
+            \tkzMarkRightAngle(F,Q,I)
+        
+            \tkzDrawSegment[dashed](P,P2)
+            \tkzLabelAngle[pos=.75](P2,P,Q){$\theta$}
+            \tkzMarkAngle[size=.5](P2,P,Q)
+        
+            \tkzDrawLine[color=blue](I,i)
+        
+            \tkzDrawLine[color=blue](P,E)
+            \tkzMarkRightAngle(P,E,I)
+
+            \tkzMarkAngle[size=.5, red](Q,P,P2)
+            \tkzLabelAngle[red](Q,P,P2){$\gamma$}
+
+            \tkzMarkAngle[size=.5, red](F,I,Q)
+            \tkzLabelAngle[red](F,I,Q){$\gamma$}
+
+            \tkzMarkAngle[size=.5, red](D,F,P2)
+            \tkzLabelAngle[pos=.75,red](D,F,P2){$\gamma$}
+
+            \tkzMarkAngle[size=.5](P2,F,D)
+            \tkzLabelAngle[pos=.75](P2,F,D){$\theta$}
+        
+            \tkzDrawPoints(P)%,p,i,I,G,Q,D,F,P2,E)
+            \tkzLabelPoints[below right](P)%,p,i,I,G,Q,D,F,P2,E)
+        \end{tikzpicture}
+        \caption{}
+    \end{subfigure}
+    \caption{Sonderfälle der Konstruktion aus \cref{fig:konstruktion-alpha-kleiner-180} für (a) \(\theta=180^\circ\) und (b) \(\theta>180^\circ\) durch den Hilfswinkel \(\gamma := 360 - \theta\).}
+    \label{fig:sonderfalle-konstruktion}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=.9]
+        \tkzSetUpLine[line width=1pt]
+        \tkzSetUpStyle[postaction=decorate,
+            decoration={markings,
+                mark=at position .6 with {\arrow[thick]{#1}}
+            }
+        ]{dirarrow}
+    
+        \tkzDefPoints{0/0/A,5/0/B,8/0/B2,2/3/P,6/1/P'}
+    
+        \tkzDefPointBy[rotation=center P angle 45](A)
+        \tkzGetPoint{C}
+        \tkzDefPointBy[rotation=center P angle 45](B)
+        \tkzGetPoint{D}
+    
+        \tkzDefPointBy[projection= onto C--D](P)
+        \tkzGetPoint{Q}
+    
+        \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+    
+        \tkzInterLL(A,B)(P,Q)
+        \tkzGetPoint{I}
+    
+        \tkzDrawSegment[dashed](P,Q)
+    
+        %\tkzDrawLine[color=blue](P,I)
+        \tkzLabelLine[pos=1.15,below](A,B2){$\mathscr l$}
+    
+        \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
+        %\tkzMarkRightAngle(F,Q,I)
+        %\tkzMarkAngle[size=.5](I,F,Q)
+        %\tkzLabelAngle[pos=.7](I,F,Q){$\theta$}
+    
+        \tkzDefLine[orthogonal=through I](A,B) \tkzGetPoint{i}
+        %\tkzDrawLine[color=blue](I,i)
+    
+        \tkzDefLine[orthogonal=through P](i,I) \tkzGetPoint{p}
+        %\tkzDrawLine[color=blue](P,p)
+        \tkzInterLL(P,p)(I,i) \tkzGetPoint{E}
+        %\tkzMarkRightAngle(P,E,I)
+    
+        \tkzInterLL(I,i)(C,D) \tkzGetPoint{G}
+        %\tkzMarkAngle[size=.5](G,I,Q)
+        %\tkzLabelAngle[pos=.7](G,I,Q){$\theta$}
+    
+        %\tkzDrawPoints(I)
+
+        \tkzDefPointBy[rotation=center P' angle 210](C) \tkzGetPoint{C'}
+        \tkzDefPointBy[rotation=center P' angle 210](D) \tkzGetPoint{D'}
+
+        \tkzDefPointBy[projection= onto C--D](P') \tkzGetPoint{P'1}
+        \tkzDefPointBy[projection= onto C'--D'](P') \tkzGetPoint{P'2}
+
+        \tkzInterLL(C,D)(C',D') \tkzGetPoint{I2}
+
+        \tkzDefPointBy[translation= from C to D](I2) \tkzGetPoint{I2A}
+        \tkzDefPointBy[translation= from C' to D'](I2) \tkzGetPoint{I2B}
+
+        \tkzInterLL(A,B)(C',D') \tkzGetPoint{I3}
+
+        \tkzDefPointBy[translation= from F to I3](C) \tkzGetPoint{C2}
+        \tkzDefPointBy[translation= from F to I3](D) \tkzGetPoint{D2}
+
+        % DRAWING
+        \tkzDrawLine[dirarrow=stealth](A,B2)
+
+        \tkzDrawLine[dirarrow=stealth](C,I2)
+        \tkzLabelLine[pos=1.2,left](C,D){$R_\theta^p\mathscr l$}
+
+        \tkzDrawLine[dirarrow=stealth](I2,D')
+        \tkzLabelLine[pos=1.2,left](I2,D'){$R_\gamma^{p'}R_\theta^p\mathscr l$}
+    
+        \tkzDrawSegment[dashed](P,P2)
+        \tkzLabelAngle[pos=.75](P2,P,Q){$\theta$}
+        \tkzMarkAngle[size=1](P2,P,Q)
+
+        \tkzMarkAngle[size=.5](I,F,Q)
+        \tkzLabelAngle[pos=.7](I,F,Q){$\theta$}
+
+        \tkzDrawSegments[dashed](P',P'1 P',P'2)
+        \tkzLabelAngle[pos=.5, left](P'1,P',P'2){$\gamma$}
+        \tkzMarkAngle[size=.5](P'1,P',P'2)
+
+        \tkzMarkAngle[size=.5](I2A,I2,I2B)
+        \tkzLabelAngle[pos=.7](I2A,I2,I2B){$\gamma$}
+
+        \tkzDrawLine[color=blue](C2, D2)
+
+        \tkzMarkAngle[size=.5, teal](B2,I3,D2)
+        \tkzLabelAngle[pos=.7, teal](B2,I3,D2){$\theta$}
+
+        \tkzMarkAngle[size=.5, red](D2,I3,D')
+        \tkzLabelAngle[pos=.7, red](D2,I3,D'){$\gamma$}
+    
+        \tkzDrawPoints(P)
+        \tkzLabelPoints[below left](P)
+        \tkzDrawPoints(P')
+        \tkzLabelPoints[above right](P')
+    \end{tikzpicture}
+    \caption{Verknüpfung zweier Rotationen mit orientierten Geraden: Über die blaue Hilfs-Parallele zu \(R_\theta^p \mathscr l\) lassen sich die Winkel \(\theta\) und \(\gamma\) mit den Winkelsätzen zwischen \(R_\gamma^{p'}R_\theta^p\mathscr l\) und \(\mathscr l\) finden. Die Summe \(\theta + \gamma\) ergibt dann den Gesamtdrehwinkel von \(R_\gamma^{p'}R_\theta^p\).}
+    \label{fig:verknupfung-rotationen}
+\end{figure}
+
+\section{Die Struktur von \(\mathcal T\)}\label{sec:struktur-von-translationen}
+% Bevor wir die Aussage dieses Abschnitts beweisen, widmen wir uns der Konstruktion eines Homomorphismus, der im Laufe dieses Vortrags an einigen Stellen eine entscheidende Rolle spielen wird: 
+
+% Idee: Zunächst eine gruppentheoretischere Klassifikation der geraden Isometrien, also der Elemente von \(\geradisometr\) gewinnen: 
+
+% Führe für zwei orientierte(!) Linien \(\mathscr l, \mathscr l'\) eine Funktion \(\alpha\) ein, sodass \(\alpha(\mathscr l, \mathscr l')\) den Winkel in positiver Richtung von \(\mathscr l\) zur positiven Richtung von \(\mathscr l'\) angibt. 
+% %\anm{Linien haben jetzt also Richtungen?} => Relevant für die Orientierungserhaltung!
+% Für parallele und identische Linien, setzen wir \(\alpha(\mathscr l, \mathscr l')= 0\). 
+% %\anm{Wie würde man diese Abbildung rigoros definieren?}
+
+% Dann können wir jetzt mal untersuchen, wie sich durch gerade Isometrien transformierte Geraden zueinander verhalten. Welche geraden Isometrien gibt es? Genau die Translationen und Rotationen: 
+% %Rigoros: Linie ist Menge \(\{x  + t v \mid t \in [0,1]\}\). Zwei Linien also \(\mathscr l = \{x  + t v \mid t \in [0,1]\}\) und \(\mathscr l' = \{x  + t v' \mid t \in [0,1]\}\). Dann ist der Winkel in "`positiver Richtung'" gegeben durch 
+% %\begin{equation*}
+% %    \alpha = \arccos\left(\frac{\langle v, v'\rangle}{|v||v'|}\right)
+% %\end{equation*}
+% %\anm{Stimmt das?}
+% \begin{itemize}
+%     \item Translationen drehen nicht, also gilt \(\alpha(\mathscr l, T\mathscr l) = 0\) (auch intuitiv total klar). 
+    
+%     %Genauer: Für eine Translation \(T_a: \mathbb R^2 \to \mathbb R^2, x \mapsto x + a\) gilt 
+%     %\begin{equation*}
+%     %    T(\mathscr l) = \{T(x + tv) \mid t \in [0,1]\} = \{T(x) + tv\mid t \in [0,1]\}
+%     %\end{equation*}
+%     %Der Winkel hängt nur von dem "`positiven"' Richtungsvektor ab, also ändert sich hier nichts und der Winkel ist gleich 0. 
+
+%     \item Wenn \(R\) eine Rotation um einen Winkel \(\theta\) um einen Punkt \(p \in \mathbb R^2\) ist, dann gilt \(\alpha(\mathscr l, R\mathscr l) = \theta\). WICHTIG: Elementargeometrische Konstruktion! %Genauer: Für eine Rotation \(R: \mathbb R^2 \to \mathbb R^2\) gilt: \anm{Welche Form haben diese Rotationen konkret? Vielleicht durch Drehungen in \(\mathbb C\) beschreiben.}
+% \end{itemize}
+% Also können wir jeder Isometrie einen sinnvollen Wert zuweisen: 
+% \begin{equation*}
+%     \alpha(I) := \alpha(\mathscr l, I\mathscr l)
+% \end{equation*}
+% Das ist bis auf Vielfache \(2\pi\) definiert und damit als \(\alpha: \geradisometr \to \mathbb R/2\pi\mathbb Z\) sogar ein Homomorphismus: %\anm{Ist \(2\pi\mathbb Z\) normal in \(\mathbb R\)?}
+
+ 
+
+Das eigentliche Resultat dieses Abschnitts erhalten wir dann "`nebenbei"' auch noch: 
+\begin{proposition}\label{prop:normale-translationen}
+    \(\mathcal T\) ist normal in \(\geradisometr\). 
+\end{proposition}
+\begin{proof}
+    % Beweis beginnt mit "`Es reicht zu zeigen, dass \(R \circ T\circ R^{-1}\) eine Translation ist für \(T\) Translation und \(R\) Rotation"'. \anm{Aber wo wird dann dieser Ansatz jemals wieder aufgegriffen?}
+    Nach \cref{prop*:homomorphismus-alpha} gilt \(\mathcal T = \ker(\alpha)\) und Kerne von Homomorphismen sind normal. 
+\end{proof}
+\begin{annotationstrd}
+    Den Beweis von \cref{prop:normale-translationen} hätten wir auch ganz ohne den Homomorphismus \(\alpha\) rein elementargeometrisch führen können. Das ist in gewisser Weise auch ein Weg, der über den Quotienten \(\geradisometr/\mathcal T\) ganz natürlich auf den Homomorphismus \(\alpha\) führt, ohne diesen im vorhinein zu kennen!
+\end{annotationstrd}
+
+%\section{Die Faktorgruppe \(\geradisometr /\mathcal T\)}\label{sec:faktorgruppe-der-translationen}
+Wenn wir schon herausgefunden haben, welche Struktur sich hinter den Translationen verbirgt -- nämlich Normalität in \(\geradisometr\) -- so ist es ganz natürlich nun nach dem entsprechenden Quotienten zu fragen: Was ist die Faktorgruppe \(\geradisometr /\mathcal T\)? 
+\begin{itemize}
+    \item Isomorph zur Gruppe aller Rotationen um einen gegebenen Punkt. Diese wird mit \(G_p^+\) notiert, da diese Menge den orientierungserhaltenden Teil von \(G_p\) ausmacht (siehe \cref{sec:wiederholung}). 
+    
+    \textit{Beweis}: Es ist 
+    \begin{equation*}
+        \geradisometr/\mathcal T = \{I\mathcal{T} \mid I \in \geradisometr\} = \{R\mathcal{T} \mid R \in G_p^+\}
+    \end{equation*}
+    Dabei kommt die zweite Gleichheit daraus, dass für alle \(I \in \geradisometr\) gilt \(I \in \mathcal T\) oder \(I \in G_p^+\). \anm{ACHTUNG: Warum können wir hier irgendeinen Punkt \(p\) fix nehmen? Wir können hier doch erstmal nur unterscheiden zwischen Translationen und \textit{irgendwelchen} Rotationen, d.h. Rotationen um \textit{beliebige} Punkte. Prop 2.9 sagt: Rotationen um verschiedene Punkte sind äquivalent!} Ferner: Für alle \(I \in \geradisometr\cap \mathcal T\) ist \(I\mathcal T = \mathcal T\). Nun gilt es noch die Disjunktheit der \(R\mathcal T\) für \(R \in \geradisometr\cap G_p^+, I \neq \id\) festzustellen. Geometrisch leicht ersichtlich: Wenn \(R_{\theta_1}^p \neq R_{\theta_2}^p\), so gilt \(R_{\theta_2}^p\circ T(p) \neq p\) für alle \(T \in \mathcal T\). Wegen \(R_{\theta_1}^p(p) = p\) folgt also \(R_{\theta_1}^p\notin R_{\theta_2}^p \mathcal T\). Die Äquivalentklassen-Konstruktion des Quotienten liefert dann direkt die Disjunktheit. 
+
+    So erhalten wir einen Isomorphismus durch 
+    \begin{equation*}
+        \Phi: G_p^+ \to \geradisometr/\mathcal T, R_{\theta}^p \mapsto R_{\theta}^p\mathcal T
+    \end{equation*}
+    mit Umkehrabbildung 
+    \begin{equation*}
+        \Phi': \geradisometr/\mathcal T \to G_p^+, I\mathcal T \mapsto 
+        \begin{cases}
+            \id &, I \in \mathcal T \\
+            R_\theta^p &, I \in G_p^+\setminus \{\id\}
+        \end{cases}
+    \end{equation*}
+    
+    Also: \(\geradisometr/\mathcal T \cong G_p^+\). 
+    
+    \item Die Rotationen \(G_p^+\) sind bijektiv zu \(\mathbb R/2\pi\mathbb Z\). Bijektion \(f: \mathbb R/2\pi\mathbb Z \to G_p^+, \theta \mapsto R_\theta^p\). 
+    
+    \item Die obige Bijektion ist homomoph (intuitiv klar), d.h. insgesamt
+    \begin{equation*}
+        \mathrm{Isom^+(\mathbb R^2)}/\mathcal T \cong G_p^+ \cong \mathbb R/2\pi\mathbb Z \cong S^1 
+    \end{equation*}
+    \anm{Beweisbedürftig bleibt die Isomorphie \(\mathbb R/2\pi\mathbb Z \cong S^1\)}
+
+    \item Damit können wir die -- zunächst etwas willkürlich wirkende -- Wahl von \(\alpha\) in \cref{sec:normalität-von-translationen} erklären: Neben den Isomorphien \(\Phi, \Phi'\) haben wir auch die kanonische Einbettung 
+    \begin{equation*}
+        \iota: \mathrm{Isom}^+(\mathbb R^2) \to \mathrm{Isom}^+(\mathbb R^2)/\mathcal T, I \mapsto I \mathcal T
+    \end{equation*}
+    Zudem haben wir noch eine weitere Isomorphien
+    \begin{equation*}
+        \psi: G_p^+ \to \mathbb R/2\pi\mathbb Z, R_\theta^p \mapsto [\theta]
+    \end{equation*}
+    Das folgende Diagramm veranschaulicht die Situation: 
+    \begin{equation*}
+        \begin{tikzcd}
+            \geradisometr \arrow[hook]{d}{\iota} \arrow{r}{\alpha} & \mathbb R/2\pi\mathbb Z \\
+            \geradisometr/\mathcal T \arrow{r}{\Phi'} & G_p^+ \arrow{u}{\psi}
+        \end{tikzcd}
+    \end{equation*}
+    Tatsächlich kommutiert dieses Diagramm auch, d.h. 
+    \begin{equation*}
+        \alpha = \psi\circ \Phi'\circ \iota
+    \end{equation*}
+    Also liefert der in \cref{sec:normalität-von-translationen} eingeführte Homomorphismus \(\alpha\) einfach "`nur"' eine elementargeometrische Interpretation dieses Homomorphismus. 
+\end{itemize}
+ALTERNATIV: Isomorphismus ist gegeben durch \(\alpha\) aus dem Beweis der obigen Proposition, also ist das hier eigentlich ein klassisches Homomorphie-Satz-Argument nach \(G/\ker(\varphi) \cong \mathrm{Im}(\varphi)\).
+%\anm{D.h. die obige Argumentation funktioniert auch (einfach) unabhängig davon?} => Ja.
+
+Wir fassen unsere Ergebnisse in der folgenden Proposition zusammen: 
+\begin{propositionstrd}\label{prop*:gestalt-quotient-über-translationen}
+    Es gilt 
+    \begin{equation*}
+        \mathrm{Isom^+(\mathbb R^2)}/\mathcal T \cong S^1 
+    \end{equation*}
+\end{propositionstrd}
+
+%\include{auflosbarkeit}
+
+\section{Konjugiertenklassen von Elementen aus \(\geradisometr\)}\label{sec:konjugiertenklassen-gerader-isometrien}
+
+\subsection{Konjugatiertenklassen von Translationen}\label{subsec:konjugiertenklassen-von-translationen}
+Da \(\mathcal T\) normal in \(\geradisometr\) ist, ist jede Konjugation einer Translation ebenfalls eine Translation. Da \(\mathcal T \cong (\mathbb R^2, +)\), ist \(\mathcal T\) abelsch, also gilt für Konjugationen mit Translationen: 
+\begin{equation*}
+    T_w T_v T_w^{-1} = T_v T_w T_w^{-1} = T_v
+\end{equation*}
+Der andere "`Konjugiertentyp"' von Translationen, welcher in \(\geradisometr\) auftreten kann ist der durch Rotationen. Sei also \(R = R_\theta^p\) eine solche um einen Punkt \(p\) um den Winkel \(\theta\). Dann gilt 
+\begin{equation*}
+    (RT_vR^{-1})(p) = (RT_vR_{-\theta}^p)(p) = RT_v(p) = R_\theta^p (p+v) = p + R_\theta^0 v
+\end{equation*}
+\anm{Die letze Gleichheit ist beweisbedürftig.} Da \(\mathcal T\) nach \cref{prop:normale-translationen} normal ist, ist auch \(RT_vR^{-1}\) eine Translation, also \(RT_vR^{-1} = T_w\) für ein \(w \in \mathbb R^2\). Insbesondere gilt auch 
+\begin{equation*}
+    p + w = T_w(p) = RT_vR^{-1}(p) = p + R_\theta^0 v
+\end{equation*}
+also \(w = R_\theta^0 v\). Damit ist die Konjugiertenklasse einer Translation \(T_v\) gegeben als die Menge aller Translationen um Vektoren mit derselben Länge wie \(v\). Denn genau diese Vektoren werden von den Rotationen um den Nullpunkt getroffen. 
+%\anm{Also trifft \(f:\mathbb R\to \mathbb R^2, \theta \mapsto R_\theta^0 v\) alle Elemente von \(\{x \in \mathbb R^2 \mid |x| = |v|\}\)?}
+
+\subsection{Konjugiertenklassen von Rotationen}\label{subsec:konjugiertenklassen-von-rotationen}
+Nun zu den Konjugiertenklassen von Rotationen. Für eine Rotation \(R = R_\theta^p\) und beliebige Isometrien \(I \in \geradisometr\) gilt wegen der Homomorphismus-Eigenschaft von \(\alpha\) 
+\begin{equation*}
+    \alpha(IRI^{-1}) = \alpha(I) + \alpha(R) - \alpha(I) = \alpha(R)
+\end{equation*}
+Also ist \(IRI^{-1}\) eine Rotation um den Winkel \(\theta\) (siehe \cref{prop*:gruppentheo-klassifikation-gerader-isometrien}), welche jedoch den Punkt \(Ip\) statt \(p\) fixiert, denn
+\begin{equation*}
+    IRI^{-1}(Ip) = IR(p) = Ip
+\end{equation*}
+und Rotationen haben nur genau einen Fixpunkt (sind in der Fixgruppe \(G_p\) vollständig enthalten, siehe \cref{sec:wiederholung}). 
+
+Insgesamt können wir nun zusammen mit den Ergebnissen aus \cref{subsec:konjugiertenklassen-von-translationen} festhalten:
+\begin{equation}\label{eq:konjugations-relationen}
+    R_\theta^p T_v = T_{R_\theta^0 v} R_\theta^p, \quad \text{und} \quad IR_\theta^p = R_\theta^{Ip}I
+\end{equation}
+
+\subsection{Konjugiertenklassen in \(\mathrm{Isom}(\mathbb R^2)\)}
+ACHTUNG: Die Konjugiertenklassen von Translationen und Rotationen sind in der ganzen Gruppe \(\mathrm{Isom}(\mathbb R^2)\) größer! \anm{Beispiel: Konjugation einer Rotation \(R_\theta^p\) mit einer Spiegelung in einer Geraden, die \(p\) enthält, liefert \(R_{-\theta}^p\)}
+
+% \subsection{\(G_p^+\) und \(G_{Ip}^+\) sind konjugiert zueinander}\label{subsec:konjugierte-rotationsgruppen}
+% Wegen der Relation \(IR_\theta^pI^{-1} = R_\theta^{Ip}\) aus \eqref{eq:konjugations-relationen} haben wir für eine feste Isometrie \(I \in \geradisometr\)
+% \begin{equation*}
+%     IG_p^+ I^{-1} = G_{Ip}^+
+% \end{equation*}
+% Also sind \(G_p^+\) und \(G_{Ip}^+\) konjugiert zueinander in \(\geradisometr\). Damit sind sie sogar isomorph. Ein entsprechender Isomorphismus ist gegeben durch die Abbildung \(\varphi: G_p^+ \to G_{Ip}^+, R_\theta^p \mapsto R_\theta^{Ip} = IR_\theta^pI^{-1}\): Für \(\theta, \gamma \in \mathbb R\) gilt 
+% \begin{equation*}
+%     \varphi(R_\theta^pR_\gamma^p) = IR_\theta^pR_\gamma^pI^{-1} = (IR_\theta^pI^{-1})(IR_\gamma^pI^{-1}) = \varphi(R_\theta^p) \varphi(R_\gamma^p)
+% \end{equation*}
+% und \(\varphi\) ist 
+% \begin{itemize}
+%     \item injektiv, denn 
+%     \begin{equation*}
+%         \ker(\varphi) = \{IR_\theta^pI^{-1} = \id\} = \{R_\theta^p = \id\} = \{\id\}
+%     \end{equation*}
+
+%     \item surjektiv, denn \(\varphi(R_\theta^p) = R_\theta^{Ip}\) für jede Rotation \(R_\theta^{Ip} \in G_{Ip}^+\). 
+% \end{itemize}
+% Diese Struktur ist tatsächlich kein Einzelfall. Denn für die Fixgruppe \(S(x) = \{g \in G\mid g.x = x\}\) eines Punkts \(x \in X\) unter einer Operation von einer Gruppe \(G\) auf einer Menge \(X\) gilt
+% \begin{propositionstrd}\label{prop*:gleicher-orbit-konjugierte-fixgruppen}
+%     Falls \(x,y \in X\) auf derselben Bahn liegen, d.h. \(\mathrm{Orb}(x) = \mathrm{Orb}(y)\), so sind die Fixgruppen \(S(x)\) und \(S(y)\) konjugiert zueinander. 
+% \end{propositionstrd}
+% \begin{proof}
+%     \anm{Aufgabe 2.5.}
+% \end{proof}
+% \begin{corollarystrd}\label{cor:transitiv-konjugierte-fixgruppen}
+%     Operiert \(G\) transitiv auf \(X\), so sind alle Fixgruppen konjugiert zueinander. 
+% \end{corollarystrd}
+% \begin{proof}
+%     Dass \(G\) auf \(X\) transitiv operiert, bedeutet, dass ein \(x \in X\) exisiert, sodass \(\mathrm{Orb}(x) = X\). Für jede Operation liefern die Bahnen eine disjunkte Zerlegung von \(X\). Also gilt für alle \(x,y \in X\) auch \(\mathrm{Orb}(x) = \mathrm{Orb}(y)\), womit nach \cref{prop*:gleicher-orbit-konjugierte-fixgruppen} auch \(S(x)\) und \(S(y)\) konjugiert sind. 
+% \end{proof}
+% Die Situation aus \cref{cor:transitiv-konjugierte-fixgruppen} ist genau die für \(G = \geradisometr\) und \(X = \mathbb R^2\) vorliegende: %\anm{Wie operiert \(\geradisometr\) auf \(\mathbb R^2\)? Durch \(I.x := I(x)\)? Warum ist die Operation transitiv?}
+% \(\geradisometr\) operiert auf \(\mathbb R^2\) durch Ausführung der Isometrien auf den Vektoren, also 
+% \begin{equation*}
+%     I.x := I(x)
+% \end{equation*}
+% Bereits die Translationen lassen diese Operation transitiv werden. 
+
+\section{\(\geradisometr\) als (inneres) semidirektes Produkt}
+
+\subsection{Motivation}
+Die folgenden Aussagen gelten auch alle im \(\mathbb R^n\) und nicht nur \(\mathbb R^2\)!
+\begin{proposition}\label{prop:zerlegung-gerader-isometrien}
+    Sei \(p \in \mathbb R^2\) fest. Dann existieren für jede Isometrie \(I \in \geradisometr\) ein eindeutiges \(v \in \mathbb R^2\) und \(\theta \in [0,2\pi)\) sodass \(I = T_v R_\theta^p\).  
+\end{proposition}
+\begin{proof}
+    \begin{itemize}
+        \item Intuitiv klar + Homomorphismus-Eigenschaft aus \cref{prop*:homomorphismus-alpha}: 
+        \begin{equation*}
+            \alpha(T_v R_\theta^0) = \alpha(T_v) + \alpha(R_\theta^0) = \theta
+        \end{equation*}
+        
+        \item Daraus folgt, dass \(\alpha(I) = \theta\) die einzige Wahl ist.: Hätten wir solch eine Darstellung, so müssten wir diesen Winkel wählen. 
+        
+        \item \(\geradisometr\) ist eine Untergruppe, also 
+        \begin{equation*}
+            I = T_v R_\theta^p \iff T_v = I(R_\theta^p)^{-1} = I R_{-\theta}^p 
+        \end{equation*}
+        Intuiviv ist die Identität der Inversen rechts klar. %\anm{Aber trotzdem beweisbedürftig!}
+
+        \item Wegen der Homomorphismus-Eigenschaft aus \cref{prop*:homomorphismus-alpha} sieht man
+        \begin{equation*}
+            \alpha(IR_{-\theta}^p) = = \alpha(I) + \alpha(R_{-\theta}^p) = \theta - \theta = 0
+        \end{equation*}
+        Nach \cref{prop*:gruppentheo-klassifikation-gerader-isometrien} charakterisiert das genau die Translationen. Also ist \(IR_{-\theta}^p\) eine Translation. 
+        
+        \item Wann sind Translationen gleich? Genau dann wenn ihre "`Verschiebungsvektoren"' übereinstimmen. Also hier wenn \(v = T_v(0) = (IR_{-\theta}^p) (0)\). 
+    \end{itemize}
+    \vskip\baselineskip\hrule\vskip\baselineskip\noindent
+    \textit{Alternativer Beweis} (Aufgabe 2.6):
+    \begin{itemize}
+        \item \(I\) darstellen als Produkt zweier Spiegelungen \(L_1, L_2\)
+        \item Wähle Spiegelung \(L_3\), sodass \(L_1L_3\) eine Translation und \(L_3L_2\) eine Rotation um \(p\) ist. 
+        \item Schreibe abschließend \(I = (L_1L_3)(L_3L_2)\). 
+    \end{itemize}
+\end{proof}
+Jetzt: \(p=0\). Dann ist 
+\begin{equation*}
+    G_p^+ = G_0^+ = \mathrm{Isom}^+(S^1) = S^1
+\end{equation*}
+\anm{Hat wohl irgendwas mit \cref{prop*:gestalt-quotient-über-translationen} zu tun, aber wie genau ist mir ein Rätsel... Sowohl die zweite, als auch die letzte Gleichung sind beweisbedürftig.}
+
+Für den Moment setzen wir \(SO(2):= G_0^+\) (mehr dazu anscheinend in Kapitel 3). Wegen \(\mathcal T \cong (\mathbb R^2, +)\) werden wir auch häufig \(\mathbb R^2\) statt \(\mathcal T\) schreiben. 
+
+Mit Prop. 2.10 und 2.8 haben wir nun bereits entscheidende Aussagen darüber gesammelt, wie die Untergruppen \(G_0^+\) und \(\mathcal T\) in \(\geradisometr\) liegen: 
+\begin{enumerate}
+    \item \textbf{Sie erzeugen die Gruppe}: Nach Prop 2.10 können wir jede gerade Isometrie des \(\mathbb R^2\) als Produkt \(I=TR\) einer Translation \(T\) und einer Rotation \(R\) um \(0\) verstehen. 
+    \item \(\mathcal T \cap G_0^+ = \{e\}\) (Klassifikation nach Fixpunkten) %\anm{Konjugiertheit von \(G_0^+\) zu allen anderen \(G_p^+\). Was soll diese Eigenschaft aussagen? Wo wird sie relevant?}
+    \item \(\mathcal T\) ist normal, aber \(G_0^+\) ist nicht normal (und damit auch keiner der anderen \(G_p^+\), da diese alle konjugiert -- insbesondere isomorph sind). %\anm{Normalität von \(\mathcal T\) und Isometrie des Quotienten \(\geradisometr/\mathcal T\)}
+\end{enumerate}
+Die ersten beiden Eigenschaften erinnern an die Konstruktion des (inneren) direkten Produkts: 
+\begin{definitionstrd}[Innere direkte Produkte]\label{def*:innere-direkte-produkte}
+    Eine Gruppe \(G\) heißt \emph{inneres direktes Produkt} zweier Untergruppen \(H,K \leq G\), falls 
+    \begin{enumerate}
+        \item \(G = HK\)
+        \item \(H \cap K = \{e\}\) und 
+        \item \(hk = kh\) für alle \(h\in H, k \in K\)
+    \end{enumerate}
+    gilt. 
+\end{definitionstrd}
+\begin{annotationstrd}\label{ann*:innere-direkte-produkte-über-normalteiler}
+    Die letzte Eigenschaften wird häufig auch spezifischer gefasst: Sind \(H\) und \(K\) sogar Normalteiler von \(G\), die Punkt 2 erfüllen, so kommutieren deren Elemente im Sinne von Punkt 3. Ist einer der beiden Untergruppen in diesem Fall jedoch kein Normalteiler, so ist Punkt 3 im Allgemeinen auch nicht erfüllt!
+\end{annotationstrd}
+
+\textbf{Frage bei "`inneren"' Strukturen}: Können wir die Struktur der ganzen Gruppe alleine durch die Strukturen kleinerer Untergruppen verstehen?
+
+Antwort: JA! Ein Beispiel dafür sind innere direkte Produkte: In diesen können wir das Produkt über der gesamten Gruppe vollständig ("`direkt"') aus dem Produkt über den kleineren Untergruppen \(H\) und \(K\) rekonstruieren: 
+\begin{equationstrd}\label{eq:rekonstruktion-inneres-direktes-produkt}
+    g_1 \cdot g_2 = (h_1k_1) \cdot (h_2k_2) = h_1(k_1h_2)k_2 = (h_1h_2) (k_1k_2)
+\end{equationstrd}
+
+Können wir so auch für \(\mathrm{Isom}^+(\mathbb R^2)\) vorgehen? Auf jeden Fall nicht sofort. Denn zunächst ist \(G_0^+\) kein Normalteiler von \(\geradisometr\). Ferner kommutieren die Elemente von \(\mathcal T\) und \(G_0^+\) nicht. Also liegt die Situation aus \cref{ann*:innere-direkte-produkte-über-normalteiler} auch in unserer Situation vor!
+
+Trotzdem versuchen wir einfach mal das Produkt soweit zu rekonstruieren, wie es uns möglich ist: Mit der ersten Relation aus \eqref{eq:konjugations-relationen} erhalten wir für das allgemeine Produkt gerader Isometrien \(I_1 = T_{v_1}\circ R_{\theta_1}^0\) und \(T_{v_2}\circ R_{\theta_2}^0\)
+\begin{align}
+    \begin{split}\label{eq:multiplikation-isomp}
+        I_1 \circ I_2 &= (T_{v_1}\circ R_{\theta_1}^0)\circ (T_{v_2}\circ R_{\theta_2}^0) \\
+        &= T_{v_1}\circ (R_{\theta_1}^0 \circ T_{v_2})\circ R_{\theta_2}^0 \\
+        &\stackrel{\mathclap{\eqref{eq:konjugations-relationen}}}{=} T_{v_1}\circ T_{{\color{blue} R_{\theta_1}^0} v_2} \circ R_{\theta_1}^0 \circ R_{\theta_2}^0
+    \end{split}
+\end{align}
+da Verkettungen assoziativ sind. 
+%\anm{Fehlende Referenz auf Gl 2.2 über zweiter Gleichheit}. 
+
+\begin{propositionstrd}\label{prop*:wirkung-auf-translationen}
+    Für alle \(\theta \in \mathbb R\) ist durch \(\psi_\theta: \mathcal T \to \mathcal T, T_v \mapsto T_{R_\theta^0 v}\) ein Automorphismus gegeben. Die Abbildung \(\psi:G_0^+\to \mathrm{Aut}(\mathcal T), R_\theta^0 \mapsto \psi_\theta\) ist ein Homomorphismus. 
+\end{propositionstrd}
+\begin{proof}
+    \anm{Aufgabe 2.7}
+\end{proof}
+\begin{annotationstrd}\label{ann*:breiterer-kontext-für-automorphismus}
+    % Wie kommt man sonst noch auf den Automorphismus (ohne direkt die Identität \eqref{eq:konjugations-relationen} zu kennen)? \(\implies\) Konstruktion eines inneren semidirekten Produkts!
+    Der Automorphismus \(\psi_\theta\) aus \cref{prop*:wirkung-auf-translationen} steht in einem breiteren Kontext. Seine "`abstrakte"' Form ist bisher eher schwer direkt zu erkennen. In \cref{subsec:innere-semidirekte-produkte} werden wir feststellen, dass dieser Automorphismus tatsächlich ein bestimmter \textit{innerer Automorphismus} ist (und das nicht zufällig!). 
+\end{annotationstrd}
+Mit der Abbildung \(\psi\) aus \cref{prop*:wirkung-auf-translationen}, können wir die Multiplikation über \(\geradisometr\) aus \eqref{eq:multiplikation-isomp} etwas anders darstellen: 
+\begin{align*}
+    I_1\circ I_2 &= T_{v_1} \circ \psi_{\theta_1}(T_{v_2})\circ R_{\theta_1}^0\circ R_{\theta_2}^0 \\
+    &= T_{v_1} \circ (\psi(R_\theta^0))(T_{v_2})\circ R_{\theta_1}^0\circ R_{\theta_2}^0
+\end{align*}
+Wir erhalten also nicht das direkte Produkt, sondern nur ein "`fast-direktes"' Produkt (eben bis auf den Homomorphismus \(\psi\)). 
+
+\begin{annotationstrd}
+    \anm{Sind die folgenden Wirkungs-Überlegungen für irgendetwas relevant?}
+    Aus \cref{prop*:wirkung-auf-translationen} erhalten wir, dass \(G_0^+\) auf \(\mathcal T\cong \mathbb R^2\) durch Automorphismen operiert, also durch 
+    \begin{equation*}
+        R_\theta^0.x := (\psi(R_\theta^0))(x) = \psi_\theta(x)
+    \end{equation*}
+    Denn für alle \(R_\theta^0, R_\gamma^0 \in G_0^p\) und alle \(x \in \mathcal T\) gilt
+    \begin{equation*}
+        (R_\theta^0 \circ R_\gamma^0).x = (\psi(R_\theta^0\circ R_\gamma^0))(x) = (\psi(R_\theta^0)\circ \psi(R_\gamma^0))(x) = R_\theta^0.(R_\gamma^0.x)
+    \end{equation*} 
+    und
+    \begin{equation*}
+        R_0^0.x = (\psi(R_0^0))(x) = \id(x) = x
+    \end{equation*}
+    wegen der Homomorphismuseigenschaft von \(\psi\). 
+\end{annotationstrd}
+
+\subsection{Innere semidirekte Produkte}\label{subsec:innere-semidirekte-produkte}
+Idee: Eine Gruppe aus Untergruppen rekonstruieren (Wie bei inneren direkten Produkten -- aber mit abgeschwächten Voraussetzungen). In \eqref{eq:multiplikation-isomp} erkennen wir, dass die Struktur der \(\mathrm{Isom}^+(\mathbb R^2)\) nicht für ein direktes Produkt ausreicht. Es wird sich trotzdem als äußerst fruchtbar erweisen, die drei vor \cref{def*:innere-direkte-produkte} aufgelisteten Eigenschaften zu abstrahieren und als Anlass für die Definition einer neuen Struktur zu nehmen:
+
+%Diese beobachteten algebraischen Eigenschaften wollen wir nun zum Anlass einer zunächst ziemlich willkürlich wirkenden Definition nehmen: 
+\begin{definitionstrd}[Innere semidirekte Produkte]\label{def*:innere-semidirekte-produkte}
+    Eine Gruppe \(G\) heißt \emph{inneres semidirektes Produkt} der Untergruppen \(H, K\), falls: 
+    \begin{enumerate}
+        \item \(G = HK\), also für jedes \(g \in G\) existieren \(h \in H\) und \(k \in K\), sodass \(g = hk\). %\anm{Die Inklusion \(\supseteq\) gilt immer?} => Klar, weil G Gruppe
+        \item \(H\cap K = \{e\}\): Dadurch wird die Zerlegung in (2) eindeutig. \anm{Ist das eine Äquivalenz? Oder gilt die Rückrichtung nur in unserem konkreten Beispiel? Dann können die 3 Punkte aus Abschnitt 6.1 als Motivation für diese Konstruktion verstanden werden.} 
+    
+        \item \(H\) ist normal in \(G\). 
+    \end{enumerate}
+    In diesem Fall schreiben wir auch \(G = H \rtimes K\). 
+\end{definitionstrd}
+Unter diesen Voraussetzungen sind wir dann auch tatsächlich in der Lage das Produkt über \(G\) ähnlich wie in \eqref{eq:multiplikation-isomp} zu rekonstruieren (ähnlich wie bei den inneren direkten Produkten): 
+%Tatsächlich entsteht das Produkt aus dieser Definition nicht einfach aus dem Nichts. Viel eher ist es das Ergebnis der (natürlichen!) Rekonstruktion des Produktes über \(G\) durch die Produkte über \(H\) und \(G\) : 
+%Interessant: Produkt nicht einfach nur als arbiträre algebraische Konstruktion. Sondern eher als \textit{Identifikation}, denn 
+\refstepcounter{equation}
+\begin{equation}\label{eq:innere-produkt-rekonstruktion}
+    g_1g_2 = h_1k_1h_2k_2 = (h_1\underbrace{k_1h_2k_1^{-1}}_{\in H})(k_1k_2) = (h_1 \psi_{k_1}(h_2))(k_1k_2)
+\end{equation}
+mit \(\psi_k: H \to H, h\mapsto khk^{-1}\). 
+Hier bekommt man die Verknüpfung über \(G\) also nur "`semidirekt"' aus den Elementen aus \(H\) und \(K\). \cref{def*:innere-direkte-produkte} und \cref{def*:innere-semidirekte-produkte} unterscheiden sich tatsächlich alleinig in der Kommutativität der Untergruppen (bzw. Normalteiler in \cref{ann*:innere-direkte-produkte-über-normalteiler}). 
+Ohne diese Kommutativität können wir (im Allgemeinen) also die Verknüpfung über \(G\) nicht länger "`direkt"' aus den Produkten \(h_1h_2\) und \(k_1k_2\) rekonstruieren.
+ 
+\cref{ann*:breiterer-kontext-für-automorphismus} hat bereits angedeutet, dass die Automorphismen \(\psi_\theta\) aus \cref{prop*:wirkung-auf-translationen} in einem breiteren Kontext stehen. Diesen können wir nun verstehen:
+\begin{examplestrd}
+    In der allgemeinen Konstruktion des (inneren) semidirekten Produkts spielen Automorphismen der Form \(\psi_k: H \to H, h\mapsto khk^{-1}\) (also \textit{innere} Automorphismen) eine entscheidende Rolle. Wir betrachten nun \(G = \geradisometr, H = \mathcal T\) und \(K = G_0^+\). %Nach \cref{prop:normale-translationen} ist \(\mathcal T\) tatsächlich normal. Desweiteren liefert uns die Zerlegung aus \cref{prop:zerlegung-gerader-isometrien} auch \(\geradisometr = \mathcal T G_0^+\). \(\mathcal T \cap G_0^+ = \{e\}\) folgt aus der Klassifikation der Isometrien anhand ihrer Fixpunkte. 
+    Per Konstruktion haben wir \(\mathrm{Isom}^+(\mathbb R^2) = \mathcal T \rtimes G_0^+\). 
+    %\anm{Beweisbedürftig bleibt . Wird das auch klar aus der \textit{eindeutigen} Zerlegung aus \cref{prop:zerlegung-gerader-isometrien} oder ist diese Tatsacher viel elementarer? (z.b. Translationen haben keine Fixpunkte, Rotationen jdoch schon)}. 
+    Damit können wir auch hier ganz allgemein das Produkt über \(\geradisometr\) semi-vollständig aus dem Produkt über \(\mathcal T\) und \(G_0^+\) rekonsruieren. Nach \eqref{eq:innere-produkt-rekonstruktion} erhalten wir also für gerade Isometrien \(I_1 = T_{v_1}R_{\theta_1}^0, I_2 = T_{v_2}R_{\theta_2}^0\)
+    \begin{equation*}
+        I_1\circ I_2 = (T_{v_1}\circ \psi_{R_{\theta_1}^0}(T_{v_2}))\circ (R_{\theta_1}^0 \circ R_{\theta_2}^0)
+    \end{equation*}
+    mit
+    \begin{equation*}
+        \psi_{R_\theta^0}(T_v) = R_\theta^0 T_v (R_\theta^0)^{-1} \stackrel{\eqref{eq:konjugations-relationen}}{=} T_{R_\theta^0 v} R_\theta^0 (R_\theta^0)^{-1} = T_{R_\theta^0 v}
+    \end{equation*}
+    Also finden wir unter der Identifikation von \(R_\theta^0\) mit \(\theta\) den inneren Automorphismus \(\psi_{R_\theta^0}\) tatsächlich als Automorphismus \(\psi_\theta\) in \cref{prop*:wirkung-auf-translationen} wieder. Dieser ergibt sich also nicht einfach nur zufällig in dieser Situation, sondern tatsächlich aus den elementareren algebraischen Eigenschaften 1--3 in \cref{def*:innere-semidirekte-produkte}. Aus \eqref{eq:innere-produkt-rekonstruktion} erkennen wir zudem die entscheidende Rolle dieses inneren Automorphismus für diese algebraische Struktur. 
+
+    Insgesamt legen wir so durch die Darstellung 
+    \begin{equation*}
+        \geradisometr = \mathcal T \rtimes G_0^+ 
+    \end{equation*}
+    eine tiefere algebraische Struktur von \(\geradisometr\) frei. 
+\end{examplestrd}
+
+\subsection{Äußere semidirekte Produkte}\label{subsec:äußere-semidirekte-produkte}
+\textbf{Idee}: Neue Gruppe aus zwei bekannten Gruppen konstruieren. Aber nicht \textit{direkt} aus dem jeweiligen Produkt der einzelnen Gruppen, sondern nur \textit{semidirekt}. Das bedeutet hier vor allem: Einen Freiheitsgrad mehr bei der Wahl eines die Stuktur des Produkts bestimmenden Automorphismus (nicht nur innere Automorphismen)!
+
+Unterschied zur inneren Konstruktion: Dort haben wir bereits gesehen, dass diese genau von einer bestimmten Familie von Automorphismen abhängt, nämlich \(\psi_k:H\to H, h \mapsto khk^{-1}\). Indem wir uns jetzt von dieser festen Familie lösen und allgemeine Familien \(\psi: K \to \mathrm{Aut}(H), k \mapsto \psi_k\) betrachten mit derselben Produktstruktur, also 
+\begin{equationstrd}\label{eq:äußere-semidirekte-produkt-struktur}
+    (h_1, k_1)\cdot (h_2, k_2) := (h_1\psi_{k_1}(h_2), k_1k_2)
+\end{equationstrd}
+können wir noch weitaus mehr Strukturen beschreiben. Dafür definieren wir nun zunächst in Analogie zu den äußeren direkten Produkten:
+
+\begin{definitionstrd}[Äußere semidirekte Produkte]
+    Seien \(H\) und \(K\) Gruppen und \(\psi: K \to \mathrm{Aut}(H), k \mapsto \psi_k\) ein Homomorphismus. Dann ist das \emph{äußere semidirekte Produkt} von \(H\) und \(K\) bezüglich der Automorphismen-Familie durch \(\psi\) gegeben als die Menge \(H\times K\) zusammen mit der Multiplikation nach \eqref{eq:äußere-semidirekte-produkt-struktur}. Dann schreiben wir auch \(H\rtimes_\psi K\) für diese Konstruktion.
+    
+    Interessieren wir uns nicht für ein bestimmtes Produkt, sondern ganz allgemein für ein äußeres semidirektes Produkt zu einer Familie \(\psi: K \to \mathrm{Aut}(H), k \mapsto \psi_k\), so schreiben wir auch oft einfach nur \(H\rtimes K\). 
+\end{definitionstrd}
+
+\begin{examplestrd}
+    Als direktes Produkt: Einfachste Automorphismen-Familie durch \(\psi(k) = \id\) für alle \(k\in K\). 
+\end{examplestrd}
+
+\begin{examplestrd}
+    Als inneres semidirektes Produkt: Spezialfall, wenn die Automorphismen-Familie genau die inneren Automorphismen sind. \anm{Dann isomorph? Oder vllt schon davor isomorph?}
+\end{examplestrd}
+
+% \subsection{Semidirekte Produkte in freier Wildbahn}
+% Beispiele! Wo treten semidirekte Produkte dann tatsächlich auf?
+
+% Wir wollen die Gruppe von orientierungs-erhaltenden Ähnlichkeitstransformationen des \(\mathbb R^2\) untersuchen. Diese notieren wir \(\mathrm{Sim}^+(\mathbb R^2)\).
+% \begin{examplestrd}
+%     Konkret: \(\mathrm{Sim}^+(\mathbb R^2) = \mathbb R^2 \rtimes \mathbb C^* \cong \mathbb R^2 \rtimes (S^1 \times \mathbb R^+)\)
+% \end{examplestrd}
+% Ein ähnliches Ergebnis erhalten wir auch für die analog definierte Gruppe \(\mathrm{Sim}^+(\mathbb R)\). 
+
+% \setcounter{example}{10}
+% \begin{example}
+%     Konkret: \(\mathrm{Sim}^+(\mathbb R) = \mathbb R\rtimes \mathbb R^+\). 
+    
+%     Weiter untersuchen wir die von \(E:x\mapsto 2x\) und \(T: x\mapsto x+1\) erzeugte Untergruppe \(G\) von \(\mathrm{Sim}^+(\mathbb R)\). Hier erhalten wir \(G = \mathbb Z\left[\frac{1}{2}\right] \rtimes \mathbb Z\). 
+% \end{example}
+
+% \begin{proposition}
+%     Sind \(H\) und \(K\) auflösbare Gruppen, so ist ein äußeres semidirektes Produkt \(H\rtimes K\) ebenfalls auflösbar. 
+% \end{proposition}
+% \begin{proof}
+%     \begin{itemize}
+%         \item Kommutator bestimmen (Aufgabe 2.11): 
+%         \begin{equation*}
+%             [(h_1, k_1), (h_2, k_2)] = (h_1 \psi_{k_1}(h_2)\psi_{k_1k_2}(h_1^{-1})\psi_{k_1k_2k_1^{-1}}(h_2^{-1}), [k_1, k_2])
+%         \end{equation*}
+
+%         \item Daraus folgt \anm{irgendwie} \([G,G] \subseteq H\rtimes [K,K]\). \anm{Bezüglich der gleichen Automorphismen-Familie wie auch auf \(H\rtimes K\), oder einer beliebigen?}
+%         \item Indem wir den Kommutator iterieren, erhalten wir 
+%         \begin{equation*}
+%             [[G,G], [G,G]] \subseteq [H\rtimes[K,K], H\rtimes[K,K]] = H\rtimes [[K,K], [K,K]]
+%         \end{equation*}
+%         \anm{Ist die zweite Gleichheit ist beweisbedürftig! Warum passiert davor noch nichts mit dem \(H\), sondern nur mit dem zweiten Teil von \(H\rtimes [K,K]\)}
+%     \end{itemize}
+% \end{proof}
+% \anm{Wofür ist diese Eigenschaft gut? Irgendwie zur Konstruktion von auflösbaren Grupen aus z.B. \(\mathbb Z^n\)}
+
+% ACHTUNG: Für Nilpotenz gilt Prop 2.11 nicht! \(\implies\) Beispiel 2.10 und 2.13
+
+% \section{Ausblick: Warum semidirekte Produkte so fruchtbar sind -- anhand von kurzen exakten Sequenzen}
+
+% Abschließend: Beweismittel zum zeigen, ob sich \(G\) als semidirektes Produkt von \(H\) und \(G/H\) auffassen lässt: Spaltende Gruppenerweiterungen.
+
+% \begin{examplestrd}
+%     Die Gruppe \(G = \mathbb Z/4\mathbb Z\) kann nicht als semidirektes Produkt von \(H = \mathbb Z/2\mathbb Z\) und \(G/H\) geschrieben werden. Denn: \(G\) spaltet nicht!
+
+%     Beweis: Aufgabe 2.14
+% \end{examplestrd}
+
+% Für uns bisher einzige bekannte Anwendung: Hauptsatz über endlich erzeugte abelsche Gruppen. Zerlegung in Torsionsgruppen. Dann Erweiterung wegen Existenz von Spaltung als semidirektes Produkt auffassen, was wegen der Abelschheit der Erweiterung mit dem direkten Produkt zusammenfällt. 
+
+\end{document}

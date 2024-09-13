@@ -1,0 +1,32 @@
+\section{Auflösbarkeit von \(\mathrm{Isom}(\mathbb R^2)\)}\label{sec:auflösbarkeit-der-isometrien}
+\begin{proposition}
+    \(\geradisometr\) ist auflösbar. 
+\end{proposition}
+\begin{proof}
+    Wir untersuchen die Kommutatorgruppe \([\geradisometr, \geradisometr]\). 
+    \begin{itemize}
+        \item Für den Kommutator zweier Isometrien \(I_1, I_2\) gilt
+        \begin{equation*}
+            \alpha([I_1, I_2]) = \alpha(I_1 I_2 I_1^{-1} I_2^{-1}) = \alpha(I_1) + \alpha(I_2) - \alpha(I_1) - \alpha(I_2) = 0
+        \end{equation*}
+        aufgrund der Homomorphismuseigenschaft von \(\alpha\). 
+
+        \item Daraus muss irgendwie \anm{(Wsl durch den Isomorphismus \(\alpha\))} folgen, dass die Kommutatorgruppe \([\geradisometr, \geradisometr]\) in den Translationen \(T\) enthalten ist. Da \(\mathcal T\) isomorph zum \(\mathbb R^2\) unter \(v \mapsto T_v: x + v\) ist, ist \(\mathcal T\) abelsch und damit auch \([\geradisometr, \geradisometr]\). Also ist die Kommutatorgruppe dieser Kommutatorgruppe trivial und damit \(\geradisometr\) auflösbar. 
+    \end{itemize}
+
+    Anmerkung: Es gilt sogar \([\geradisometr, \geradisometr] = \mathcal T\) (siehe Aufgabe 2.3). 
+\end{proof}
+ACHTUNG: Gilt nicht in höheren Definitionen! So ist \(\geradisometr\) nicht auflösbar. Denn diese Isometrie-Gruppe enthält die Isometrie-Gruppe des Icosahedrons, welche isomorph zur alternierenden Gruppe \(A_5\) ist \anm{(Wird wohl davor mal bewiesen)}. Allerdings ist die \(A_5\) nicht-abelsch \anm{(Gegenbeispiel)} und einfach \anm{(Referenz auf Kemper-Skript)} und damit nicht auflösbar \anm{(Siehe Obsidian unter "Einfache Gruppe")}. 
+
+Alternativ: (später) \(SO(3) \subset \geradisometr\) und \(SO(3)\) nicht auflösbar. 
+
+ABER: Die Untergruppen auflösbarer Gruppen sind auflösbar! (Kommutatorgruppen sind immer ineinander enthalten!) 
+
+ZEIGT: Algebraisch unterscheiden sich die Isometrien der (zweidimensionalen) Ebene deutlich von den Isometrien des (dreidimensionalen) Raums. 
+
+\begin{corollarystrd}
+    \(\mathrm{Isom}(\mathbb R^2)\) ist auflösbar. 
+\end{corollarystrd}
+\begin{proof}
+    Der Kommutator zweier Isometrien ist ein Produkt aus vier Isometrien \anm{und damit gerade}. Also ist die Kommutatorgruppe von \(\mathrm{Isom}(\mathbb R^2)\) in \(\geradisometr\) enthalten und letztere ist nach \anm{Prop} auflösbar. 
+\end{proof}
