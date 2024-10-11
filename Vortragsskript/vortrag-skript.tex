@@ -122,45 +122,6 @@ Translationen sind in diesem Kontext einfach nur Parallelverschiebungen, d.h. f�
 
 Durch die elementargeometrische Konstruktion aus \cref{fig:konstruktion-alpha-kleiner-180}, bzw. \cref{fig:sonderfalle-konstruktion} erkennen wir, dass für eine Rotation \(R_\theta^p\) um einen Punkt \(p\in \mathbb R^2\) um den Winkel \(\theta\in \mathbb R\) gilt \(\alpha(\mathscr l, R_\theta^p\mathscr l) = \theta\). 
 
-Wir können also jedem Element \(I \in \geradisometr\) einen sinnvollen Wert zuordnen. Aber noch ist Vorsicht geboten. Denn für eine Rotation \(R_\theta^p\) gilt \(R_{\theta + 2\pi k}^p = R_{\theta}^p\) für alle \(k \in \mathbb N\), aber \(\alpha(\mathscr l, R_{\theta+2\pi k}^p\mathscr l) = \theta + 2\pi k \neq \theta = \alpha(\mathscr l, R_\theta^p\mathscr l)\) für \(k \neq 0\). Um hier also tatsächlich eine wohldefinierte Abbildung zu erhalten, müssen wir den Output von \(\alpha\) bis auf Vielfache von \(2\pi\) betrachten, d.h. in \(\mathbb R/2\pi\mathbb Z\). Dann können wir nun definieren
-\begin{equationstrd}\label{eq*:definition-alpha}
-    \alpha: \geradisometr \to \mathbb R/2\pi\mathbb Z, \quad I \to \alpha(\mathscr l, I\mathscr l)
-\end{equationstrd}
-für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar ein Homomorphismus: 
-
-\begin{propositionstrd}\label{prop*:homomorphismus-alpha}
-    Die oben definierte Abbildung \(\alpha: \geradisometr\to \mathbb R/2\pi\mathbb Z\) ist ein Homomorphismus mit \(\ker(\alpha) = \mathcal T\). 
-\end{propositionstrd}
-\begin{proof}
-    Diesen Beweis müssen wir noch elementargeometrisch führen. Er ermöglicht uns allerdings später, dass wir uns (fast) nur in der gruppentheoretischen Welt bewegen können, ohne elementargeometrische Überlegungen. 
-
-    Zu zeigen ist \(\alpha(I_1, I_2) = \alpha(I_1) + \alpha(I_2)\) für alle \(I_1, I_2 \in \geradisometr\). Wir unterscheiden die folgenden Fälle:
-    \begin{enumerate}
-        \item \(I_1\) und \(I_2\) sind Translationen. Beides sind lediglich Parallelverschiebungen (aus Sicht der Gerade \(\mathscr l\)), also folgt sofort \(\alpha(I_1 I_2) = 0 = 0+0 = \alpha(I_1) + \alpha(I_2)\). 
-        \item \(I_1\) ist eine Translation und \(I_2\) ist eine Rotation oder \(I_1\) ist eine Rotation und \(I_2\) ist eine Translation. Wir müssen beide Fälle separat betrachten, da Translationen und Rotationen im Allgmeinen nicht kommutieren. \anm{Abb} zeigt jedoch, dass die Argumentation in beiden Fällen die gleiche ist. 
-        \item \(I_1\) und \(I_2\) sind Rotationen. \cref{fig:verknupfung-rotationen} zeigt eine entsprechende Konstruktion, die zusammen mit den Winkelsätzen die Behauptung liefert. 
-    \end{enumerate}
-\end{proof}
-\noindent Noch weitaus interessanter ist allerdings, dass uns \(\alpha\) zusätzlich eine Klassifizierung der orientierungserhaltenden Isometrien liefert
-\begin{propositionstrd}\label{prop*:gruppentheo-klassifikation-gerader-isometrien}
-    Der Homomorphismus \(\alpha: \mathrm{Isom}^+ (\mathbb R^2) \to \mathbb R/2\pi\mathbb Z\) charakterisiert die geraden Isometrien eindeutig. Genauer: Für \(I \in \geradisometr\) gilt 
-    \begin{equation*}
-        I \in \mathcal T \iff \alpha(I) = 0
-    \end{equation*}
-    und falls \(\alpha(I) = \theta\) für ein \(\theta \in \mathbb R\), so existiert ein Punkt \(p \in \mathbb R^2\), sodass \(I = R_\theta^p\). 
-\end{propositionstrd}
-\begin{proof}
-    Die Hinrichtung ist klar aus den Überlegungen vor \cref{prop*:homomorphismus-alpha}. 
-
-    Ist \(\alpha(I)=0\), so sind \(\mathscr l\) und \(I\mathscr l\) entweder identisch oder liegen parallel zueinander. Im Nicht-Identischen Fall, hält \(I\) also \textit{keinen} Punkt von \(\mathscr l\) fest! \(I\) ist entweder eine Translation oder eine Rotation. Rotationen haben genau einen Fixpunkt! Also muss \(I\) eine Translation sein. 
-
-    Umgekehrt sind für \(\alpha(I)=\theta\neq0\) die Linien \(\mathscr l\) und \(I\mathscr l\) nicht parallel, und schneiden sich damit in genau einem Punkt. \(I\) hält also genau diesen Schnittpunkt fest. Damit muss \(I\) eine Rotation sein. Warum muss es genau eine Rotation um \(\theta\) sein? \(\implies\) Elementargeometrisches Argument. 
-\end{proof}
-
-\begin{annotationstrd}\label{ann*:alpha-ergibt-sich-aus-struktur}
-    Diese Klassifikation wirkt vielleicht im ersten Blick etwas will\-kür\-lich. Sie ergibt sich allerdings tatsächlich ganz natürlich aus der Struktur des Quotienten \(\mathrm{Isom}^+(\mathbb R^2) /\mathcal T\). Das wird eine der großen Erkenntnisse des nächsten \cref{sec:struktur-von-translationen} sein. 
-\end{annotationstrd}
-
 \begin{figure}
     \centering
     \begin{subfigure}{0.4\textwidth}
@@ -629,6 +590,26 @@ für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar
     \label{fig:sonderfalle-konstruktion}
 \end{figure}
 
+Wir können also jedem Element \(I \in \geradisometr\) einen sinnvollen Wert zuordnen. Aber noch ist Vorsicht geboten. Denn für eine Rotation \(R_\theta^p\) gilt \(R_{\theta + 2\pi k}^p = R_{\theta}^p\) für alle \(k \in \mathbb N\), aber \(\alpha(\mathscr l, R_{\theta+2\pi k}^p\mathscr l) = \theta + 2\pi k \neq \theta = \alpha(\mathscr l, R_\theta^p\mathscr l)\) für \(k \neq 0\). Um hier also tatsächlich eine wohldefinierte Abbildung zu erhalten, müssen wir den Output von \(\alpha\) bis auf Vielfache von \(2\pi\) betrachten, d.h. in \(\mathbb R/2\pi\mathbb Z\). Dann können wir nun definieren
+\begin{equationstrd}\label{eq*:definition-alpha}
+    \alpha: \geradisometr \to \mathbb R/2\pi\mathbb Z, \quad I \to \alpha(\mathscr l, I\mathscr l)
+\end{equationstrd}
+für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar ein Homomorphismus: 
+
+\begin{propositionstrd}\label{prop*:homomorphismus-alpha}
+    Die oben definierte Abbildung \(\alpha: \geradisometr\to \mathbb R/2\pi\mathbb Z\) ist ein Homomorphismus. 
+\end{propositionstrd}
+\begin{proof}
+    Diesen Beweis müssen wir noch elementargeometrisch führen. Er ermöglicht uns allerdings später, dass wir uns (fast) nur in der gruppentheoretischen Welt bewegen können, ohne elementargeometrische Überlegungen. 
+
+    Zu zeigen ist \(\alpha(I_1, I_2) = \alpha(I_1) + \alpha(I_2)\) für alle \(I_1, I_2 \in \geradisometr\). Wir unterscheiden die folgenden Fälle:
+    \begin{enumerate}
+        \item \(I_1\) und \(I_2\) sind Translationen. Beides sind lediglich Parallelverschiebungen (aus Sicht der Gerade \(\mathscr l\)), also folgt sofort \(\alpha(I_1 I_2) = 0 = 0+0 = \alpha(I_1) + \alpha(I_2)\). 
+        \item \(I_1\) ist eine Translation und \(I_2\) ist eine Rotation oder \(I_1\) ist eine Rotation und \(I_2\) ist eine Translation. Wir müssen beide Fälle separat betrachten, da Translationen und Rotationen im Allgmeinen nicht kommutieren. \anm{Abb} zeigt jedoch, dass die Argumentation in beiden Fällen die gleiche ist. 
+        \item \(I_1\) und \(I_2\) sind Rotationen. \cref{fig:verknupfung-rotationen} zeigt eine entsprechende Konstruktion, die zusammen mit den Winkelsätzen die Behauptung liefert. 
+    \end{enumerate}
+\end{proof}
+
 \begin{figure}
     \centering
     \begin{tikzpicture}[scale=.9]
@@ -734,6 +715,29 @@ für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar
     \label{fig:verknupfung-rotationen}
 \end{figure}
 
+\noindent Noch weitaus interessanter ist allerdings, dass uns \(\alpha\) zusätzlich eine Klassifizierung der orientierungserhaltenden Isometrien liefert
+\begin{propositionstrd}\label{prop*:gruppentheo-klassifikation-gerader-isometrien}
+    Der Homomorphismus \(\alpha: \mathrm{Isom}^+ (\mathbb R^2) \to \mathbb R/2\pi\mathbb Z\) charakterisiert die geraden Isometrien eindeutig. Genauer: Für \(I \in \geradisometr\) gilt 
+    \begin{equation*}
+        I \in \mathcal T \iff \alpha(I) = 0
+    \end{equation*}
+    und falls \(\alpha(I) = \theta\) für ein \(\theta \in \mathbb R\), so existiert ein Punkt \(p \in \mathbb R^2\), sodass \(I = R_\theta^p\). Insbesondere gilt 
+    \begin{equation*}
+        \ker(\alpha) = \mathcal T
+    \end{equation*}
+\end{propositionstrd}
+\begin{proof}
+    Die Hinrichtung ist klar aus den Überlegungen vor \cref{prop*:homomorphismus-alpha}. 
+
+    Ist \(\alpha(I)=0\), so sind \(\mathscr l\) und \(I\mathscr l\) entweder identisch oder liegen parallel zueinander. Im Nicht-Identischen Fall, hält \(I\) also \textit{keinen} Punkt von \(\mathscr l\) fest! \(I\) ist entweder eine Translation oder eine Rotation. Rotationen haben genau einen Fixpunkt! Also muss \(I\) eine Translation sein. 
+
+    Umgekehrt sind für \(\alpha(I)=\theta\neq0\) die Linien \(\mathscr l\) und \(I\mathscr l\) nicht parallel, und schneiden sich damit in genau einem Punkt. \(I\) hält also genau diesen Schnittpunkt fest. Damit muss \(I\) eine Rotation sein. Warum muss es genau eine Rotation um \(\theta\) sein? \(\implies\) Elementargeometrisches Argument. 
+\end{proof}
+
+\begin{annotationstrd}\label{ann*:alpha-ergibt-sich-aus-struktur}
+    Diese Klassifikation wirkt vielleicht im ersten Blick etwas will\-kür\-lich. Sie ergibt sich allerdings tatsächlich ganz natürlich aus der Struktur des Quotienten \(\mathrm{Isom}^+(\mathbb R^2) /\mathcal T\). Das wird eine der großen Erkenntnisse des nächsten \cref{sec:struktur-von-translationen} sein. 
+\end{annotationstrd}
+
 \section{Die Struktur von \(\mathcal T\)}\label{sec:struktur-von-translationen}
 
 Nach der Vorarbeit aus dem vorausgegangenen \cref{sec:gruppentheo-klassifikation} erkennen wir nun leicht: 
@@ -741,7 +745,7 @@ Nach der Vorarbeit aus dem vorausgegangenen \cref{sec:gruppentheo-klassifikation
     \(\mathcal T\) ist normal in \(\geradisometr\). 
 \end{proposition}
 \begin{proof}
-    Nach \cref{prop*:homomorphismus-alpha} gilt \(\mathcal T = \ker(\alpha)\) und Kerne von Homomorphismen sind normal. 
+    Nach \cref{prop*:gruppentheo-klassifikation-gerader-isometrien} gilt \(\mathcal T = \ker(\alpha)\) und Kerne von Homomorphismen sind normal. 
 \end{proof}
 \begin{annotationstrd}
     Den Beweis von \cref{prop:normale-translationen} hätten wir auch ganz ohne den Homomorphismus \(\alpha\) rein elementargeometrisch führen können. Das ist in gewisser Weise auch ein Weg, der über den Quotienten \(\geradisometr/\mathcal T\) ganz natürlich auf den Homomorphismus \(\alpha\) führt, ohne diesen im vorhinein zu kennen! Darauf spielte bereits \cref{ann*:alpha-ergibt-sich-aus-struktur} an.
@@ -759,7 +763,61 @@ Halten wir einen beliebigen Punkt \(p\in \mathbb R^2\) fest, so liefert uns die 
         \mathrm{Isom^+(\mathbb R^2)}/\mathcal T \cong S^1 
     \end{equation*}
 \end{propositionstrd}
-Damit hätten wir nun bereits in gewisser Weise die Faktorgruppe ausreichend verstanden. Eine alternative Betrachtung, ganz ohne den Homomorphismus \(\alpha\) wird jedoch fruchtbar sein und sogar etwas strukturelles über \(\alpha\) offenlegen. 
+\noindent Damit hätten wir nun bereits in gewisser Weise die Faktorgruppe ausreichend verstanden. Eine alternative Betrachtung, ganz ohne den Homomorphismus \(\alpha\) wird jedoch fruchtbar sein und sogar etwas strukturelles über \(\alpha\) offenlegen. 
+
+Da jeder orientierungserhaltende Isomorphismus des \(\mathbb R^2\) entweder eine Translation oder eine Rotation ist, haben wir folgende Zerlegung
+\begin{equation*}
+    \geradisometr = \mathcal T \cup \left(\textstyle \bigcup_{p \in \mathbb R^+} G_p^+\right)
+\end{equation*}
+Die Elemente der Faktorgruppe \(\geradisometr/\mathcal T = \{I\mathcal{T} : I \in \geradisometr\}\}\) können wir uns als bezüglich dieser Zerlegung anschauen:
+\begin{itemize}
+    \item Wenn \(I \in \mathcal T\), so folgt sofort \(I\mathcal T = \mathcal T\) nach der Konstruktion der Äquivalenzrelation auf dem Quotienten. 
+    \item Wenn \(I \in \bigcup_{p \in \mathbb R^+} G_p^+\), so ist \(I\) eine Rotation um irgendeinen Punkt \(p\in \mathbb R^2\), d.h. \(I = R_\theta^p\) mit \(\theta \in \mathbb R\). Dann gilt für beliebige \(q \in \mathbb R^2\)
+    \begin{equation*}
+        T_{q-p} R_\theta^p T_{p-q}(q) = T_{q-p} R_\theta^p(p) = T_{q-p}(p) = q
+    \end{equation*}
+    also \(T_{q-p} R_\theta^p T_{p-q} = R_\theta^q\) wegen \cref{prop*:gruppentheo-klassifikation-gerader-isometrien}. Damit haben wir 
+    % Das heißt nicht, dass G_p^+ ein Normalteiler ist! Denn R_\theta^p und R_\theta^q sind in G_p^+ bzw G_q^+!
+    \begin{equation*}
+        R_\theta^p T_{p-q} = T_{-(p-q)}R_\theta^q \in \mathcal T R_\theta^q = R_\theta^q \mathcal T 
+    \end{equation*}
+    wobei die letzte Gleichheit gilt, da \(\mathcal T\) ein Normalteiler ist. Insgesamt folgt so \(R_\theta^p \mathcal T = R_\theta^q \mathcal T\) für beliebige \(p,q \in \mathbb R^2\) und \(\theta\in \mathbb R\). 
+\end{itemize} 
+%\anm{Hier fehlt noch ein Argument dafür, dass alle Rotationen als Produkt einer Translation und einer beliebigen anderen Rotation schreiben lassen.}
+Zusammen folgt für einen beliebigen, aber fest gewählten Punkt \(p \in \mathbb R^2\)
+\begin{equation*}
+    \geradisometr/\mathcal T = \{I\mathcal{T} \mid I \in \geradisometr\} = \{R\mathcal{T} \mid R \in G_p^+\}
+\end{equation*}
+Diese Zerlegung ist sogar disjunkt! Denn geometrisch ist leicht ersichtlich, dass für \(R_{\theta_1}^p \neq R_{\theta_2}^p\) gilt \(R_{\theta_2}^p\circ T(p) \neq p\) für alle \(T \in \mathcal T\). Allerdings ist \(R_{\theta_1}^p(p) = p\), also \(R_{\theta_1}^p\notin R_{\theta_2}^p \mathcal T\). Die Äquivalentklassen-Konstruktion des Quotienten liefert dann direkt die Disjunktheit. 
+
+Damit wird die Einschränkung \(\Phi = \iota|_{G_p^+}\) der kanonischen Einbettung
+\begin{equation*}
+    \iota: \geradisometr \break \to \geradisometr/\mathcal T, I \mapsto I\mathcal T
+\end{equation*}
+zu einem Isomorphismus mit Umkehrabbildung 
+\begin{equation*}
+    \Phi^{-1}: \geradisometr/\mathcal T \to G_p^+, I\mathcal T \mapsto 
+    \begin{cases}
+        \id &, I \in \mathcal T \\
+        R_\theta^p &, I \in G_p^+\setminus \{\id\}
+    \end{cases}
+\end{equation*}
+Weiter haben wir einen (wohldefinierten!) Isomorphismus 
+\begin{equation*}
+    \Psi: \mathbb R/2\pi\mathbb Z \to G_p^+, [\theta] \mapsto R_\theta^p
+\end{equation*}
+Das folgende Diagramm veranschaulicht die Situation:
+\begin{equation*}
+    \begin{tikzcd}
+        \geradisometr \arrow[hook]{d}{\iota} \arrow{r}{\alpha} & \mathbb R/2\pi\mathbb Z \\
+        \geradisometr/\mathcal T \arrow{r}{\Phi^{-1}} & G_p^+ \arrow{u}{\Psi}
+    \end{tikzcd}
+\end{equation*}
+Tatsächlich kommutiert dieses Diagramm auch, d.h. 
+\begin{equation*}
+    \alpha = \Psi\circ \Phi^{-1}\circ \iota
+\end{equation*}
+Also liefert der zu Beginn dieses Abschnitts eingeführte Homomorphismus \(\alpha\) einfach "`nur"' eine elementargeometrische Interpretation dieses Homomorphismus. 
 
 \begin{itemize}
     \item Isomorph zur Gruppe aller Rotationen um einen gegebenen Punkt. Diese wird mit \(G_p^+\) notiert, da diese Menge den orientierungserhaltenden Teil von \(G_p\) ausmacht (siehe \cref{sec:wiederholung}). 
