@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.14)  11 OCT 2024 23:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.14)  11 OCT 2024 23:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1029,58 +1029,50 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.5pt on input line 801.
  [6]
 
-LaTeX Warning: Reference `sec:normalit√§t-von-translationen' on page 1 undefined on input line 854.
-
-[7]
-
-LaTeX Warning: Reference `sec:normalit√§t-von-translationen' on page 1 undefined on input line 873.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 822.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 876.
+(hyperref)                removing `superscript' on input line 822.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 876.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 876.
+(hyperref)                removing `superscript' on input line 822.
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 878.
+(Font)              scaled to size 12.0pt on input line 824.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 909.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 909.
-
-[8]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 912.
+(hyperref)                removing `math shift' on input line 855.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 912.
+(hyperref)                removing `superscript' on input line 855.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 912.
+(hyperref)                removing `math shift' on input line 858.
 
-[9] [10] [11] [12]
-Overfull \hbox (6.34018pt too wide) in paragraph at lines 1095--1096
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 858.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 858.
+
+[7] [8] [9] [10] [11]
+Overfull \hbox (6.34018pt too wide) in paragraph at lines 1041--1042
 []\T1/ntxtlf/b/n/10 Beispiel(*) 2.2. []\T1/ntxtlf/m/n/10 Als di-rek-tes Pro-dukt: Ein-fachs-te Automorphismen-Familie durch $\OML/ntxmi/m/it/10  \LMS/ntxsy/m/n/10 π\OML/ntxmi/m/it/10 k\LMS/ntxsy/m/n/10 ∫ \U/ntxmia/m/it/10 =
  []
 
 
-Overfull \hbox (10.65352pt too wide) in paragraph at lines 1099--1100
+Overfull \hbox (10.65352pt too wide) in paragraph at lines 1045--1046
 []\T1/ntxtlf/b/n/10 Beispiel(*) 2.3. []\T1/ntxtlf/m/n/10 Als in-ne-res se-mi-di-rek-tes Pro-dukt: Spe-zi-al-fall, wenn die Automorphismen-
  []
 
-[13] (./vortrag-skript.aux
+[12] (./vortrag-skript.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 8.
 )
  ***********
@@ -1092,25 +1084,22 @@ L3 programming layer <2020/03/25>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `vortrag-skript.out' has not changed.
 (rerunfilecheck)             Checksum: B1801FB3ECA94C35A15F30A44AFEB1E8;2443.
  ) 
 Here is how much of TeX's memory you used:
- 35332 strings out of 474116
- 704159 string characters out of 5743682
+ 35285 strings out of 474116
+ 703016 string characters out of 5743682
  1987187 words of memory out of 5000000
- 56895 multiletter control sequences out of 15000+600000
+ 56849 multiletter control sequences out of 15000+600000
  671858 words of font info for 221 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  102i,23n,130p,1292b,1521s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/stxscr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on vortrag-skript.pdf (13 pages, 244827 bytes).
+Output written on vortrag-skript.pdf (12 pages, 239840 bytes).
 PDF statistics:
- 336 PDF objects out of 1000 (max. 8388607)
- 252 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 330 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
  101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

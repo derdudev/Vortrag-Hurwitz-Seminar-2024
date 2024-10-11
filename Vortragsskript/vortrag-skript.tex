@@ -819,60 +819,6 @@ Tatsächlich kommutiert dieses Diagramm auch, d.h.
 \end{equation*}
 Also liefert der zu Beginn dieses Abschnitts eingeführte Homomorphismus \(\alpha\) einfach "`nur"' eine elementargeometrische Interpretation dieses Homomorphismus. 
 
-\begin{itemize}
-    \item Isomorph zur Gruppe aller Rotationen um einen gegebenen Punkt. Diese wird mit \(G_p^+\) notiert, da diese Menge den orientierungserhaltenden Teil von \(G_p\) ausmacht (siehe \cref{sec:wiederholung}). 
-    
-    \textit{Beweis}: Es ist 
-    \begin{equation*}
-        \geradisometr/\mathcal T = \{I\mathcal{T} \mid I \in \geradisometr\} = \{R\mathcal{T} \mid R \in G_p^+\}
-    \end{equation*}
-    Dabei kommt die zweite Gleichheit daraus, dass für alle \(I \in \geradisometr\) gilt \(I \in \mathcal T\) oder \(I \in G_p^+\). \anm{ACHTUNG: Warum können wir hier irgendeinen Punkt \(p\) fix nehmen? Wir können hier doch erstmal nur unterscheiden zwischen Translationen und \textit{irgendwelchen} Rotationen, d.h. Rotationen um \textit{beliebige} Punkte. Prop 2.9 sagt: Rotationen um verschiedene Punkte sind äquivalent!} Ferner: Für alle \(I \in \geradisometr\cap \mathcal T\) ist \(I\mathcal T = \mathcal T\). Nun gilt es noch die Disjunktheit der \(R\mathcal T\) für \(R \in \geradisometr\cap G_p^+, I \neq \id\) festzustellen. Geometrisch leicht ersichtlich: Wenn \(R_{\theta_1}^p \neq R_{\theta_2}^p\), so gilt \(R_{\theta_2}^p\circ T(p) \neq p\) für alle \(T \in \mathcal T\). Wegen \(R_{\theta_1}^p(p) = p\) folgt also \(R_{\theta_1}^p\notin R_{\theta_2}^p \mathcal T\). Die Äquivalentklassen-Konstruktion des Quotienten liefert dann direkt die Disjunktheit. 
-
-    So erhalten wir einen Isomorphismus durch 
-    \begin{equation*}
-        \Phi: G_p^+ \to \geradisometr/\mathcal T, R_{\theta}^p \mapsto R_{\theta}^p\mathcal T
-    \end{equation*}
-    mit Umkehrabbildung 
-    \begin{equation*}
-        \Phi': \geradisometr/\mathcal T \to G_p^+, I\mathcal T \mapsto 
-        \begin{cases}
-            \id &, I \in \mathcal T \\
-            R_\theta^p &, I \in G_p^+\setminus \{\id\}
-        \end{cases}
-    \end{equation*}
-    
-    Also: \(\geradisometr/\mathcal T \cong G_p^+\). 
-    
-    \item Die Rotationen \(G_p^+\) sind bijektiv zu \(\mathbb R/2\pi\mathbb Z\). Bijektion \(f: \mathbb R/2\pi\mathbb Z \to G_p^+, \theta \mapsto R_\theta^p\). 
-    
-    \item Die obige Bijektion ist homomoph (intuitiv klar), d.h. insgesamt
-    \begin{equation*}
-        \mathrm{Isom^+(\mathbb R^2)}/\mathcal T \cong G_p^+ \cong \mathbb R/2\pi\mathbb Z \cong S^1 
-    \end{equation*}
-    \anm{Beweisbedürftig bleibt die Isomorphie \(\mathbb R/2\pi\mathbb Z \cong S^1\)}
-
-    \item Damit können wir die -- zunächst etwas willkürlich wirkende -- Wahl von \(\alpha\) in \cref{sec:normalität-von-translationen} erklären: Neben den Isomorphien \(\Phi, \Phi'\) haben wir auch die kanonische Einbettung 
-    \begin{equation*}
-        \iota: \mathrm{Isom}^+(\mathbb R^2) \to \mathrm{Isom}^+(\mathbb R^2)/\mathcal T, I \mapsto I \mathcal T
-    \end{equation*}
-    Zudem haben wir noch eine weitere Isomorphien
-    \begin{equation*}
-        \psi: G_p^+ \to \mathbb R/2\pi\mathbb Z, R_\theta^p \mapsto [\theta]
-    \end{equation*}
-    Das folgende Diagramm veranschaulicht die Situation: 
-    \begin{equation*}
-        \begin{tikzcd}
-            \geradisometr \arrow[hook]{d}{\iota} \arrow{r}{\alpha} & \mathbb R/2\pi\mathbb Z \\
-            \geradisometr/\mathcal T \arrow{r}{\Phi'} & G_p^+ \arrow{u}{\psi}
-        \end{tikzcd}
-    \end{equation*}
-    Tatsächlich kommutiert dieses Diagramm auch, d.h. 
-    \begin{equation*}
-        \alpha = \psi\circ \Phi'\circ \iota
-    \end{equation*}
-    Also liefert der in \cref{sec:normalität-von-translationen} eingeführte Homomorphismus \(\alpha\) einfach "`nur"' eine elementargeometrische Interpretation dieses Homomorphismus. 
-\end{itemize}
-
 \section{Konjugiertenklassen von Elementen aus \(\geradisometr\)}\label{sec:konjugiertenklassen-gerader-isometrien}
 
 \subsection{Konjugatiertenklassen von Translationen}\label{subsec:konjugiertenklassen-von-translationen}
