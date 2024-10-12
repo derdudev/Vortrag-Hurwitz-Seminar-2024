@@ -881,36 +881,6 @@ Die folgenden Aussagen gelten auch alle im \(\mathbb R^n\) und nicht nur \(\math
         \alpha(IR_{-\theta}^p) = \alpha(I) - \alpha(R_\theta^p)
     \end{equation*}
     Damit die gewünschte Darstellung existieren kann, muss \(IR_{-\theta}^p\) eine Translation sein. Das ist nach \cref{prop*:gruppentheo-klassifikation-gerader-isometrien} genau dann der Fall, wenn \(\alpha(IR_{-\theta}^p) = 0\), also mit der obigen Gleichheit genau dann, wenn \(\alpha(I) = \alpha(R_\theta^p) = \theta\). Das zeigt: Wählen wir \(\theta := \alpha(I)\), so existiert ein \(v \in \mathbb R^2\) mit \(I = T_v R_\theta^p\) und diese Wahl von \(\theta\) ist die einzige Wahl, sodass ein solches \(v \in \mathbb R^2\) existiert. Translationen sind über ihren Verschiebungsvektor eindeutig bestimmt. Also ist \(v\) durch \(v = T_v(0) = (IR_{-\theta}^p) (0)\) eindeutig bestimmt. 
-
-    \begin{itemize}
-        \item Intuitiv klar + Homomorphismus-Eigenschaft aus \cref{prop*:homomorphismus-alpha}: 
-        \begin{equation*}
-            \alpha(T_v R_\theta^0) = \alpha(T_v) + \alpha(R_\theta^0) = \theta
-        \end{equation*}
-        
-        \item Daraus folgt, dass \(\alpha(I) = \theta\) die einzige Wahl ist.: Hätten wir solch eine Darstellung, so müssten wir diesen Winkel wählen. 
-        
-        \item \(\geradisometr\) ist eine Untergruppe, also 
-        \begin{equation*}
-            I = T_v R_\theta^p \iff T_v = I(R_\theta^p)^{-1} = I R_{-\theta}^p 
-        \end{equation*}
-        Intuiviv ist die Identität der Inversen rechts klar. %\anm{Aber trotzdem beweisbedürftig!}
-
-        \item Wegen der Homomorphismus-Eigenschaft aus \cref{prop*:homomorphismus-alpha} sieht man
-        \begin{equation*}
-            \alpha(IR_{-\theta}^p) = = \alpha(I) + \alpha(R_{-\theta}^p) = \theta - \theta = 0
-        \end{equation*}
-        Nach \cref{prop*:gruppentheo-klassifikation-gerader-isometrien} charakterisiert das genau die Translationen. Also ist \(IR_{-\theta}^p\) eine Translation. 
-        
-        \item Wann sind Translationen gleich? Genau dann wenn ihre "`Verschiebungsvektoren"' übereinstimmen. Also hier wenn \(v = T_v(0) = (IR_{-\theta}^p) (0)\). 
-    \end{itemize}
-    \vskip\baselineskip\hrule\vskip\baselineskip\noindent
-    \textit{Alternativer Beweis} (Aufgabe 2.6):
-    \begin{itemize}
-        \item \(I\) darstellen als Produkt zweier Spiegelungen \(L_1, L_2\)
-        \item Wähle Spiegelung \(L_3\), sodass \(L_1L_3\) eine Translation und \(L_3L_2\) eine Rotation um \(p\) ist. 
-        \item Schreibe abschließend \(I = (L_1L_3)(L_3L_2)\). 
-    \end{itemize}
 \end{proof}
 Jetzt: \(p=0\). Dann ist 
 \begin{equation*}
