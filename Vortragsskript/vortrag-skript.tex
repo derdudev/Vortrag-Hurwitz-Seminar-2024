@@ -817,17 +817,16 @@ Tatsächlich kommutiert dieses Diagramm auch, d.h.
 \begin{equation*}
     \alpha = \Psi\circ \Phi^{-1}\circ \iota
 \end{equation*}
-Also liefert der zu Beginn dieses Abschnitts eingeführte Homomorphismus \(\alpha\) einfach "`nur"' eine elementargeometrische Interpretation dieser Verknüpfung. 
+Also liefert der zu Beginn dieses Abschnitts eingeführte Homomorphismus \(\alpha\) einfach eine elementargeometrische Interpretation dieser Verknüpfung. 
 
 \begin{annotationstrd}
-    Natürlich ist die Wahl des Homomorphismus \(\alpha\) eigentlich nicht sonderlich überraschend. Bereits mit \cref{prop*:gestalt-quotient-über-translationen} haben wir herausgefunden, dass \(\alpha\) entscheidend mit der Stuktur des Quotienten zusammenhängt. Die der Proposition folgenden strukturellen Erkenntnisse sind tatsächlich bereits im Homomorphiesatz enthalten. Das veranschaulicht das folgende (kommutierende) Diagram für einen allgemeinen Homomorphismus \(\varphi: G \to H\): 
+    Irgendwo ist die Wahl des Homomorphismus \(\alpha\) eigentlich nicht sonderlich überraschend. Bereits mit \cref{prop*:gestalt-quotient-über-translationen} haben wir jedoch herausgefunden, dass \(\alpha\) entscheidend mit der Stuktur des Quotienten zusammenhängt. Die der Proposition folgenden strukturellen Erkenntnisse sind tatsächlich bereits im Homomorphiesatz enthalten. Das veranschaulicht das folgende (kommutierende) Diagram: 
     \begin{equation*}
         \begin{tikzcd} 
-            G/\mathrm{ker}(\varphi) \arrow{r}{\cong} & \mathrm{im}(\varphi) \arrow[hookrightarrow]{d}{i} \\ G \arrow{u}{\pi} \arrow{r}{\varphi} & H
+            \geradisometr/\mathrm{ker}(\alpha) \arrow{r}{\Upsilon} & \mathrm{im}(\alpha) \arrow{d}{=} \\ \geradisometr \arrow{u}{\iota} \arrow{r}{\alpha} & \mathbb R/2\pi\mathbb Z
         \end{tikzcd}
     \end{equation*}
-    \anm{Aber wenig über den realisierenden Isomorphismus bekannt. So sieht man schnell, dass \(\alpha\) elementar mit der Struktur von Quotient zusammenhängt, allerdings nicht genauer wie.}
-    \anm{Zusammen: Ein bisschen Rumgraben in der Struktur des Quotienten liefert direkt den klassifizierenden Homomorphismus \(\alpha\)}
+    wobei \(\alpha = \Upsilon \circ \iota\). Die Überlegungen nach Proposition legen noch offen, wie der Isomorphismus \(\Upsilon\) im Homomorphiesatz entsteht (als \(\Upsilon = \Psi \circ \Phi^{-1}\)) und wie sich daraus der klassifizierende Homomorphismus \(\alpha\) erkennen lässt. In anderen Worten: Ein bisschen "`Rumgraben"' in der Struktur des Quotienten liefert "`direkt"' den klassifizierenden Homomorphismus \(\alpha\). 
 \end{annotationstrd}
 
 \section{Konjugiertenklassen von Elementen aus \(\geradisometr\)}\label{sec:konjugiertenklassen-gerader-isometrien}
