@@ -817,9 +817,22 @@ Tatsächlich kommutiert dieses Diagramm auch, d.h.
 \begin{equation*}
     \alpha = \Psi\circ \Phi^{-1}\circ \iota
 \end{equation*}
-Also liefert der zu Beginn dieses Abschnitts eingeführte Homomorphismus \(\alpha\) einfach "`nur"' eine elementargeometrische Interpretation dieses Homomorphismus. 
+Also liefert der zu Beginn dieses Abschnitts eingeführte Homomorphismus \(\alpha\) einfach "`nur"' eine elementargeometrische Interpretation dieser Verknüpfung. 
+
+\begin{annotationstrd}
+    Natürlich ist die Wahl des Homomorphismus \(\alpha\) eigentlich nicht sonderlich überraschend. Bereits mit \cref{prop*:gestalt-quotient-über-translationen} haben wir herausgefunden, dass \(\alpha\) entscheidend mit der Stuktur des Quotienten zusammenhängt. Die der Proposition folgenden strukturellen Erkenntnisse sind tatsächlich bereits im Homomorphiesatz enthalten. Das veranschaulicht das folgende (kommutierende) Diagram für einen allgemeinen Homomorphismus \(\varphi: G \to H\): 
+    \begin{equation*}
+        \begin{tikzcd} 
+            G/\mathrm{ker}(\varphi) \arrow{r}{\cong} & \mathrm{im}(\varphi) \arrow[hookrightarrow]{d}{i} \\ G \arrow{u}{\pi} \arrow{r}{\varphi} & H
+        \end{tikzcd}
+    \end{equation*}
+    \anm{Aber wenig über den realisierenden Isomorphismus bekannt. So sieht man schnell, dass \(\alpha\) elementar mit der Struktur von Quotient zusammenhängt, allerdings nicht genauer wie.}
+    \anm{Zusammen: Ein bisschen Rumgraben in der Struktur des Quotienten liefert direkt den klassifizierenden Homomorphismus \(\alpha\)}
+\end{annotationstrd}
 
 \section{Konjugiertenklassen von Elementen aus \(\geradisometr\)}\label{sec:konjugiertenklassen-gerader-isometrien}
+
+\anm{Kurz nochmal Motivation aufgreifen.}
 
 \subsection{Konjugatiertenklassen von Translationen}\label{subsec:konjugiertenklassen-von-translationen}
 Da \(\mathcal T\) normal in \(\geradisometr\) ist, ist jede Konjugation einer Translation ebenfalls eine Translation. Da \(\mathcal T \cong (\mathbb R^2, +)\), ist \(\mathcal T\) abelsch, also gilt für Konjugationen mit Translationen: 
@@ -863,6 +876,12 @@ Die folgenden Aussagen gelten auch alle im \(\mathbb R^n\) und nicht nur \(\math
     Sei \(p \in \mathbb R^2\) fest. Dann existieren für jede Isometrie \(I \in \geradisometr\) ein eindeutiges \(v \in \mathbb R^2\) und \(\theta \in [0,2\pi)\) sodass \(I = T_v R_\theta^p\).  
 \end{proposition}
 \begin{proof}
+    Dass eine Darstellung \(I = T_v R_\theta^p\) existiert, ist gleichbedeutend damit, dass \(v \in \mathbb R^2\) und \(\theta\in [0,2\pi)\) existieren, sodass \(T_v = I(R_\theta^p)^{-1} = I R_{-\theta}^p\). Mit der Homomorphismus-Eigenschaft aus \cref{prop*:homomorphismus-alpha} erhalten wir 
+    \begin{equation*}
+        \alpha(IR_{-\theta}^p) = \alpha(I) - \alpha(R_\theta^p)
+    \end{equation*}
+    Damit die gewünschte Darstellung existieren kann, muss \(IR_{-\theta}^p\) eine Translation sein. Das ist nach \cref{prop*:gruppentheo-klassifikation-gerader-isometrien} genau dann der Fall, wenn \(\alpha(IR_{-\theta}^p) = 0\), also mit der obigen Gleichheit genau dann, wenn \(\alpha(I) = \alpha(R_\theta^p) = \theta\). Das zeigt: Wählen wir \(\theta := \alpha(I)\), so existiert ein \(v \in \mathbb R^2\) mit \(I = T_v R_\theta^p\) und diese Wahl von \(\theta\) ist die einzige Wahl, sodass ein solches \(v \in \mathbb R^2\) existiert. Translationen sind über ihren Verschiebungsvektor eindeutig bestimmt. Also ist \(v\) durch \(v = T_v(0) = (IR_{-\theta}^p) (0)\) eindeutig bestimmt. 
+
     \begin{itemize}
         \item Intuitiv klar + Homomorphismus-Eigenschaft aus \cref{prop*:homomorphismus-alpha}: 
         \begin{equation*}
