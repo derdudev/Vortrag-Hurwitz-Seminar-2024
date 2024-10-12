@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.14)  12 OCT 2024 12:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.14)  12 OCT 2024 12:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1053,23 +1053,15 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 870.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 870.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 870.
+(hyperref)                removing `superscript' on input line 867.
 
 [8] [9] [10] [11]
-Overfull \hbox (6.34018pt too wide) in paragraph at lines 1029--1030
+Overfull \hbox (6.34018pt too wide) in paragraph at lines 1026--1027
 []\T1/ntxtlf/b/n/10 Beispiel(*) 2.2. []\T1/ntxtlf/m/n/10 Als di-rek-tes Pro-dukt: Ein-fachs-te Automorphismen-Familie durch $\OML/ntxmi/m/it/10  \LMS/ntxsy/m/n/10 ¹\OML/ntxmi/m/it/10 k\LMS/ntxsy/m/n/10 º \U/ntxmia/m/it/10 =
  []
 
 
-Overfull \hbox (10.65352pt too wide) in paragraph at lines 1033--1034
+Overfull \hbox (10.65352pt too wide) in paragraph at lines 1030--1031
 []\T1/ntxtlf/b/n/10 Beispiel(*) 2.3. []\T1/ntxtlf/m/n/10 Als in-ne-res se-mi-di-rek-tes Pro-dukt: Spe-zi-al-fall, wenn die Automorphismen-
  []
 
@@ -1086,21 +1078,21 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `vortrag-skript.out' has not changed.
-(rerunfilecheck)             Checksum: B1801FB3ECA94C35A15F30A44AFEB1E8;2443.
+(rerunfilecheck)             Checksum: 59F6425F7C9D20D113645194A80BF24F;2214.
  ) 
 Here is how much of TeX's memory you used:
- 35331 strings out of 474116
- 704130 string characters out of 5743682
+ 35323 strings out of 474116
+ 704031 string characters out of 5743682
  1987187 words of memory out of 5000000
- 56894 multiletter control sequences out of 15000+600000
- 671858 words of font info for 221 fonts, out of 8000000 for 9000
+ 56893 multiletter control sequences out of 15000+600000
+ 668968 words of font info for 215 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  102i,23n,130p,1292b,1521s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/stxscr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on vortrag-skript.pdf (12 pages, 241249 bytes).
+Output written on vortrag-skript.pdf (12 pages, 240822 bytes).
 PDF statistics:
- 331 PDF objects out of 1000 (max. 8388607)
- 248 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 327 PDF objects out of 1000 (max. 8388607)
+ 244 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

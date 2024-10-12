@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1728728815.18736 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" "vortrag-skript.pdf" "vortrag-skript" 1728728822.39539 0
-  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" 1728728814.94993 57084 a8098a09a0f1492fd3e7d10650bd3d0a ""
+["pdflatex"] 1728728995.00935 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" "vortrag-skript.pdf" "vortrag-skript" 1728729002.13055 0
+  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" 1728728987.53888 56740 1b3288fda1d8bfff17b3419393a6f0a8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1698694482 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -300,9 +300,9 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1723586653.69598 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1723586649 8221434 9c5b5e0603be9d3fd6376f90f708ac0c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "vortrag-skript.aux" 1728728822.20463 11122 c60d582b572d7703d6c0a447b41d8574 "pdflatex"
-  "vortrag-skript.out" 1728728822.2208 2443 b1801fb3eca94c35a15f30a44afeb1e8 "pdflatex"
-  "vortrag-skript.tex" 1728728814.94993 57084 a8098a09a0f1492fd3e7d10650bd3d0a ""
+  "vortrag-skript.aux" 1728729001.93635 10953 b69fbe6577ef93f0863fb78f5ddeab9a "pdflatex"
+  "vortrag-skript.out" 1728729001.95259 2214 59f6425f7c9d20d113645194a80bf24f "pdflatex"
+  "vortrag-skript.tex" 1728728987.53888 56740 1b3288fda1d8bfff17b3419393a6f0a8 ""
   (generated)
   "vortrag-skript.aux"
   "vortrag-skript.log"
