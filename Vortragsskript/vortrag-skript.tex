@@ -9,6 +9,15 @@
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 
+\usepackage{amsthm}
+
+\usepackage[T1]{fontenc}
+%\usepackage{fouriernc}
+%\usepackage[cmintegrals,cmbraces]{newtxmath}
+%\usepackage{ebgaramond-maths}
+\usepackage{newtxtext}        
+\usepackage[varvw]{newtxmath}
+
 \usepackage{subcaption}
 
 \usepackage{tikz}
@@ -26,26 +35,21 @@
 
 \newenvironment{equationstrd}{\begin{equation*}\refstepcounter{equationstrd}\tag{\theequationstrd*}}{\end{equation*}}
 
+\usepackage[style=numeric, backend=bibtex]{biblatex}
+\addbibresource{bibliography.bib}
+
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
+    citecolor=blue,
     filecolor=magenta,      
     urlcolor=blue,
     pdftitle={Overleaf Example},
     pdfpagemode=FullScreen,
-    }
+}
 
-\usepackage{amsthm}
-
-\usepackage[T1]{fontenc}
-%\usepackage{fouriernc}
-%\usepackage[cmintegrals,cmbraces]{newtxmath}
-%\usepackage{ebgaramond-maths}
-\usepackage{newtxtext}        
-\usepackage[varvw]{newtxmath}
-
-\usepackage[capitalize, nameinlink]{cleveref}
+\usepackage[capitalize, noabbrev]{cleveref} %nameinlink option
 
 \theoremstyle{plain}
 \newtheorem{definition}{Definition}[chapter]
@@ -79,17 +83,18 @@
 \maketitle
 
 \begin{abstract}
-    Der folgende Text ist eine Ausarbeitung einer in \textit{From Groups to Geometry and Back} präsentierten Sichtweise auf die Gruppentheoretische Struktur der geraden Isometrien des \(\mathbb R^2\). Sie ist im Rahmen des Hurwitz Seminars 2024 der TU München entstanden. Der Haupttext wird im Folgenden auf die wesentlichen Motivationen des semidirekten Produkts reduziert und dabei um entscheidende Gedankengänge, Erkenntnisse und Einordnungen meinerseits ergänzt.  
+    Der folgende Text ist eine Ausarbeitung einer in \textit{From Groups to Geometry and Back} von Climenhaga und Katok \cite{referenzwerk} präsentierten Sichtweise auf die Gruppentheoretische Struktur der geraden Isometrien des \(\mathbb R^2\). Sie ist im Rahmen des Hurwitz Seminars 2024 der TU München entstanden. Der Haupttext wird auf die wesentlichen Motivationen des semidirekten Produkts reduziert und dabei um entscheidende Gedankengänge, Erkenntnisse und Einordnungen meinerseits ergänzt.  
 \end{abstract}
 
 \section*{Anmerkungen}
 \begin{itemize}
-    \item Die Notationen richten sich weitestgehend nach den Notation aus dem Referenzwerk \textit{From Groups to Geometry and Back}. 
+    \item Die Notationen richten sich weitestgehend nach den Notation aus dem Referenzwerk \textit{From Groups to Geometry and Back} \cite{referenzwerk}. 
     \item Die Nummerierung aller Propositionen, Gleichungen und Aufgaben entspricht jener aus dem Referenzwerk. Hilfsaussagen meinerseits sind mit einem (*) markiert und folgen einer eigenen Nummerierung für dieses Skript. 
 \end{itemize}
 
 \section{Erste gruppentheoretische Überlegungen}\label{sec:wiederholung}
-Im vorherigen Vortrag \anm{[src]} hat Jan Eickhoff elementar geometrisch eine Klassifikation der Isometrien in \(\mathrm{Isom}(\mathbb R^2)\) hergeleitet. Sie sagt in kurz aus: 
+Im vorherigen Vortrag %\anm{[src]}
+hat Jan Eickhoff elementar geometrisch eine Klassifikation der Isometrien in \(\mathrm{Isom}(\mathbb R^2)\) hergeleitet. Sie sagt in Kurzform aus: 
 
 \begin{table}[h]
     \centering
@@ -101,9 +106,9 @@ Im vorherigen Vortrag \anm{[src]} hat Jan Eickhoff elementar geometrisch eine Kl
     \end{tabular}
     %\caption{Klassifikation der Isometrien des \(\mathbb R^2\)}
 \end{table}
-\noindent Wir wollen uns nun mit der Gruppenstruktur der orientierungserhaltenden Isometrien auseinandersetzen, geschrieben \(\geradisometr\). Die obige Klassifizierung erleichtert uns diese Untersuchung enorm. So ist es alleine für diesen Vortrag nicht einmal notwendig genau zu verstehen, was \textit{orientierungserhaltend} bedeutet. Es ist vollkommen ausreichend unter orientierungserhaltende Isometrien einfach \textit{genau} die Translationen und Rotationen zu verstehen (im \(\mathbb R^2\))\footnote{Beim genauen Lesen dieses Skripts wird auffallen, dass wir tatsächlich an keiner Stelle irgendwie mit der orientierungserhaltenden Eigenschaft argumentieren.}. 
+\noindent Wir wollen uns nun mit der Gruppenstruktur der orientierungserhaltenden Isometrien auseinandersetzen, geschrieben \(\geradisometr\). Die obige Klassifizierung erleichtert uns diese Untersuchung enorm. So ist es alleine für diesen Vortrag nicht einmal notwendig genau zu verstehen, was \textit{orientierungserhaltend} bedeutet. Es ist vollkommen ausreichend unter orientierungserhaltenden Isometrien einfach \textit{genau} die Translationen und Rotationen zu verstehen (im \(\mathbb R^2\))\footnote{Beim genauen Lesen dieses Skripts wird auffallen, dass wir tatsächlich an keiner Stelle irgendwie mit der orientierungserhaltenden Eigenschaft argumentieren.}. 
 
-Die beiden (einzigen!) Akteure in \(\geradisometr\) sind uns also nun bekannt. Im Folgenden gilt es also diese Akteure im Kontext der \(\geradisometr\) zu untersuchen. Dazu gehören die \textit{Struktur der Translationen und Rotationen} selbst und die \textit{Interaktionen der beiden miteinander}. Für ersteres führen wir noch Notationen ein: 
+Die beiden (einzigen!) Akteure in \(\geradisometr\) sind uns nun bekannt. Im Folgenden gilt es also diese Akteure im Kontext der \(\geradisometr\) zu untersuchen. Dazu gehören die \textit{Struktur der Translationen und Rotationen} selbst und die \textit{Interaktionen der beiden miteinander}. Dafür führen wir zunächst Notationen ein: 
 
 Die Menge aller Translationen wird mit \(\mathcal T\) bezeichnet. Sie ist eine Untergruppe der \(\geradisometr\) und isomorph zu \((\mathbb R^2, +)\) und damit abelsch. Das sieht man leicht daran, dass wir jede Translation schreiben können als Abbildung \(T_v: \mathbb R^2\to \mathbb R^2, x \mapsto x + v\). 
 
@@ -586,7 +591,7 @@ Durch die elementargeometrische Konstruktion aus \cref{fig:konstruktion-alpha-kl
         \end{tikzpicture}
         \caption{}
     \end{subfigure}
-    \caption{Sonderfälle der Konstruktion aus \cref{fig:konstruktion-alpha-kleiner-180} für (a) \(\theta=180^\circ\) und (b) \(\theta>180^\circ\) durch den Hilfswinkel \(\gamma := 360 - \theta\).}
+    \caption{Sonderfälle der Konstruktion aus \cref{fig:konstruktion-alpha-kleiner-180} für (a) \(\theta=180^\circ\) und (b) \(\theta>180^\circ\) durch den Hilfswinkel \(\gamma := 360^\circ - \theta\).}
     \label{fig:sonderfalle-konstruktion}
 \end{figure}
 
@@ -597,7 +602,7 @@ Wir können also jedem Element \(I \in \geradisometr\) einen sinnvollen Wert zuo
 für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar ein Homomorphismus: 
 
 \begin{propositionstrd}\label{prop*:homomorphismus-alpha}
-    Die oben definierte Abbildung \(\alpha: \geradisometr\to \mathbb R/2\pi\mathbb Z\) ist ein Homomorphismus. 
+    Die in \eqref{eq*:definition-alpha} definierte Abbildung \(\alpha: \geradisometr\to \mathbb R/2\pi\mathbb Z\) ist ein Homomorphismus. 
 \end{propositionstrd}
 \begin{proof}
     Diesen Beweis müssen wir noch elementargeometrisch führen. Er ermöglicht uns allerdings später, dass wir uns (fast) nur in der gruppentheoretischen Welt bewegen können, ohne elementargeometrische Überlegungen. 
@@ -605,10 +610,175 @@ für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar
     Zu zeigen ist \(\alpha(I_1, I_2) = \alpha(I_1) + \alpha(I_2)\) für alle \(I_1, I_2 \in \geradisometr\). Wir unterscheiden die folgenden Fälle:
     \begin{enumerate}
         \item \(I_1\) und \(I_2\) sind Translationen. Beides sind lediglich Parallelverschiebungen (aus Sicht der Gerade \(\mathscr l\)), also folgt sofort \(\alpha(I_1 I_2) = 0 = 0+0 = \alpha(I_1) + \alpha(I_2)\). 
-        \item \(I_1\) ist eine Translation und \(I_2\) ist eine Rotation oder \(I_1\) ist eine Rotation und \(I_2\) ist eine Translation. Wir müssen beide Fälle separat betrachten, da Translationen und Rotationen im Allgmeinen nicht kommutieren. \anm{Abb} zeigt jedoch, dass die Argumentation in beiden Fällen die gleiche ist. 
+        \item \(I_1\) ist eine Translation und \(I_2\) ist eine Rotation oder \(I_1\) ist eine Rotation und \(I_2\) ist eine Translation. Wir müssen beide Fälle separat betrachten, da Translationen und Rotationen im Allgmeinen nicht kommutieren. \cref{fig:verknupfung-rotation-translation} zeigt jedoch, dass die Argumentation in beiden Fällen die gleiche ist. 
         \item \(I_1\) und \(I_2\) sind Rotationen. \cref{fig:verknupfung-rotationen} zeigt eine entsprechende Konstruktion, die zusammen mit den Winkelsätzen die Behauptung liefert. 
     \end{enumerate}
 \end{proof}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=.6]
+            \tkzSetUpLine[line width=1pt]
+            \tkzSetUpStyle[postaction=decorate,
+                decoration={markings,
+                    mark=at position .75 with {\arrow[thick]{#1}}
+                }
+            ]{dirarrow}
+        
+            \tkzDefPoints{0/0/A,5/0/B,2/3/P,-0.5/-1/M}
+        
+            \tkzDefPointBy[rotation=center P angle 45](A)
+            \tkzGetPoint{C}
+            \tkzDefPointBy[rotation=center P angle 45](B)
+            \tkzGetPoint{D}
+            
+            \tkzLabelLine[pos=1.2,left](C,D){$R_\theta^p T_v\mathscr l$}
+        
+            \tkzDefPointBy[projection= onto C--D](P)
+            \tkzGetPoint{Q}
+        
+            \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+        
+            \tkzInterLL(A,B)(P,Q)
+            \tkzGetPoint{I}
+        
+            \tkzDrawSegment[dashed](P,Q)
+        
+            \tkzLabelLine[pos=1.15,above](A,I){$T_v\mathscr l$}
+        
+            \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
+        
+            \tkzDefLine[orthogonal=through I](A,B) \tkzGetPoint{i}
+        
+            \tkzDefLine[orthogonal=through P](i,I) \tkzGetPoint{p}
+            \tkzInterLL(P,p)(I,i) \tkzGetPoint{E}
+        
+            \tkzInterLL(I,i)(C,D) \tkzGetPoint{G}
+
+            \tkzDefLine[parallel=through M](A,B) \tkzGetPoint{B2}
+
+            \tkzInterLL(M,B2)(C,D) \tkzGetPoint{F2}
+        
+            %\tkzDrawPoints(I)
+        
+            % baselines
+            \tkzDrawLine[dirarrow=stealth](A,I)
+            \tkzDrawLine[dirarrow=stealth](C,D)
+        
+            % erste orthogonale zu C--D durch P
+            %\tkzDrawLine[color=blue](P,I)
+            %\tkzMarkRightAngle(F,Q,I)
+        
+            \tkzDrawSegment[dashed](P,P2)
+            \tkzLabelAngle[pos=.75](P2,P,Q){$\theta$}
+            %\tkzMarkAngle[size=1](P2,P,Q)
+        
+            %\tkzDrawLine[color=blue](I,i)
+        
+            %\tkzDrawLine[color=blue](P,p)
+            %\tkzMarkRightAngle(P,E,I)
+        
+            \tkzMarkAngle[size=.5](I,F,Q)
+            \tkzLabelAngle[pos=.75](I,F,Q){$\theta$}
+            
+            %\tkzMarkAngle[size=.5](G,I,Q)
+            %\tkzLabelAngle[pos=.7](G,I,Q){$\theta$}
+        
+            \tkzDrawPoints(P)
+            \tkzLabelPoints[below left](P)
+
+            \tkzDrawLine[dirarrow=stealth](M,B2)
+            \tkzLabelLine[pos=0,above](M, B2){$\mathscr l$}
+            \tkzMarkAngle[size=.5](B2,F2,F)
+            \tkzLabelAngle[pos=.75](B2,F2,F){$\theta$}
+        \end{tikzpicture}
+        \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=.6]
+            \tkzSetUpLine[line width=1pt]
+            \tkzSetUpStyle[postaction=decorate,
+                decoration={markings,
+                    mark=at position .75 with {\arrow[thick]{#1}}
+                }
+            ]{dirarrow}
+        
+            \tkzDefPoints{0/0/A,5/0/B,2/3/P,5/-1/M,2/0/A',7/0/B'}
+        
+            \tkzDefPointBy[rotation=center P angle 45](A)
+            \tkzGetPoint{C}
+            \tkzDefPointBy[rotation=center P angle 45](B)
+            \tkzGetPoint{D}
+            
+            \tkzLabelLine[pos=1.2,left](C,D){$R_\theta^p\mathscr l$}
+        
+            \tkzDefPointBy[projection= onto C--D](P)
+            \tkzGetPoint{Q}
+        
+            \tkzDefPointBy[projection= onto A--B](P) \tkzGetPoint{P2}
+        
+            \tkzInterLL(A,B)(P,Q)
+            \tkzGetPoint{I}
+        
+            \tkzDrawSegment[dashed](P,Q)
+        
+            \tkzLabelLine[pos=1,above](A,I){$\mathscr l$}
+        
+            \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
+        
+            \tkzDefLine[orthogonal=through I](A,B) \tkzGetPoint{i}
+        
+            \tkzDefLine[orthogonal=through P](i,I) \tkzGetPoint{p}
+            \tkzInterLL(P,p)(I,i) \tkzGetPoint{E}
+        
+            \tkzInterLL(I,i)(C,D) \tkzGetPoint{G}
+
+            \tkzDefLine[parallel=through M](C,D) \tkzGetPoint{B2}
+
+            \tkzInterLL(M,B2)(A,B) \tkzGetPoint{F2}
+        
+            %\tkzDrawPoints(I)
+        
+            % baselines
+            \tkzDrawLine[dirarrow=stealth](A',F2)
+            \tkzDrawLine[dirarrow=stealth](C,D)
+        
+            % erste orthogonale zu C--D durch P
+            %\tkzDrawLine[color=blue](P,I)
+            %\tkzMarkRightAngle(F,Q,I)
+        
+            \tkzDrawSegment[dashed](P,P2)
+            \tkzLabelAngle[pos=.75](P2,P,Q){$\theta$}
+            \tkzMarkAngle[size=1](P2,P,Q)
+        
+            %\tkzDrawLine[color=blue](I,i)
+        
+            %\tkzDrawLine[color=blue](P,p)
+            %\tkzMarkRightAngle(P,E,I)
+        
+            \tkzMarkAngle[size=.5](I,F,Q)
+            \tkzLabelAngle[pos=.75](I,F,Q){$\theta$}
+            
+            %\tkzMarkAngle[size=.5](G,I,Q)
+            %\tkzLabelAngle[pos=.7](G,I,Q){$\theta$}
+        
+            \tkzDrawPoints(P)
+            \tkzLabelPoints[below left](P)
+
+            \tkzDrawLine[dirarrow=stealth](M,B2)
+            \tkzLabelLine[pos=0,below right](M, B2){$T_vR_\theta^p\mathscr l$}
+            \tkzMarkAngle[size=.5](B',F2,B2)
+            \tkzLabelAngle[pos=.75](B',F2,B2){$\theta$}
+        \end{tikzpicture}
+        \caption{}
+    \end{subfigure}
+    \caption{Verknüpfung einer Rotation mit einer Translation mit orientierten Geraden: (a) Erst Translation, dann Rotation; (b) Erst Rotation, dann Translation. In beiden Fällen finden wir den Winkel \(\theta\) mithilfe des Stufenwinkelsatzes an den gewünschten Positionen.}
+    \label{fig:verknupfung-rotation-translation}
+\end{figure}
 
 \begin{figure}
     \centering
@@ -638,7 +808,7 @@ für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar
         \tkzDrawSegment[dashed](P,Q)
     
         %\tkzDrawLine[color=blue](P,I)
-        \tkzLabelLine[pos=1.15,below](A,B2){$\mathscr l$}
+        \tkzLabelLine[pos=1,below](A,B2){$\mathscr l$}
     
         \tkzInterLL(A,B)(C,D) \tkzGetPoint{F}
         %\tkzMarkRightAngle(F,Q,I)
@@ -721,21 +891,29 @@ für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar
     \begin{equation*}
         I \in \mathcal T \iff \alpha(I) = 0
     \end{equation*}
-    und falls \(\alpha(I) = \theta\) für ein \(\theta \in \mathbb R\), so existiert ein Punkt \(p \in \mathbb R^2\), sodass \(I = R_\theta^p\). Insbesondere gilt 
+    und
+    \begin{equation*}
+        \exists p \in \mathbb R^2: I = R_\theta^p \iff \alpha(I) = \theta
+    \end{equation*}%
+    %\anm{Hier fehlt noch irgendwie, dass \(I\) dann eine Rotation um \(\theta\) sein muss und nur der Punkt \(p\) nicht eindeutig bestimmt ist. NEIN! Denn könnte man \(I\) schreiben, als Rotation \(R_\gamma^q\) mit \(\gamma\neq\theta\) und \(q\neq p\), so gilt \(R_\gamma^q = R_\theta^p\). Also auch \(\gamma = \alpha(R_\gamma^q) = \alpha(R_\theta^p) = \theta\). Widerspruch!} 
+    Insbesondere gilt 
     \begin{equation*}
         \ker(\alpha) = \mathcal T
     \end{equation*}
 \end{propositionstrd}
 \begin{proof}
-    Die Hinrichtung ist klar aus den Überlegungen vor \cref{prop*:homomorphismus-alpha}. 
+    Die Hinrichtungen sind klar aus den Überlegungen vor \cref{prop*:homomorphismus-alpha}. 
 
-    Ist \(\alpha(I)=0\), so sind \(\mathscr l\) und \(I\mathscr l\) entweder identisch oder liegen parallel zueinander. Im Nicht-Identischen Fall, hält \(I\) also \textit{keinen} Punkt von \(\mathscr l\) fest! \(I\) ist entweder eine Translation oder eine Rotation. Rotationen haben genau einen Fixpunkt! Also muss \(I\) eine Translation sein. 
+    Ist \(\alpha(I)=0\), so sind \(\mathscr l\) und \(I\mathscr l\) entweder identisch oder liegen parallel zueinander. Im identischen Fall gilt \(I = \id \in \mathcal T\). Dies deckt auch den zweiten Teil für \(\theta = 0\) ab, denn \(R_0^p = \id\) für alle \(p \in \mathbb R^2\). 
 
-    Umgekehrt sind für \(\alpha(I)=\theta\neq0\) die Linien \(\mathscr l\) und \(I\mathscr l\) nicht parallel, und schneiden sich damit in genau einem Punkt. \(I\) hält also genau diesen Schnittpunkt fest. Damit muss \(I\) eine Rotation sein. Warum muss es genau eine Rotation um \(\theta\) sein? \(\implies\) Elementargeometrisches Argument. 
+    Hätte \(I\) im nicht-identischen Fall einen Fixpunkt, so wäre \(I\) eine Rotation um einen Winkel ungleich null, also \(I = R_\gamma^p\) mit \(\gamma\neq0\). Dann haben wir \(0 = \alpha(I) = \alpha(R_\gamma^p) = \gamma\), also einen Widerspruch. Damit hat \(I\) in diesem Fall keinen Fixpunkt und muss eine Translation sein. 
+
+    Sei nun \(\alpha(I)=\theta\neq0\). Hätte \(I\) keinen Fixpunkt, so wäre \(I\) eine Translation. Insbesondere gilt dann \(\alpha(I) = 0\), Widerspruch. Also hat \(I\) einen Fixpunkt und muss damit eine Rotation \(R_\gamma^p\) sein. Dann folgt \(\theta = \alpha(I) = \alpha(R_\gamma^p) = \gamma\), was den Beweis abschließt. 
 \end{proof}
+Der zweite Teil der Proposition ist auch tatsächlich eine Klassifizierung. A priori ist erst einmal nicht ausgeschlossen, dass im Fall \(\alpha(I) = \theta\) noch weitere \(\gamma \in \mathbb R, \gamma\neq\theta\) und \(q \in \mathbb R^2, q\neq p\) existieren mit \(I = R_\gamma^q\). Dann hätten wir jedoch eine Rotation auf zwei verschiedene Arten beschrieben: \(R_\theta^p = R_\gamma^q\). Allerdings gilt \(\theta = \alpha(R_\theta^p) = \alpha(R_\gamma^q) = \gamma\), womit dieser Fall nicht eintreten kann. Alternativ hätten wir \(p = R_\theta^p(p) = R_\gamma^q(p) \neq p\), also einen noch direkteren Widerspruch. 
 
 \begin{annotationstrd}\label{ann*:alpha-ergibt-sich-aus-struktur}
-    Diese Klassifikation wirkt vielleicht im ersten Blick etwas will\-kür\-lich. Sie ergibt sich allerdings tatsächlich ganz natürlich aus der Struktur des Quotienten \(\mathrm{Isom}^+(\mathbb R^2) /\mathcal T\). Das wird eine der großen Erkenntnisse des nächsten \cref{sec:struktur-von-translationen} sein. 
+    Diese Klassifikation wirkt vielleicht auf den ersten Blick etwas will\-kür\-lich. Sie ergibt sich allerdings tatsächlich ganz natürlich aus der Struktur des Quotienten \(\mathrm{Isom}^+(\mathbb R^2) /\mathcal T\). Das wird eine der großen Erkenntnisse des nächsten \cref{sec:struktur-von-translationen} sein. 
 \end{annotationstrd}
 
 \section{Die Struktur von \(\mathcal T\)}\label{sec:struktur-von-translationen}
@@ -763,7 +941,7 @@ Halten wir einen beliebigen Punkt \(p\in \mathbb R^2\) fest, so liefert uns die 
         \mathrm{Isom^+(\mathbb R^2)}/\mathcal T \cong S^1 
     \end{equation*}
 \end{propositionstrd}
-\noindent Damit hätten wir nun bereits in gewisser Weise die Faktorgruppe ausreichend verstanden. Eine alternative Betrachtung, ganz ohne den Homomorphismus \(\alpha\) wird jedoch fruchtbar sein und sogar etwas strukturelles über \(\alpha\) offenlegen. 
+\noindent Damit hätten wir nun bereits in gewisser Weise die Faktorgruppe ausreichend verstanden. Die folgende alternative Betrachtung, ganz ohne den Homomorphismus \(\alpha\) wird jedoch fruchtbar sein und sogar etwas strukturelles über \(\alpha\) offenlegen. 
 
 Da jeder orientierungserhaltende Isomorphismus des \(\mathbb R^2\) entweder eine Translation oder eine Rotation ist, haben wir folgende Zerlegung
 \begin{equation*}
@@ -773,9 +951,9 @@ Die Elemente der Faktorgruppe \(\geradisometr/\mathcal T = \{I\mathcal{T} : I \i
 \begin{itemize}
     \item Wenn \(I \in \mathcal T\), so folgt sofort \(I\mathcal T = \mathcal T\) nach der Konstruktion der Äquivalenzrelation auf dem Quotienten. 
     \item Wenn \(I \in \bigcup_{p \in \mathbb R^+} G_p^+\), so ist \(I\) eine Rotation um irgendeinen Punkt \(p\in \mathbb R^2\), d.h. \(I = R_\theta^p\) mit \(\theta \in \mathbb R\). Dann gilt für beliebige \(q \in \mathbb R^2\)
-    \begin{equation*}
+    \begin{equationstrd}\label{eq*:rotationen-um-verschiedene-punkte}
         T_{q-p} R_\theta^p T_{p-q}(q) = T_{q-p} R_\theta^p(p) = T_{q-p}(p) = q
-    \end{equation*}
+    \end{equationstrd}
     also \(T_{q-p} R_\theta^p T_{p-q} = R_\theta^q\) wegen \cref{prop*:gruppentheo-klassifikation-gerader-isometrien}. Damit haben wir 
     % Das heißt nicht, dass G_p^+ ein Normalteiler ist! Denn R_\theta^p und R_\theta^q sind in G_p^+ bzw G_q^+!
     \begin{equation*}
@@ -831,7 +1009,7 @@ Also liefert der zu Beginn dieses Abschnitts eingeführte Homomorphismus \(\alph
 
 \section{Konjugiertenklassen von Elementen aus \(\geradisometr\)}\label{sec:konjugiertenklassen-gerader-isometrien}
 
-\anm{Kurz nochmal Motivation aufgreifen.}
+Nachdem wir nun die Translationen und Rotationen separat betrachtet haben, widmen wir uns nun den Interaktionen ebendieser miteinander. 
 
 \subsection{Konjugatiertenklassen von Translationen}\label{subsec:konjugiertenklassen-von-translationen}
 Da \(\mathcal T\) normal in \(\geradisometr\) ist, ist jede Konjugation einer Translation ebenfalls eine Translation. Da \(\mathcal T \cong (\mathbb R^2, +)\), ist \(\mathcal T\) abelsch, also gilt für Konjugationen mit Translationen: 
@@ -842,7 +1020,7 @@ Der andere "`Konjugiertentyp"' von Translationen, welcher in \(\geradisometr\) a
 \begin{equation*}
     (RT_vR^{-1})(p) = (RT_vR_{-\theta}^p)(p) = RT_v(p) = R_\theta^p (p+v) = p + R_\theta^0 v
 \end{equation*}
-\anm{Die letze Gleichheit ist beweisbedürftig.} Da \(\mathcal T\) nach \cref{prop:normale-translationen} normal ist, ist auch \(RT_vR^{-1}\) eine Translation, also \(RT_vR^{-1} = T_w\) für ein \(w \in \mathbb R^2\). Insbesondere gilt auch 
+Die letzte Gleichheit mag zunächst irritierend sein. Doch Rotationen um Punkte ungleich dem Nullpunkt sind nicht linear! Stattdessen gilt nach den Überlegungen um \eqref{eq*:rotationen-um-verschiedene-punkte} \(R_\theta^p = T_p R_\theta^0 T_{-p}\), womit die Behauptung folgt. Da \(\mathcal T\) nach \cref{prop:normale-translationen} normal ist, ist auch \(RT_vR^{-1}\) eine Translation, also \(RT_vR^{-1} = T_w\) für ein \(w \in \mathbb R^2\). Insbesondere gilt auch 
 \begin{equation*}
     p + w = T_w(p) = RT_vR^{-1}(p) = p + R_\theta^0 v
 \end{equation*}
@@ -868,6 +1046,7 @@ Insgesamt können wir nun zusammen mit den Ergebnissen aus \cref{subsec:konjugie
 
 \subsection{Motivation}
 Die folgenden Aussagen gelten auch alle im \(\mathbb R^n\) und nicht nur \(\mathbb R^2\)!
+\refstepcounter{proposition}
 \begin{proposition}\label{prop:zerlegung-gerader-isometrien}
     Sei \(p \in \mathbb R^2\) fest. Dann existieren für jede Isometrie \(I \in \geradisometr\) ein eindeutiges \(v \in \mathbb R^2\) und \(\theta \in [0,2\pi)\) sodass \(I = T_v R_\theta^p\).  
 \end{proposition}
@@ -878,19 +1057,11 @@ Die folgenden Aussagen gelten auch alle im \(\mathbb R^n\) und nicht nur \(\math
     \end{equation*}
     Damit die gewünschte Darstellung existieren kann, muss \(IR_{-\theta}^p\) eine Translation sein. Das ist nach \cref{prop*:gruppentheo-klassifikation-gerader-isometrien} genau dann der Fall, wenn \(\alpha(IR_{-\theta}^p) = 0\), also mit der obigen Gleichheit genau dann, wenn \(\alpha(I) = \alpha(R_\theta^p) = \theta\). Das zeigt: Wählen wir \(\theta := \alpha(I)\), so existiert ein \(v \in \mathbb R^2\) mit \(I = T_v R_\theta^p\) und diese Wahl von \(\theta\) ist die einzige Wahl, sodass ein solches \(v \in \mathbb R^2\) existiert. Translationen sind über ihren Verschiebungsvektor eindeutig bestimmt. Also ist \(v\) durch \(v = T_v(0) = (IR_{-\theta}^p) (0)\) eindeutig bestimmt. 
 \end{proof}
-Jetzt: \(p=0\). Dann ist 
-\begin{equation*}
-    G_p^+ = G_0^+ = \mathrm{Isom}^+(S^1) = S^1
-\end{equation*}
-\anm{Hat wohl irgendwas mit \cref{prop*:gestalt-quotient-über-translationen} zu tun, aber wie genau ist mir ein Rätsel... Sowohl die zweite, als auch die letzte Gleichung sind beweisbedürftig.}
-
-Für den Moment setzen wir \(SO(2):= G_0^+\) (mehr dazu anscheinend in Kapitel 3). Wegen \(\mathcal T \cong (\mathbb R^2, +)\) werden wir auch häufig \(\mathbb R^2\) statt \(\mathcal T\) schreiben. 
-
-Mit Prop. 2.10 und 2.8 haben wir nun bereits entscheidende Aussagen darüber gesammelt, wie die Untergruppen \(G_0^+\) und \(\mathcal T\) in \(\geradisometr\) liegen: 
+Ab jetzt betrachten wir nur noch \(p=0\). Mit \cref{prop:normale-translationen,,prop:zerlegung-gerader-isometrien} haben wir nun bereits entscheidende Aussagen darüber gesammelt, wie die Untergruppen \(G_0^+\) und \(\mathcal T\) in \(\geradisometr\) liegen: 
 \begin{enumerate}
-    \item \textbf{Sie erzeugen die Gruppe}: Nach Prop 2.10 können wir jede gerade Isometrie des \(\mathbb R^2\) als Produkt \(I=TR\) einer Translation \(T\) und einer Rotation \(R\) um \(0\) verstehen. 
-    \item \(\mathcal T \cap G_0^+ = \{e\}\) (Klassifikation nach Fixpunkten) %\anm{Konjugiertheit von \(G_0^+\) zu allen anderen \(G_p^+\). Was soll diese Eigenschaft aussagen? Wo wird sie relevant?}
-    \item \(\mathcal T\) ist normal, aber \(G_0^+\) ist nicht normal (und damit auch keiner der anderen \(G_p^+\), da diese alle konjugiert -- insbesondere isomorph sind). %\anm{Normalität von \(\mathcal T\) und Isometrie des Quotienten \(\geradisometr/\mathcal T\)}
+    \item Sie erzeugen die Gruppe: Nach \cref{prop:zerlegung-gerader-isometrien} können wir jede gerade Isometrie des \(\mathbb R^2\) als Produkt \(I=TR\) einer Translation \(T\) und einer Rotation \(R\) um \(0\) verstehen. 
+    \item \(\mathcal T \cap G_0^+ = \{e\}\) (Klassifikation nach Fixpunkten, \cref{sec:wiederholung}) %\anm{Konjugiertheit von \(G_0^+\) zu allen anderen \(G_p^+\). Was soll diese Eigenschaft aussagen? Wo wird sie relevant?}
+    \item \(\mathcal T\) ist nach \cref{prop:normale-translationen} normal, aber \(G_0^+\) ist wegen \eqref{eq:konjugations-relationen} nicht normal % ENTSPRECHENDER TEIL ENTFERNT: (und damit auch keiner der anderen \(G_p^+\), da diese alle konjugiert, insbesondere isomorph, sind). %\anm{Normalität von \(\mathcal T\) und Isometrie des Quotienten \(\geradisometr/\mathcal T\)}
 \end{enumerate}
 Die ersten beiden Eigenschaften erinnern an die Konstruktion des (inneren) direkten Produkts: 
 \begin{definitionstrd}[Innere direkte Produkte]\label{def*:innere-direkte-produkte}
@@ -902,20 +1073,24 @@ Die ersten beiden Eigenschaften erinnern an die Konstruktion des (inneren) direk
     \end{enumerate}
     gilt. 
 \end{definitionstrd}
+\begin{annotationstrd}\label{ann*:eindeutige-zerlegung-innere-direkte-produkte}
+    Die zweite Eigenschaft aus \cref{def*:innere-direkte-produkte} garantiert bereits die Eindeutigkeit der Zerlegung aus der ersten Eigenschaft. Dafür machen wir zunächst eine Vorbemerkung: Punkt 2 ist äquivalent dazu, dass für alle \(h\in H, k \in K\) mit \(hk = e\) folgt \(h = k = e\): Seien für die Hinrichtung \(h \in H, k \in K\) mit \(hk = e\). Dann ist \(h = k^{-1}\), also \(h, k \in H\cap K = \{e\}\) und damit \(h = k = e\).  Sei für die Rückrichtung \(g \in H\cap K\). Dann ist \(g g^{-1} = e\) wobei \(g \in H\cap K \subseteq H\) und \(g^{-1} \in H\cap K \subseteq K\). Es folgt \(g = g^{-1} = e\) und damit die Behauptung. 
+    
+    Nun zur eigentlichen Eindeutigkeits-Aussage: Ist \(H \cap K = \{e\}\) und \(h_1 k_1 = h_2 k_2\), so haben wir \(h_2^{-1} h_1 k_1 k_2^{-1} = e\) wobei \(h_2^{-1}h_1 \in H\) und \(k_1 k_2^{-1}\in K\). Mit der Vorbemerkung folgt \(h_2^{-1}h_1 = e\) und \(k_1 k_2^{-1} = e\), also \(h_1 = h_2\) und \(k_1 = k_2\). 
+\end{annotationstrd}
 \begin{annotationstrd}\label{ann*:innere-direkte-produkte-über-normalteiler}
-    Die letzte Eigenschaften wird häufig auch spezifischer gefasst: Sind \(H\) und \(K\) sogar Normalteiler von \(G\), die Punkt 2 erfüllen, so kommutieren deren Elemente im Sinne von Punkt 3. Ist einer der beiden Untergruppen in diesem Fall jedoch kein Normalteiler, so ist Punkt 3 im Allgemeinen auch nicht erfüllt!
+    Die letzte Eigenschaft aus \cref{def*:innere-direkte-produkte} wird häufig auch spezifischer gefasst: Sind \(H\) und \(K\) sogar Normalteiler von \(G\), die Punkt 2 erfüllen, so kommutieren deren Elemente im Sinne von Punkt 3. Ist einer der beiden Untergruppen in diesem Fall jedoch kein Normalteiler, so ist Punkt 3 im Allgemeinen auch nicht erfüllt!
 \end{annotationstrd}
 
-\textbf{Frage bei "`inneren"' Strukturen}: Können wir die Struktur der ganzen Gruppe alleine durch die Strukturen kleinerer Untergruppen verstehen?
+Eine der Fragen hinter "`inneren Strukturen"' ist: \textit{Können wir die Struktur der ganzen Gruppe alleine durch die Strukturen kleinerer Untergruppen verstehen?}
 
-Antwort: JA! Ein Beispiel dafür sind innere direkte Produkte: In diesen können wir das Produkt über der gesamten Gruppe vollständig ("`direkt"') aus dem Produkt über den kleineren Untergruppen \(H\) und \(K\) rekonstruieren: 
+Antwort: JA! Ein bekanntes Beispiel dafür sind innere direkte Produkte: In diesen können wir das Produkt über der gesamten Gruppe vollständig ("`direkt"') aus dem Produkt über den kleineren Untergruppen \(H\) und \(K\) rekonstruieren: 
 \begin{equationstrd}\label{eq:rekonstruktion-inneres-direktes-produkt}
     g_1 \cdot g_2 = (h_1k_1) \cdot (h_2k_2) = h_1(k_1h_2)k_2 = (h_1h_2) (k_1k_2)
 \end{equationstrd}
+Können wir so auch für \(\mathrm{Isom}^+(\mathbb R^2)\) vorgehen? Auf jeden Fall nicht sofort. Denn zunächst ist \(G_0^+\) kein Normalteiler von \(\geradisometr\). Ferner kommutieren die Elemente von \(\mathcal T\) und \(G_0^+\) nach \eqref{eq:konjugations-relationen} nicht. %Also liegt die Situation aus \cref{ann*:innere-direkte-produkte-über-normalteiler} auch in unserer Situation vor!
 
-Können wir so auch für \(\mathrm{Isom}^+(\mathbb R^2)\) vorgehen? Auf jeden Fall nicht sofort. Denn zunächst ist \(G_0^+\) kein Normalteiler von \(\geradisometr\). Ferner kommutieren die Elemente von \(\mathcal T\) und \(G_0^+\) nicht. Also liegt die Situation aus \cref{ann*:innere-direkte-produkte-über-normalteiler} auch in unserer Situation vor!
-
-Trotzdem versuchen wir einfach mal das Produkt soweit zu rekonstruieren, wie es uns möglich ist: Mit der ersten Relation aus \eqref{eq:konjugations-relationen} erhalten wir für das allgemeine Produkt gerader Isometrien \(I_1 = T_{v_1}\circ R_{\theta_1}^0\) und \(T_{v_2}\circ R_{\theta_2}^0\)
+Trotzdem versuchen wir das Produkt einfch soweit zu rekonstruieren, wie es uns möglich ist: Mit der ersten Relation aus \eqref{eq:konjugations-relationen} erhalten wir für das allgemeine Produkt gerader Isometrien \(I_1 = T_{v_1}\circ R_{\theta_1}^0\) und \(I_2 = T_{v_2}\circ R_{\theta_2}^0\)
 \begin{align}
     \begin{split}\label{eq:multiplikation-isomp}
         I_1 \circ I_2 &= (T_{v_1}\circ R_{\theta_1}^0)\circ (T_{v_2}\circ R_{\theta_2}^0) \\
@@ -930,11 +1105,11 @@ da Verkettungen assoziativ sind.
     Für alle \(\theta \in \mathbb R\) ist durch \(\psi_\theta: \mathcal T \to \mathcal T, T_v \mapsto T_{R_\theta^0 v}\) ein Automorphismus gegeben. Die Abbildung \(\psi:G_0^+\to \mathrm{Aut}(\mathcal T), R_\theta^0 \mapsto \psi_\theta\) ist ein Homomorphismus. 
 \end{propositionstrd}
 \begin{proof}
-    \anm{Aufgabe 2.7}
+    Rechnet man leicht nach.%\anm{Aufgabe 2.7}
 \end{proof}
 \begin{annotationstrd}\label{ann*:breiterer-kontext-für-automorphismus}
     % Wie kommt man sonst noch auf den Automorphismus (ohne direkt die Identität \eqref{eq:konjugations-relationen} zu kennen)? \(\implies\) Konstruktion eines inneren semidirekten Produkts!
-    Der Automorphismus \(\psi_\theta\) aus \cref{prop*:wirkung-auf-translationen} steht in einem breiteren Kontext. Seine "`abstrakte"' Form ist bisher eher schwer direkt zu erkennen. In \cref{subsec:innere-semidirekte-produkte} werden wir feststellen, dass dieser Automorphismus tatsächlich ein bestimmter \textit{innerer Automorphismus} ist (und das nicht zufällig!). 
+    Der Automorphismus \(\psi_\theta\) aus \cref{prop*:wirkung-auf-translationen} steht in einem breiteren Kontext. Seine "`abstrakte"' Form ist bisher nicht direkt zu erkennen. In \cref{subsec:innere-semidirekte-produkte} werden wir feststellen, dass dieser Automorphismus tatsächlich ein bestimmter \textit{innerer Automorphismus} ist (und das nicht zufällig!). 
 \end{annotationstrd}
 Mit der Abbildung \(\psi\) aus \cref{prop*:wirkung-auf-translationen}, können wir die Multiplikation über \(\geradisometr\) aus \eqref{eq:multiplikation-isomp} etwas anders darstellen: 
 \begin{align*}
@@ -944,7 +1119,7 @@ Mit der Abbildung \(\psi\) aus \cref{prop*:wirkung-auf-translationen}, können w
 Wir erhalten also nicht das direkte Produkt, sondern nur ein "`fast-direktes"' Produkt (eben bis auf den Homomorphismus \(\psi\)). 
 
 \begin{annotationstrd}
-    \anm{Sind die folgenden Wirkungs-Überlegungen für irgendetwas relevant?}
+    %\anm{Sind die folgenden Wirkungs-Überlegungen für irgendetwas relevant?}
     Aus \cref{prop*:wirkung-auf-translationen} erhalten wir, dass \(G_0^+\) auf \(\mathcal T\cong \mathbb R^2\) durch Automorphismen operiert, also durch 
     \begin{equation*}
         R_\theta^0.x := (\psi(R_\theta^0))(x) = \psi_\theta(x)
@@ -961,20 +1136,23 @@ Wir erhalten also nicht das direkte Produkt, sondern nur ein "`fast-direktes"' P
 \end{annotationstrd}
 
 \subsection{Innere semidirekte Produkte}\label{subsec:innere-semidirekte-produkte}
-Idee: Eine Gruppe aus Untergruppen rekonstruieren (Wie bei inneren direkten Produkten -- aber mit abgeschwächten Voraussetzungen). In \eqref{eq:multiplikation-isomp} erkennen wir, dass die Struktur der \(\mathrm{Isom}^+(\mathbb R^2)\) nicht für ein direktes Produkt ausreicht. Es wird sich trotzdem als äußerst fruchtbar erweisen, die drei vor \cref{def*:innere-direkte-produkte} aufgelisteten Eigenschaften zu abstrahieren und als Anlass für die Definition einer neuen Struktur zu nehmen:
+Wir verfolgen nun die Idee, eine Gruppe aus Untergruppen zu rekonstruieren (Wie bei inneren direkten Produkten -- aber mit abgeschwächten Voraussetzungen). In \eqref{eq:multiplikation-isomp} erkennen wir, dass die Struktur der \(\mathrm{Isom}^+(\mathbb R^2)\) nicht für ein direktes Produkt ausreicht. Es wird sich trotzdem als äußerst fruchtbar erweisen, die drei vor \cref{def*:innere-direkte-produkte} aufgelisteten Eigenschaften zu abstrahieren und als Anlass für die Definition einer neuen Struktur zu nehmen:
 
 %Diese beobachteten algebraischen Eigenschaften wollen wir nun zum Anlass einer zunächst ziemlich willkürlich wirkenden Definition nehmen: 
 \begin{definitionstrd}[Innere semidirekte Produkte]\label{def*:innere-semidirekte-produkte}
     Eine Gruppe \(G\) heißt \emph{inneres semidirektes Produkt} der Untergruppen \(H, K\), falls: 
     \begin{enumerate}
         \item \(G = HK\), also für jedes \(g \in G\) existieren \(h \in H\) und \(k \in K\), sodass \(g = hk\). %\anm{Die Inklusion \(\supseteq\) gilt immer?} => Klar, weil G Gruppe
-        \item \(H\cap K = \{e\}\): Dadurch wird die Zerlegung in (2) eindeutig. \anm{Ist das eine Äquivalenz? Oder gilt die Rückrichtung nur in unserem konkreten Beispiel? Dann können die 3 Punkte aus Abschnitt 6.1 als Motivation für diese Konstruktion verstanden werden.} 
+        \item \(H\cap K = \{e\}\) %\anm{Ist das eine Äquivalenz? Oder gilt die Rückrichtung nur in unserem konkreten Beispiel? Dann können die 3 Punkte aus Abschnitt 6.1 als Motivation für diese Konstruktion verstanden werden.} 
     
         \item \(H\) ist normal in \(G\). 
     \end{enumerate}
     In diesem Fall schreiben wir auch \(G = H \rtimes K\). 
 \end{definitionstrd}
-Unter diesen Voraussetzungen sind wir dann auch tatsächlich in der Lage das Produkt über \(G\) ähnlich wie in \eqref{eq:multiplikation-isomp} zu rekonstruieren (ähnlich wie bei den inneren direkten Produkten): 
+\begin{annotationstrd}
+    Wie bereits in \cref{ann*:eindeutige-zerlegung-innere-direkte-produkte} gezeigt, macht die zweite Eigenschaft aus \cref{def*:innere-direkte-produkte} die Zerlegung aus Punkt 1 eindeutig. So hätten wir den Beweis von \cref{prop:zerlegung-gerader-isometrien} auch weitaus allgemeiner führen können, da ganz allgemein \(\mathcal T \cap G_p^+ = \{e\}\) gilt wegen der Klassifizierung aus \cref{sec:wiederholung}.  
+\end{annotationstrd}
+Unter diesen Voraussetzungen sind wir dann auch tatsächlich in der Lage das Produkt über \(G\) analog zu \eqref{eq:multiplikation-isomp} zu rekonstruieren (ähnlich wie bei den inneren direkten Produkten): 
 %Tatsächlich entsteht das Produkt aus dieser Definition nicht einfach aus dem Nichts. Viel eher ist es das Ergebnis der (natürlichen!) Rekonstruktion des Produktes über \(G\) durch die Produkte über \(H\) und \(G\) : 
 %Interessant: Produkt nicht einfach nur als arbiträre algebraische Konstruktion. Sondern eher als \textit{Identifikation}, denn 
 \refstepcounter{equation}
@@ -982,7 +1160,7 @@ Unter diesen Voraussetzungen sind wir dann auch tatsächlich in der Lage das Pro
     g_1g_2 = h_1k_1h_2k_2 = (h_1\underbrace{k_1h_2k_1^{-1}}_{\in H})(k_1k_2) = (h_1 \psi_{k_1}(h_2))(k_1k_2)
 \end{equation}
 mit \(\psi_k: H \to H, h\mapsto khk^{-1}\). 
-Hier bekommt man die Verknüpfung über \(G\) also nur "`semidirekt"' aus den Elementen aus \(H\) und \(K\). \cref{def*:innere-direkte-produkte} und \cref{def*:innere-semidirekte-produkte} unterscheiden sich tatsächlich alleinig in der Kommutativität der Untergruppen (bzw. Normalteiler in \cref{ann*:innere-direkte-produkte-über-normalteiler}). 
+Hier erhalten wir die Verknüpfung über \(G\) also nur "`semidirekt"' aus den Elementen aus \(H\) und \(K\). \cref{def*:innere-direkte-produkte} und \cref{def*:innere-semidirekte-produkte} unterscheiden sich tatsächlich alleinig in der Kommutativität der Untergruppen (bzw. Normalteiler in \cref{ann*:innere-direkte-produkte-über-normalteiler}). 
 Ohne diese Kommutativität können wir (im Allgemeinen) also die Verknüpfung über \(G\) nicht länger "`direkt"' aus den Produkten \(h_1h_2\) und \(k_1k_2\) rekonstruieren.
  
 \cref{ann*:breiterer-kontext-für-automorphismus} hat bereits angedeutet, dass die Automorphismen \(\psi_\theta\) aus \cref{prop*:wirkung-auf-translationen} in einem breiteren Kontext stehen. Diesen können wir nun verstehen:
@@ -1008,26 +1186,30 @@ Ohne diese Kommutativität können wir (im Allgemeinen) also die Verknüpfung ü
 \end{examplestrd}
 
 \subsection{Äußere semidirekte Produkte}\label{subsec:äußere-semidirekte-produkte}
-\textbf{Idee}: Neue Gruppe aus zwei bekannten Gruppen konstruieren. Aber nicht \textit{direkt} aus dem jeweiligen Produkt der einzelnen Gruppen, sondern nur \textit{semidirekt}. Das bedeutet hier vor allem: Einen Freiheitsgrad mehr bei der Wahl eines die Stuktur des Produkts bestimmenden Automorphismus (nicht nur innere Automorphismen)!
+Eine grundlegende Idee hinter "`äußeren"' Strukturen ist: Neue Gruppen aus zwei bekannten Gruppen konstruieren. Wir wollen das jetzt hier aber nicht \textit{direkt} aus dem jeweiligen Produkt der einzelnen Gruppen, sondern nur \textit{semidirekt}. Das bedeutet hier vor allem: Einen Freiheitsgrad mehr bei der Wahl eines die Stuktur des Produkts bestimmenden Automorphismus (nicht nur innere Automorphismen)!
 
-Unterschied zur inneren Konstruktion: Dort haben wir bereits gesehen, dass diese genau von einer bestimmten Familie von Automorphismen abhängt, nämlich \(\psi_k:H\to H, h \mapsto khk^{-1}\). Indem wir uns jetzt von dieser festen Familie lösen und allgemeine Familien \(\psi: K \to \mathrm{Aut}(H), k \mapsto \psi_k\) betrachten mit derselben Produktstruktur, also 
+Die Konstruktur innerer semidirekter Produkte hängt genau von einer bestimmten Familie von Automorphismen ab, nämlich \(\psi_k:H\to H, h \mapsto khk^{-1}\). Indem wir uns jetzt von dieser festen Familie lösen und allgemeine Familien \(\psi: K \to \mathrm{Aut}(H), k \mapsto \psi_k\) betrachten mit einer analogen Produktstruktur, also 
 \begin{equationstrd}\label{eq:äußere-semidirekte-produkt-struktur}
-    (h_1, k_1)\cdot (h_2, k_2) := (h_1\psi_{k_1}(h_2), k_1k_2)
+    (h_1, k_1)\cdot (h_2, k_2) := (h_1\psi_{k_1}(h_2), k_1k_2) = (h_1 (\psi(k_1))(h_2), k_1k_2)
 \end{equationstrd}
 können wir noch weitaus mehr Strukturen beschreiben. Dafür definieren wir nun zunächst in Analogie zu den äußeren direkten Produkten:
 
 \begin{definitionstrd}[Äußere semidirekte Produkte]
-    Seien \(H\) und \(K\) Gruppen und \(\psi: K \to \mathrm{Aut}(H), k \mapsto \psi_k\) ein Homomorphismus. Dann ist das \emph{äußere semidirekte Produkt} von \(H\) und \(K\) bezüglich der Automorphismen-Familie durch \(\psi\) gegeben als die Menge \(H\times K\) zusammen mit der Multiplikation nach \eqref{eq:äußere-semidirekte-produkt-struktur}. Dann schreiben wir auch \(H\rtimes_\psi K\) für diese Konstruktion.
+    Seien \(H\) und \(K\) Gruppen und \(\psi: K \to \mathrm{Aut}(H), k \mapsto \psi_k\) ein Homomorphismus. Dann ist das \emph{äußere semidirekte Produkt} von \(H\) und \(K\) bezüglich der Automorphismen-Familie durch \(\psi\) gegeben als die Menge \(H\times K\) zusammen mit der Multiplikation nach \eqref{eq:äußere-semidirekte-produkt-struktur}. Wir schreiben auch \(H\rtimes_\psi K\).
     
-    Interessieren wir uns nicht für ein bestimmtes Produkt, sondern ganz allgemein für ein äußeres semidirektes Produkt zu einer Familie \(\psi: K \to \mathrm{Aut}(H), k \mapsto \psi_k\), so schreiben wir auch oft einfach nur \(H\rtimes K\). 
+    Interessieren wir uns nicht für ein bestimmtes Produkt, sondern ganz allgemein für ein äußeres semidirektes Produkt zu einer Familie \(\psi: K \to \mathrm{Aut}(H), k \mapsto \psi_k\), so schreiben wir einfach nur \(H\rtimes K\). 
 \end{definitionstrd}
-
+Aus diesem neuen Produkt erhalten wir leicht bereits bekannte Produkte:
 \begin{examplestrd}
-    Als direktes Produkt: Einfachste Automorphismen-Familie durch \(\psi(k) = \id\) für alle \(k\in K\). 
+    Äußeres semidirektes Produkt als äußeres direktes Produkt: Einfachste Automorphismen-Familie durch \(\psi(k) = \id\) für alle \(k\in K\). 
 \end{examplestrd}
 
 \begin{examplestrd}
-    Als inneres semidirektes Produkt: Spezialfall, wenn die Automorphismen-Familie genau die inneren Automorphismen sind. \anm{Dann isomorph? Oder vllt schon davor isomorph?}
+    Äußeres semidirektes Produkt als inneres semidirektes Produkt: Spezialfall, wenn die Automorphismen-Familie \(\psi\) genau die inneren Automorphismen sind. Dann gilt \(G = H \rtimes K \cong H \rtimes_\psi K\) für \(H \trianglelefteq G, K \leq G\). 
 \end{examplestrd}
+
+Äußere semidirekte Produkte leisten jedoch weitaus mehr, als nur bereits bekannte Strukturen aus einer neuen Perspektive zu beleuchten. So definieren äußere semidirekte Produkte immer bestimmte \textit{kurze exakte Sequenzen}, also \textit{Gruppenerweiterungen}. Genauer lassen sich sogar \textit{spaltende} Gruppenerweiterungen als bestimmte äußere semidirekte Produkte charakterisieren. Auf diese Art lassen sich abelsche Gruppenerweiterungen sogar immer als direkte Produkte auffassen. Das setzt zum Beispiel den Hauptsatz über endlich erzeugte abelsche Gruppen aus der Gruppentheorie in einen breiteren Kontext. So können endlich erzeugte abelsche Gruppen durch die Zerlegung in die Torsionsgruppe und den Quotienten über ebendiese als semidirekte Produkte aufgefasst werden -- da gerade diese Zerlegung eine spaltende Gruppenerweiterung liefert. 
+
+\printbibliography
 
 \end{document}
