@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.14)  13 OCT 2024 16:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.14)  13 OCT 2024 19:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1265,60 +1265,51 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
-Overfull \hbox (16.60951pt too wide) in paragraph at lines 398--399
-[][] 
- []
-
-
-Overfull \hbox (16.60951pt too wide) in paragraph at lines 469--470
-[][] 
- []
-
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 604.
-[2] [3] [4]
+(Font)              scaled to size 10.0pt on input line 627.
+ [2] [3] [4]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 907.
+(Font)              scaled to size 5.5pt on input line 930.
  [5]
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 919.
+(Font)              size <10.95> substituted on input line 942.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 919.
+(hyperref)                removing `math shift' on input line 942.
 
 [6] [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1010.
+(hyperref)                removing `math shift' on input line 1062.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1010.
+(hyperref)                removing `superscript' on input line 1062.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1010.
+(hyperref)                removing `superscript' on input line 1062.
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 1014.
+(Font)              scaled to size 12.0pt on input line 1066.
 [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1045.
+(hyperref)                removing `math shift' on input line 1097.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1045.
+(hyperref)                removing `superscript' on input line 1097.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1045.
+(hyperref)                removing `superscript' on input line 1097.
 
 [9] [10] [11] [12]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 1213.
+(Font)              scaled to size 10.0pt on input line 1265.
  [13{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] (./vortrag-skript.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 18.
 )
@@ -1332,24 +1323,24 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `vortrag-skript.out' has not changed.
-(rerunfilecheck)             Checksum: 384081D563EACB69A0A4D3F6F7D04755;2219.
+(rerunfilecheck)             Checksum: 5DB95515978F10F1164B78827E2501D9;2209.
 Package logreq Info: Writing requests to 'vortrag-skript.run.xml'.
 \openout1 = `vortrag-skript.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42443 strings out of 474116
- 847875 string characters out of 5743682
- 2002187 words of memory out of 5000000
- 63945 multiletter control sequences out of 15000+600000
+ 42464 strings out of 474116
+ 848239 string characters out of 5743682
+ 2004187 words of memory out of 5000000
+ 63965 multiletter control sequences out of 15000+600000
  672013 words of font info for 216 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
  102i,23n,131p,2005b,2463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/stxscr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on vortrag-skript.pdf (13 pages, 250061 bytes).
+Output written on vortrag-skript.pdf (13 pages, 250515 bytes).
 PDF statistics:
- 361 PDF objects out of 1000 (max. 8388607)
- 276 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 500000)
+ 365 PDF objects out of 1000 (max. 8388607)
+ 280 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
