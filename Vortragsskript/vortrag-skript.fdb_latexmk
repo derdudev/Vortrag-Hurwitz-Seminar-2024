@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex vortrag-skript"] 1728829616.23597 "vortrag-skript.aux" "vortrag-skript.bbl" "vortrag-skript" 1728829625.56172 0
+["bibtex vortrag-skript"] 1728830308.754 "vortrag-skript.aux" "vortrag-skript.bbl" "vortrag-skript" 1728830318.18171 0
   "./bibliography.bib" 1728829460.40375 217 90ff852f0c63e558b7388bc88392fc46 ""
-  "./vortrag-skript-blx.bib" 1728829624.99387 342 5ba7332ec7ecc2dc9c6b1bd96e3d9aad ""
+  "./vortrag-skript-blx.bib" 1728830317.57364 342 5ba7332ec7ecc2dc9c6b1bd96e3d9aad ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1678141846 65484 b7949c47a88ed6dca66ebc7a04577312 ""
-  "vortrag-skript.aux" 1728829624.97305 12694 c7fbfd9049ae66d4ad4920770376bd7f "pdflatex"
+  "vortrag-skript.aux" 1728830317.5516 12697 bf13bfa53b018802dca16c8a83e19b73 "pdflatex"
   (generated)
   "vortrag-skript.bbl"
   "vortrag-skript.blg"
   (rewritten before read)
-["pdflatex"] 1728829616.3889 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" "vortrag-skript.pdf" "vortrag-skript" 1728829625.56202 0
-  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" 1728829606.46201 66799 a4aadf10f581967a9a92d9cb9f24106a ""
+["pdflatex"] 1728830308.93851 "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" "vortrag-skript.pdf" "vortrag-skript" 1728830318.18196 0
+  "/Users/matteo/Library/CloudStorage/OneDrive-Personal/Studium/SoSe 2024/Hurwitz-Seminar/Vortrag/Vortragsskript/vortrag-skript.tex" 1728830298.90301 67109 c7efd2079a6f0d1e6550fe703267ab17 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1698694482 3136 bbe665bd0bb471a2da1e8fd326cff9fa ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1698694482 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
@@ -325,11 +325,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1723586653.69598 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1723586649 8221434 9c5b5e0603be9d3fd6376f90f708ac0c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "vortrag-skript.aux" 1728829624.97305 12694 c7fbfd9049ae66d4ad4920770376bd7f "pdflatex"
-  "vortrag-skript.bbl" 1728829616.38377 1251 d2ec739a16518cdb50a2e8d3c8616025 "bibtex vortrag-skript"
-  "vortrag-skript.out" 1728829624.98976 2214 59f6425f7c9d20d113645194a80bf24f "pdflatex"
-  "vortrag-skript.run.xml" 1728829624.99505 2644 1a2958e5f299d706a294e1c0852910ca "pdflatex"
-  "vortrag-skript.tex" 1728829606.46201 66799 a4aadf10f581967a9a92d9cb9f24106a ""
+  "vortrag-skript.aux" 1728830317.5516 12697 bf13bfa53b018802dca16c8a83e19b73 "pdflatex"
+  "vortrag-skript.bbl" 1728830308.93273 1251 d2ec739a16518cdb50a2e8d3c8616025 "bibtex vortrag-skript"
+  "vortrag-skript.out" 1728830317.56931 2219 384081d563eacb69a0a4d3f6f7d04755 "pdflatex"
+  "vortrag-skript.run.xml" 1728830317.57463 2644 1a2958e5f299d706a294e1c0852910ca "pdflatex"
+  "vortrag-skript.tex" 1728830298.90301 67109 c7efd2079a6f0d1e6550fe703267ab17 ""
   (generated)
   "vortrag-skript-blx.bib"
   "vortrag-skript.aux"

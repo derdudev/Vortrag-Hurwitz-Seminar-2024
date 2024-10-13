@@ -35,7 +35,7 @@
 
 \newenvironment{equationstrd}{\begin{equation*}\refstepcounter{equationstrd}\tag{\theequationstrd*}}{\end{equation*}}
 
-\usepackage[style=numeric, backend=bibtex]{biblatex}
+\usepackage[style=numeric, backend=bibtex]{biblatex} % backend option is just a workaround: https://tex.stackexchange.com/questions/18045/problem-with-compiling-bibtex-no-citation-commands-error/21126, should probably implement a custom recipe: https://tex.stackexchange.com/questions/459640/implementing-biber-for-biblatex-in-microsoft-visual-studio-code
 \addbibresource{bibliography.bib}
 
 \usepackage{hyperref}
@@ -94,7 +94,7 @@
 
 \section{Erste gruppentheoretische Überlegungen}\label{sec:wiederholung}
 Im vorherigen Vortrag %\anm{[src]}
-hat Jan Eickhoff elementar geometrisch eine Klassifikation der Isometrien in \(\mathrm{Isom}(\mathbb R^2)\) hergeleitet. Sie sagt in Kurzform aus: 
+hat Jan Eickhoff elementar geometrisch eine Klassifizierung der Isometrien in \(\mathrm{Isom}(\mathbb R^2)\) hergeleitet. Sie sagt in Kurzform aus: 
 
 \begin{table}[h]
     \centering
@@ -104,7 +104,7 @@ hat Jan Eickhoff elementar geometrisch eine Klassifikation der Isometrien in \(\
         Mit Fixpunkt(en) & Rotationen & Spiegelungen \\
         Fixpunktfrei & Translationen & Gleitspiegelungen 
     \end{tabular}
-    %\caption{Klassifikation der Isometrien des \(\mathbb R^2\)}
+    %\caption{Klassifizierung der Isometrien des \(\mathbb R^2\)}
 \end{table}
 \noindent Wir wollen uns nun mit der Gruppenstruktur der orientierungserhaltenden Isometrien auseinandersetzen, geschrieben \(\geradisometr\). Die obige Klassifizierung erleichtert uns diese Untersuchung enorm. So ist es alleine für diesen Vortrag nicht einmal notwendig genau zu verstehen, was \textit{orientierungserhaltend} bedeutet. Es ist vollkommen ausreichend unter orientierungserhaltenden Isometrien einfach \textit{genau} die Translationen und Rotationen zu verstehen (im \(\mathbb R^2\))\footnote{Beim genauen Lesen dieses Skripts wird auffallen, dass wir tatsächlich an keiner Stelle irgendwie mit der orientierungserhaltenden Eigenschaft argumentieren.}. 
 
@@ -116,7 +116,7 @@ Die Menge aller Rotationen um einen Punkt \(p \in \mathbb R^2\) liegt in der Fix
 
 Es wird sich herausstellen, dass wir die gesamte Struktur der \(\geradisometr\) "`fast"' vollständig aus der Struktur der Translationen und Rotationen rekonstruieren können. Das wird die große Erkenntnis dieses Vortrags sein und uns auf den Begriff der semidirekten Produkte führen. 
 
-\section{Gruppentheoretische Klassifikation}\label{sec:gruppentheo-klassifikation}
+\section{Gruppentheoretische Klassifizierung}\label{sec:gruppentheo-klassifikation}
 Damit wir uns im Folgenden größtenteils von elementargeometrischen Überlegungen lösen können, müssen wir erst eine "`Brücke"' von der Elementar-Geometrie hin zur Gruppentheorie schlagen\footnote{Genaugenommen "`müssen"' wir das nicht, aber es wird sich als äußerst praktisch erweisen.}. Dafür beginnen wir nun mit einer relativ willkürlichen Konstruktion:
 
 Wir betrachten zwei orientierte(!) Geraden \(\mathscr l\) und \(\mathscr l'\). Für den Winkel von der positiven Richtung von \(\mathscr l\) zur positiven Richtung von \(\mathscr l'\) schreiben wir \(\alpha(\mathscr l, \mathscr l')\). Sind \(\mathscr l\) und \(\mathscr l'\) parallel (und gleichorientiert!), so setzen wir \(\alpha(\mathscr l, \mathscr l') = 0\). 
@@ -913,7 +913,7 @@ für eine beliebige, aber feste Gerade \(\mathscr l\). Diese Abbildung ist sogar
 Der zweite Teil der Proposition ist auch tatsächlich eine Klassifizierung. A priori ist erst einmal nicht ausgeschlossen, dass im Fall \(\alpha(I) = \theta\) noch weitere \(\gamma \in \mathbb R, \gamma\neq\theta\) und \(q \in \mathbb R^2, q\neq p\) existieren mit \(I = R_\gamma^q\). Dann hätten wir jedoch eine Rotation auf zwei verschiedene Arten beschrieben: \(R_\theta^p = R_\gamma^q\). Allerdings gilt \(\theta = \alpha(R_\theta^p) = \alpha(R_\gamma^q) = \gamma\), womit dieser Fall nicht eintreten kann. Alternativ hätten wir \(p = R_\theta^p(p) = R_\gamma^q(p) \neq p\), also einen noch direkteren Widerspruch. 
 
 \begin{annotationstrd}\label{ann*:alpha-ergibt-sich-aus-struktur}
-    Diese Klassifikation wirkt vielleicht auf den ersten Blick etwas will\-kür\-lich. Sie ergibt sich allerdings tatsächlich ganz natürlich aus der Struktur des Quotienten \(\mathrm{Isom}^+(\mathbb R^2) /\mathcal T\). Das wird eine der großen Erkenntnisse des nächsten \cref{sec:struktur-von-translationen} sein. 
+    Diese Klassifizierung wirkt vielleicht auf den ersten Blick etwas will\-kür\-lich. Sie ergibt sich allerdings tatsächlich ganz natürlich aus der Struktur des Quotienten \(\mathrm{Isom}^+(\mathbb R^2) /\mathcal T\). Das wird eine der großen Erkenntnisse des nächsten \cref{sec:struktur-von-translationen} sein. 
 \end{annotationstrd}
 
 \section{Die Struktur von \(\mathcal T\)}\label{sec:struktur-von-translationen}
@@ -934,7 +934,7 @@ Mithilfe unseres Homomorphismus \(\alpha\) geht das sogar ziemlich leicht: Denn 
 \begin{equation*}
     \geradisometr/\mathcal T = \geradisometr/\ker(\alpha) \cong \mathrm{Im}(\alpha) = \mathbb R/2\pi\mathbb Z
 \end{equation*}
-Halten wir einen beliebigen Punkt \(p\in \mathbb R^2\) fest, so liefert uns die Klassifikation aus \cref{prop*:gruppentheo-klassifikation-gerader-isometrien} durch die Einschränkung \(\alpha|_{G_p^+}\) eine eindeutige Zuordnung der Rotationen um \(p\) und \(\mathbb R/2\pi\mathbb Z\). In anderen Worten: \(\alpha|_{G_p^+}\) realisiert die Isomorphie \(\mathbb R/2\pi\mathbb Z \cong G_p^+\). Zudem können wir leicht mit der Identifikation des \(\mathbb R^2\) mit \(\mathbb C\) und der Darstellung in Polarkoordinaten erkennen, dass \(\mathbb R/2\pi\mathbb Z\cong S^1\). Wir halten fest: 
+Halten wir einen beliebigen Punkt \(p\in \mathbb R^2\) fest, so liefert uns die Klassifizierung aus \cref{prop*:gruppentheo-klassifikation-gerader-isometrien} durch die Einschränkung \(\alpha|_{G_p^+}\) eine eindeutige Zuordnung der Rotationen um \(p\) und \(\mathbb R/2\pi\mathbb Z\). In anderen Worten: \(\alpha|_{G_p^+}\) realisiert die Isomorphie \(\mathbb R/2\pi\mathbb Z \cong G_p^+\). Zudem können wir leicht mit der Identifikation des \(\mathbb R^2\) mit \(\mathbb C\) und der Darstellung in Polarkoordinaten erkennen, dass \(\mathbb R/2\pi\mathbb Z\cong S^1\). Wir halten fest: 
 \begin{propositionstrd}\label{prop*:gestalt-quotient-über-translationen}
     Es gilt 
     \begin{equation*}
@@ -1060,7 +1060,7 @@ Die folgenden Aussagen gelten auch alle im \(\mathbb R^n\) und nicht nur \(\math
 Ab jetzt betrachten wir nur noch \(p=0\). Mit \cref{prop:normale-translationen,,prop:zerlegung-gerader-isometrien} haben wir nun bereits entscheidende Aussagen darüber gesammelt, wie die Untergruppen \(G_0^+\) und \(\mathcal T\) in \(\geradisometr\) liegen: 
 \begin{enumerate}
     \item Sie erzeugen die Gruppe: Nach \cref{prop:zerlegung-gerader-isometrien} können wir jede gerade Isometrie des \(\mathbb R^2\) als Produkt \(I=TR\) einer Translation \(T\) und einer Rotation \(R\) um \(0\) verstehen. 
-    \item \(\mathcal T \cap G_0^+ = \{e\}\) (Klassifikation nach Fixpunkten, \cref{sec:wiederholung}) %\anm{Konjugiertheit von \(G_0^+\) zu allen anderen \(G_p^+\). Was soll diese Eigenschaft aussagen? Wo wird sie relevant?}
+    \item \(\mathcal T \cap G_0^+ = \{e\}\) (Klassifizierung nach Fixpunkten, \cref{sec:wiederholung}) %\anm{Konjugiertheit von \(G_0^+\) zu allen anderen \(G_p^+\). Was soll diese Eigenschaft aussagen? Wo wird sie relevant?}
     \item \(\mathcal T\) ist nach \cref{prop:normale-translationen} normal, aber \(G_0^+\) ist wegen \eqref{eq:konjugations-relationen} nicht normal % ENTSPRECHENDER TEIL ENTFERNT: (und damit auch keiner der anderen \(G_p^+\), da diese alle konjugiert, insbesondere isomorph, sind). %\anm{Normalität von \(\mathcal T\) und Isometrie des Quotienten \(\geradisometr/\mathcal T\)}
 \end{enumerate}
 Die ersten beiden Eigenschaften erinnern an die Konstruktion des (inneren) direkten Produkts: 
@@ -1165,7 +1165,7 @@ Ohne diese Kommutativität können wir (im Allgemeinen) also die Verknüpfung ü
  
 \cref{ann*:breiterer-kontext-für-automorphismus} hat bereits angedeutet, dass die Automorphismen \(\psi_\theta\) aus \cref{prop*:wirkung-auf-translationen} in einem breiteren Kontext stehen. Diesen können wir nun verstehen:
 \begin{examplestrd}
-    In der allgemeinen Konstruktion des (inneren) semidirekten Produkts spielen Automorphismen der Form \(\psi_k: H \to H, h\mapsto khk^{-1}\) (also \textit{innere} Automorphismen) eine entscheidende Rolle. Wir betrachten nun \(G = \geradisometr, H = \mathcal T\) und \(K = G_0^+\). %Nach \cref{prop:normale-translationen} ist \(\mathcal T\) tatsächlich normal. Desweiteren liefert uns die Zerlegung aus \cref{prop:zerlegung-gerader-isometrien} auch \(\geradisometr = \mathcal T G_0^+\). \(\mathcal T \cap G_0^+ = \{e\}\) folgt aus der Klassifikation der Isometrien anhand ihrer Fixpunkte. 
+    In der allgemeinen Konstruktion des (inneren) semidirekten Produkts spielen Automorphismen der Form \(\psi_k: H \to H, h\mapsto khk^{-1}\) (also \textit{innere} Automorphismen) eine entscheidende Rolle. Wir betrachten nun \(G = \geradisometr, H = \mathcal T\) und \(K = G_0^+\). %Nach \cref{prop:normale-translationen} ist \(\mathcal T\) tatsächlich normal. Desweiteren liefert uns die Zerlegung aus \cref{prop:zerlegung-gerader-isometrien} auch \(\geradisometr = \mathcal T G_0^+\). \(\mathcal T \cap G_0^+ = \{e\}\) folgt aus der Klassifizierung der Isometrien anhand ihrer Fixpunkte. 
     Per Konstruktion haben wir \(\mathrm{Isom}^+(\mathbb R^2) = \mathcal T \rtimes G_0^+\). 
     %\anm{Beweisbedürftig bleibt . Wird das auch klar aus der \textit{eindeutigen} Zerlegung aus \cref{prop:zerlegung-gerader-isometrien} oder ist diese Tatsacher viel elementarer? (z.b. Translationen haben keine Fixpunkte, Rotationen jdoch schon)}. 
     Damit können wir auch hier ganz allgemein das Produkt über \(\geradisometr\) semi-vollständig aus dem Produkt über \(\mathcal T\) und \(G_0^+\) rekonsruieren. Nach \eqref{eq:innere-produkt-rekonstruktion} erhalten wir also für gerade Isometrien \(I_1 = T_{v_1}R_{\theta_1}^0, I_2 = T_{v_2}R_{\theta_2}^0\)
